@@ -23,7 +23,7 @@ module Pixela
     # @param not_minor [Boolean]
     #
     # @see https://pixe.la/#api-user
-    def register(agree_terms_of_service:, not_minor:)
+    def create_user(agree_terms_of_service:, not_minor:)
       params = {
         token:               token,
         username:            username,

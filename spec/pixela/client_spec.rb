@@ -12,9 +12,9 @@ RSpec.describe Pixela::Client do
     }
   end
 
-  describe "#register" do
+  describe "#create_user" do
     subject do
-      client.register(
+      client.create_user(
         agree_terms_of_service: agree_terms_of_service,
         not_minor:              not_minor,
       )
