@@ -44,6 +44,30 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:count) { should eq 1 }
   end
 
+  describe "#graph_url" do
+    subject { client.graph_url(id: id, date: date) }
+
+    let(:id) { "test-graph" }
+
+    context "with Date" do
+      let(:date) { Date.parse("2018-03-31") }
+
+      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
+    end
+
+    context "with Time" do
+      let(:date) { Time.parse("2018-03-31 11:22:33") }
+
+      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
+    end
+
+    context "without date" do
+      let(:date) { nil }
+
+      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph" }
+    end
+  end
+
   describe "#update_graph" do
     subject do
       client.update_graph(

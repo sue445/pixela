@@ -68,5 +68,9 @@ module Pixela
     def to_boolean_string(flag)
       flag ? "yes" : "no"
     end
+
+    def to_ymd(date)
+      date.strftime("%Y%m%d")
+    end
   end
 end

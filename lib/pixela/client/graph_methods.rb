@@ -35,6 +35,22 @@ module Pixela::Client::GraphMethods
     end
   end
 
+  # Get graph url
+  #
+  # @param id   [String]
+  # @param date [Date,Time,String]
+  #
+  # @return [String]
+  #
+  # @see https://pixe.la/#api-graph
+  def graph_url(id:, date: nil)
+    url = "https://pixe.la/v1/users/#{username}/graphs/#{id}"
+
+    url << "?date=#{to_ymd(date)}" if date
+
+    url
+  end
+
   # Update predefined pixelation graph definitions.
   #
   # @param id    [String]
