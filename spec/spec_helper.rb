@@ -1,3 +1,15 @@
+if ENV["CI"]
+  require "simplecov"
+  require "coveralls"
+
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+  SimpleCov.start do
+    %w[spec].each do |ignore_path|
+      add_filter(ignore_path)
+    end
+  end
+end
+
 require "bundler/setup"
 require "pixela"
 require "webmock/rspec"

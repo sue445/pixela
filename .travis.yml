@@ -10,7 +10,7 @@ before_install:
 - gem update --system --no-document
 - gem install bundler --no-document
 before_script:
-- export CODECLIMATE_REPO_TOKEN=
+- export CODECLIMATE_REPO_TOKEN=67b1bed21e42834690bb57b148b93d6bd23410d8e013afdf6a89d66f36011a95
 script:
 - bundle exec rspec
 branches:
