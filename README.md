@@ -4,6 +4,9 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+[![Build Status](https://travis-ci.org/sue445/pixela.svg?branch=master)](https://travis-ci.org/sue445/pixela)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4c6316222717ee809b57/maintainability)](https://codeclimate.com/github/sue445/pixela/maintainability)
+
 ## Installation
 
 Add this line to your application's Gemfile:
