@@ -17,7 +17,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
         stub_request(:post, "https://pixe.la/v1/users").
           with(body: json_body, headers: default_headers).
-          to_return(status: 200, body: fixture("post_users_successful.json"))
+          to_return(status: 200, body: fixture("success.json"))
       end
 
       let(:agree_terms_of_service) { true }
@@ -57,7 +57,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
       stub_request(:put, "https://pixe.la/v1/users/a-know").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("put_users.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
@@ -72,7 +72,7 @@ RSpec.describe Pixela::Client::UserMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("delete_users.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }

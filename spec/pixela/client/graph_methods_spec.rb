@@ -4,19 +4,19 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#create_graph" do
     subject do
       client.create_graph(
-        id:    id,
-        name:  name,
-        unit:  unit,
-        type:  type,
-        color: color,
+        graph_id: graph_id,
+        name:     name,
+        unit:     unit,
+        type:     type,
+        color:    color,
       )
     end
 
-    let(:id)    { "test-graph" }
-    let(:name)  { "graph-name" }
-    let(:unit)  { "commit" }
-    let(:type)  { "int" }
-    let(:color) { "shibafu" }
+    let(:graph_id) { "test-graph" }
+    let(:name)     { "graph-name" }
+    let(:unit)     { "commit" }
+    let(:type)     { "int" }
+    let(:color)    { "shibafu" }
 
     before do
       json_body = <<~JSON.strip
@@ -25,7 +25,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("post_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
@@ -45,9 +45,9 @@ RSpec.describe Pixela::Client::GraphMethods do
   end
 
   describe "#graph_url" do
-    subject { client.graph_url(id: id, date: date) }
+    subject { client.graph_url(graph_id: graph_id, date: date) }
 
-    let(:id) { "test-graph" }
+    let(:graph_id) { "test-graph" }
 
     context "with Date" do
       let(:date) { Date.parse("2018-03-31") }
@@ -71,17 +71,17 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#update_graph" do
     subject do
       client.update_graph(
-        id:    id,
-        name:  name,
-        unit:  unit,
-        color: color,
+        graph_id: graph_id,
+        name:     name,
+        unit:     unit,
+        color:    color,
       )
     end
 
-    let(:id)    { "test-graph" }
-    let(:name)  { "graph-name" }
-    let(:unit)  { "commit" }
-    let(:color) { "shibafu" }
+    let(:graph_id) { "test-graph" }
+    let(:name)     { "graph-name" }
+    let(:unit)     { "commit" }
+    let(:color)    { "shibafu" }
 
     before do
       json_body = <<~JSON.strip
@@ -90,7 +90,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("put_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
@@ -99,15 +99,15 @@ RSpec.describe Pixela::Client::GraphMethods do
 
   describe "#delete_graph" do
     subject do
-      client.delete_graph(id)
+      client.delete_graph(graph_id)
     end
 
-    let(:id) { "test-graph" }
+    let(:graph_id) { "test-graph" }
 
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("delete_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }

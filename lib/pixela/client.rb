@@ -1,9 +1,11 @@
 module Pixela
   class Client
     autoload :GraphMethods, "pixela/client/graph_methods"
+    autoload :PixelMethods, "pixela/client/pixel_methods"
     autoload :UserMethods,  "pixela/client/user_methods"
 
     include GraphMethods
+    include PixelMethods
     include UserMethods
 
     API_ENDPOINT = "https://pixe.la/v1"
