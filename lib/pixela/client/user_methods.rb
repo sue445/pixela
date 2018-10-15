@@ -17,4 +17,24 @@ module Pixela::Client::UserMethods
       connection.post("users", params, default_headers).body
     end
   end
+
+  # Updates the authentication token for the specified user.
+  #
+  # @param new_token [String]
+  #
+  # @see https://pixe.la/#api-user
+  def update_user(new_token:)
+    params = {
+      newToken: new_token,
+    }
+
+    response =
+      with_error_handling do
+        connection.put("users/#{username}", params, user_token_headers).body
+      end
+
+    @token = new_token
+
+    response
+  end
 end

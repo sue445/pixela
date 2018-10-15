@@ -11,4 +11,8 @@ shared_context :api_variables do
       "User-Agent" => "Pixela v#{Pixela::VERSION} (https://github.com/sue445/pixela)",
     }
   end
+
+  let(:user_token_headers) do
+    { "X-USER-TOKEN" => "thisissecret" }.merge(default_headers)
+  end
 end
