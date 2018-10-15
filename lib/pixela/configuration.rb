@@ -1,5 +1,5 @@
 module Pixela
-  class Configure
+  class Configuration
     # @!attribute debug_logger
     #   @return [Logger]
     attr_accessor :debug_logger

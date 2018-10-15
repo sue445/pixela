@@ -5,11 +5,11 @@ require "faraday_curl"
 
 module Pixela
   autoload :Client,    "pixela/client"
-  autoload :Configure, "pixela/configure"
+  autoload :Configuration, "pixela/configuration"
 
-  # @return [Pixela::Configure]
+  # @return [Pixela::Configuration]
   def self.config
-    @config ||= Configure.new
+    @config ||= Configuration.new
   end
 
   class PixelaError < StandardError
