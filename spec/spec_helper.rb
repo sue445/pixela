@@ -1,5 +1,9 @@
 require "bundler/setup"
 require "pixela"
+require "webmock/rspec"
+require "rspec/its"
+
+Dir["#{__dir__}/support/**/*.rb"].each {|f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +15,10 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include FixtureUtil
+end
+
+def spec_dir
+  Pathname(__dir__)
 end
