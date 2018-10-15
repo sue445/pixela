@@ -27,4 +27,24 @@ RSpec.describe Pixela::Client::PixelMethods do
     its(:message)   { should eq "Success." }
     its(:isSuccess) { should eq true }
   end
+
+  describe "#get_pixel" do
+    subject do
+      client.get_pixel(
+        graph_id: graph_id,
+        date:     date,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:date)     { Date.parse("2018-09-15") }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_pixel.json"))
+    end
+
+    its(:quantity) { should eq 5 }
+  end
 end

@@ -18,4 +18,18 @@ module Pixela::Client::PixelMethods
       connection.post("users/#{username}/graphs/#{graph_id}", params, user_token_headers).body
     end
   end
+
+  # Get registered quantity as "Pixel".
+  #
+  # @param graph_id [String]
+  # @param date     [Date,Time]
+  #
+  # @return [Hashie::Mash]
+  #
+  # @see https://pixe.la/#api-pixel
+  def get_pixel(graph_id:, date:)
+    with_error_handling do
+      connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
+    end
+  end
 end
