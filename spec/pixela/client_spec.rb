@@ -8,7 +8,7 @@ RSpec.describe Pixela::Client do
       "Accept" => "*/*",
       "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
       "Content-Type" => "application/json",
-      "User-Agent" => "Pixela v#{Pixela::VERSION}",
+      "User-Agent" => "Pixela v#{Pixela::VERSION} (https://github.com/sue445/pixela)",
     }
   end
 
