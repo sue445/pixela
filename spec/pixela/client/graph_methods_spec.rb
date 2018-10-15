@@ -25,7 +25,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("post_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
@@ -90,7 +90,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("put_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
@@ -107,7 +107,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("delete_graphs.json"))
+        to_return(status: 200, body: fixture("success.json"))
     end
 
     its(:message)   { should eq "Success." }
