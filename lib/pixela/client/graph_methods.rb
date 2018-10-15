@@ -23,4 +23,15 @@ module Pixela::Client::GraphMethods
       connection.post("users/#{username}/graphs", params, user_token_headers).body
     end
   end
+
+  # Get all predefined pixelation graph definitions.
+  #
+  # @return [Array<Hashie::Mash>]
+  #
+  # @see https://pixe.la/#api-graph
+  def get_graphs
+    with_error_handling do
+      connection.get("users/#{username}/graphs", nil, user_token_headers).body.graphs
+    end
+  end
 end

@@ -31,4 +31,16 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:message)   { should eq "Success." }
     its(:isSuccess) { should eq true }
   end
+
+  describe "#get_graphs" do
+    subject { client.get_graphs }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_graphs.json"))
+    end
+
+    its(:count) { should eq 1 }
+  end
 end
