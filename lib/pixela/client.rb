@@ -11,6 +11,12 @@ module Pixela
       @token    = token
     end
 
+    # @return [String]
+    def inspect
+      # NOTE: hide @token
+      %Q(#<Pixela::Client:0x#{"%016X" % object_id} @username="#{username}">)
+    end
+
     # Create a new Pixela user.
     #
     # @param agree_terms_of_service [Boolean]
