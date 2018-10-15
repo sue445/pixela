@@ -58,6 +58,10 @@ module Pixela
       }
     end
 
+    def user_token_headers
+      { "X-USER-TOKEN" => token }.merge(default_headers)
+    end
+
     def to_boolean_string(flag)
       flag ? "yes" : "no"
     end
