@@ -34,4 +34,26 @@ module Pixela::Client::GraphMethods
       connection.get("users/#{username}/graphs", nil, user_token_headers).body.graphs
     end
   end
+
+  # Update predefined pixelation graph definitions.
+  #
+  # @param id    [String]
+  # @param name  [String]
+  # @param unit  [String]
+  # @param color [String]
+  #
+  # @return [Hashie::Mash]
+  #
+  # @see https://pixe.la/#api-graph
+  def update_graph(id:, name:, unit:, color:)
+    params = {
+      name:  name,
+      unit:  unit,
+      color: color,
+    }
+
+    with_error_handling do
+      connection.put("users/#{username}/graphs/#{id}", params, user_token_headers).body
+    end
+  end
 end
