@@ -95,4 +95,42 @@ RSpec.describe Pixela::Client::PixelMethods do
     its(:message)   { should eq "Success." }
     its(:isSuccess) { should eq true }
   end
+
+  describe "#increment_pixel" do
+    subject do
+      client.increment_pixel(
+        graph_id: graph_id,
+        )
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/increment").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("success.json"))
+    end
+
+    its(:message)   { should eq "Success." }
+    its(:isSuccess) { should eq true }
+  end
+
+  describe "#decrement_pixel" do
+    subject do
+      client.decrement_pixel(
+        graph_id: graph_id,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/decrement").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("success.json"))
+    end
+
+    its(:message)   { should eq "Success." }
+    its(:isSuccess) { should eq true }
+  end
 end
