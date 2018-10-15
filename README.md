@@ -42,7 +42,7 @@ client.create_pixel(graph_id: "test-graph", date: Date.today, quantity: 5)
 
 All methods are followings
 
-https://www.rubydoc.info/gems/pixela
+https://www.rubydoc.info/gems/pixela/Pixela/Client
 
 ## Configuration
 ```ruby
