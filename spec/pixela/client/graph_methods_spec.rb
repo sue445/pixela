@@ -72,4 +72,21 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:message)   { should eq "Success." }
     its(:isSuccess) { should eq true }
   end
+
+  describe "#delete_graph" do
+    subject do
+      client.delete_graph(id)
+    end
+
+    let(:id) { "test-graph" }
+
+    before do
+      stub_request(:delete, "https://pixe.la/v1/users/a-know/graphs/test-graph").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("delete_graphs.json"))
+    end
+
+    its(:message)   { should eq "Success." }
+    its(:isSuccess) { should eq true }
+  end
 end

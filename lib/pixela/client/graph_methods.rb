@@ -56,4 +56,17 @@ module Pixela::Client::GraphMethods
       connection.put("users/#{username}/graphs/#{id}", params, user_token_headers).body
     end
   end
+
+  # Delete the predefined pixelation graph definition.
+  #
+  # @param id [String]
+  #
+  # @return [Hashie::Mash]
+  #
+  # @see https://pixe.la/#api-graph
+  def delete_graph(id)
+    with_error_handling do
+      connection.delete("users/#{username}/graphs/#{id}", nil, user_token_headers).body
+    end
+  end
 end
