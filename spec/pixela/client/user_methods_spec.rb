@@ -65,4 +65,17 @@ RSpec.describe Pixela::Client::UserMethods do
 
     it { expect { subject }.to change { client.send(:token) }.from("thisissecret").to("newsecret") }
   end
+
+  describe "#delete_user" do
+    subject { client.delete_user }
+
+    before do
+      stub_request(:delete, "https://pixe.la/v1/users/a-know").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("delete_users.json"))
+    end
+
+    its(:message)   { should eq "Success." }
+    its(:isSuccess) { should eq true }
+  end
 end
