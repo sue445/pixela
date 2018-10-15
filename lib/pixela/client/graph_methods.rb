@@ -1,18 +1,18 @@
 module Pixela::Client::GraphMethods
   # Create a new pixelation graph definition.
   #
-  # @param id    [String]
-  # @param name  [String]
-  # @param unit  [String]
-  # @param type  [String]
-  # @param color [String]
+  # @param graph_id [String]
+  # @param name     [String]
+  # @param unit     [String]
+  # @param type     [String]
+  # @param color    [String]
   #
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-graph
-  def create_graph(id:, name:, unit:, type:, color:)
+  def create_graph(graph_id:, name:, unit:, type:, color:)
     params = {
-      id:    id,
+      id:    graph_id,
       name:  name,
       unit:  unit,
       type:  type,
@@ -37,14 +37,14 @@ module Pixela::Client::GraphMethods
 
   # Get graph url
   #
-  # @param id   [String]
-  # @param date [Date,Time,String]
+  # @param graph_id [String]
+  # @param date     [Date,Time,String]
   #
   # @return [String]
   #
   # @see https://pixe.la/#api-graph
-  def graph_url(id:, date: nil)
-    url = "https://pixe.la/v1/users/#{username}/graphs/#{id}"
+  def graph_url(graph_id:, date: nil)
+    url = "https://pixe.la/v1/users/#{username}/graphs/#{graph_id}"
 
     url << "?date=#{to_ymd(date)}" if date
 
@@ -53,15 +53,15 @@ module Pixela::Client::GraphMethods
 
   # Update predefined pixelation graph definitions.
   #
-  # @param id    [String]
-  # @param name  [String]
-  # @param unit  [String]
-  # @param color [String]
+  # @param graph_id [String]
+  # @param name     [String]
+  # @param unit     [String]
+  # @param color    [String]
   #
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-graph
-  def update_graph(id:, name:, unit:, color:)
+  def update_graph(graph_id:, name:, unit:, color:)
     params = {
       name:  name,
       unit:  unit,
@@ -69,20 +69,20 @@ module Pixela::Client::GraphMethods
     }
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{id}", params, user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}", params, user_token_headers).body
     end
   end
 
   # Delete the predefined pixelation graph definition.
   #
-  # @param id [String]
+  # @param graph_id [String]
   #
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-graph
-  def delete_graph(id)
+  def delete_graph(graph_id)
     with_error_handling do
-      connection.delete("users/#{username}/graphs/#{id}", nil, user_token_headers).body
+      connection.delete("users/#{username}/graphs/#{graph_id}", nil, user_token_headers).body
     end
   end
 end
