@@ -8,7 +8,7 @@ module Pixela::Client::PixelMethods
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-pixel
-  def create_pixel(graph_id:, date:, quantity:)
+  def create_pixel(graph_id:, date: Date.today, quantity:)
     params = {
       date:     to_ymd(date),
       quantity: quantity.to_s,
@@ -27,7 +27,7 @@ module Pixela::Client::PixelMethods
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-pixel
-  def get_pixel(graph_id:, date:)
+  def get_pixel(graph_id:, date: Date.today)
     with_error_handling do
       connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
     end
@@ -42,7 +42,7 @@ module Pixela::Client::PixelMethods
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-pixel
-  def update_pixel(graph_id:, date:, quantity:)
+  def update_pixel(graph_id:, date: Date.today, quantity:)
     params = {
       quantity: quantity.to_s,
     }
@@ -60,7 +60,7 @@ module Pixela::Client::PixelMethods
   # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-pixel
-  def delete_pixel(graph_id:, date:)
+  def delete_pixel(graph_id:, date: Date.today)
     with_error_handling do
       connection.delete("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
     end

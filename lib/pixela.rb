@@ -2,6 +2,7 @@ require "pixela/version"
 require "faraday"
 require "faraday_middleware"
 require "faraday_curl"
+require "date"
 
 module Pixela
   autoload :Client,        "pixela/client"
