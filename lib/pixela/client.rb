@@ -1,7 +1,9 @@
 module Pixela
   class Client
-    autoload :UserMethods, "pixela/client/user_methods"
+    autoload :GraphMethods, "pixela/client/graph_methods"
+    autoload :UserMethods,  "pixela/client/user_methods"
 
+    include GraphMethods
     include UserMethods
 
     API_ENDPOINT = "https://pixe.la/v1"
@@ -65,6 +67,10 @@ module Pixela
 
     def to_boolean_string(flag)
       flag ? "yes" : "no"
+    end
+
+    def to_ymd(date)
+      date.strftime("%Y%m%d")
     end
   end
 end
