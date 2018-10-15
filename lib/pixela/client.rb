@@ -24,7 +24,10 @@ module Pixela
         agreeTermsOfService: to_boolean_string(agree_terms_of_service),
         notMinor:            to_boolean_string(not_minor),
       }
-      connection.post("users", params, default_headers).body
+
+      with_error_handling do
+        connection.post("users", params, default_headers).body
+      end
     end
 
     private
@@ -36,6 +39,7 @@ module Pixela
         conn.request :json
         conn.response :mashify
         conn.response :json
+        conn.response :raise_error
 
         if Pixela.config.debug_logger
           conn.request :curl, Pixela.config.debug_logger, :debug
@@ -43,6 +47,17 @@ module Pixela
         end
 
         conn.adapter Faraday.default_adapter
+      end
+    end
+
+    def with_error_handling
+      yield
+    rescue Faraday::ClientError => error
+      begin
+        body = JSON.parse(error.response[:body])
+        raise PixelaError, body["message"]
+      rescue JSON::ParserError
+        raise error
       end
     end
 

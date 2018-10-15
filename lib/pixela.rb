@@ -11,4 +11,7 @@ module Pixela
   def self.config
     @config ||= Configure.new
   end
+
+  class PixelaError < StandardError
+  end
 end
