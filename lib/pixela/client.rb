@@ -10,6 +10,8 @@ module Pixela
 
     API_ENDPOINT = "https://pixe.la/v1"
 
+    # @!attribute [r] username
+    # @return [String]
     attr_reader :username
 
     # @param username [String]
@@ -27,6 +29,8 @@ module Pixela
 
     private
 
+    # @!attribute [r] token
+    # @return [String]
     attr_reader :token
 
     def connection
