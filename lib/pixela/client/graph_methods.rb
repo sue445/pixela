@@ -9,6 +9,8 @@ module Pixela::Client::GraphMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-graph
   def create_graph(graph_id:, name:, unit:, type:, color:)
     params = {
@@ -28,6 +30,8 @@ module Pixela::Client::GraphMethods
   #
   # @return [Array<Hashie::Mash>]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-graph
   def get_graphs
     with_error_handling do
@@ -41,6 +45,8 @@ module Pixela::Client::GraphMethods
   # @param date     [Date,Time]
   #
   # @return [String]
+  #
+  # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
   def graph_url(graph_id:, date: nil)
@@ -60,6 +66,8 @@ module Pixela::Client::GraphMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-graph
   def update_graph(graph_id:, name:, unit:, color:)
     params = {
@@ -78,6 +86,8 @@ module Pixela::Client::GraphMethods
   # @param graph_id [String]
   #
   # @return [Hashie::Mash]
+  #
+  # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
   def delete_graph(graph_id)

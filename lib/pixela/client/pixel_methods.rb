@@ -7,6 +7,8 @@ module Pixela::Client::PixelMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-pixel
   def create_pixel(graph_id:, date: Date.today, quantity:)
     params = {
@@ -26,6 +28,8 @@ module Pixela::Client::PixelMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-pixel
   def get_pixel(graph_id:, date: Date.today)
     with_error_handling do
@@ -40,6 +44,8 @@ module Pixela::Client::PixelMethods
   # @param quantity [Integer,Float]
   #
   # @return [Hashie::Mash]
+  #
+  # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
   def update_pixel(graph_id:, date: Date.today, quantity:)
@@ -59,6 +65,8 @@ module Pixela::Client::PixelMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-pixel
   def delete_pixel(graph_id:, date: Date.today)
     with_error_handling do
@@ -72,6 +80,8 @@ module Pixela::Client::PixelMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-pixel
   def increment_pixel(graph_id:)
     with_error_handling do
@@ -84,6 +94,8 @@ module Pixela::Client::PixelMethods
   # @param graph_id [String]
   #
   # @return [Hashie::Mash]
+  #
+  # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
   def decrement_pixel(graph_id:)

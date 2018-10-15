@@ -6,6 +6,8 @@ module Pixela::Client::UserMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-user
   def create_user(agree_terms_of_service:, not_minor:)
     params = {
@@ -26,6 +28,8 @@ module Pixela::Client::UserMethods
   #
   # @return [Hashie::Mash]
   #
+  # @raise [Pixela::PixelaError] API is failed
+  #
   # @see https://pixe.la/#api-user
   def update_user(new_token:)
     params = {
@@ -45,6 +49,8 @@ module Pixela::Client::UserMethods
   # Deletes the specified registered user.
   #
   # @return [Hashie::Mash]
+  #
+  # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-user
   def delete_user
