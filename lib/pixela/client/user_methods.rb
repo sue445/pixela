@@ -4,6 +4,8 @@ module Pixela::Client::UserMethods
   # @param agree_terms_of_service [Boolean]
   # @param not_minor [Boolean]
   #
+  # @return [Hashie::Mash]
+  #
   # @see https://pixe.la/#api-user
   def create_user(agree_terms_of_service:, not_minor:)
     params = {
@@ -22,6 +24,8 @@ module Pixela::Client::UserMethods
   #
   # @param new_token [String]
   #
+  # @return [Hashie::Mash]
+  #
   # @see https://pixe.la/#api-user
   def update_user(new_token:)
     params = {
@@ -39,6 +43,8 @@ module Pixela::Client::UserMethods
   end
 
   # Deletes the specified registered user.
+  #
+  # @return [Hashie::Mash]
   #
   # @see https://pixe.la/#api-user
   def delete_user
