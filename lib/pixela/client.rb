@@ -36,6 +36,12 @@ module Pixela
         conn.request :json
         conn.response :mashify
         conn.response :json
+
+        if Pixela.config.debug_logger
+          conn.request :curl, Pixela.config.debug_logger, :debug
+          conn.response :logger, Pixela.config.debug_logger
+        end
+
         conn.adapter Faraday.default_adapter
       end
     end
