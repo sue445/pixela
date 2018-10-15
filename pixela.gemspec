@@ -9,16 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["sue445"]
   spec.email         = ["sue445@sue445.net"]
 
-  spec.summary       = %q{Pixela API client}
-  spec.description   = %q{Pixela API client}
+  spec.summary       = %q{Pixela API client for Ruby}
+  spec.description   = %q{Pixela API client for Ruby}
   spec.homepage      = "https://github.com/sue445/pixela"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
     spec.metadata["homepage_uri"] = spec.homepage
     spec.metadata["source_code_uri"] = spec.homepage
     spec.metadata["changelog_uri"] = spec.homepage + "/blob/master/CHANGELOG.md"
