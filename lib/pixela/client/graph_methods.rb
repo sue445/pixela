@@ -38,7 +38,7 @@ module Pixela::Client::GraphMethods
   # Get graph url
   #
   # @param graph_id [String]
-  # @param date     [Date,Time,String]
+  # @param date     [Date,Time]
   #
   # @return [String]
   #
