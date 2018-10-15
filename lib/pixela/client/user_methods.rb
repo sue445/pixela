@@ -37,4 +37,13 @@ module Pixela::Client::UserMethods
 
     response
   end
+
+  # Deletes the specified registered user.
+  #
+  # @see https://pixe.la/#api-user
+  def delete_user
+    with_error_handling do
+      connection.delete("users/#{username}", nil, user_token_headers).body
+    end
+  end
 end

@@ -55,6 +55,7 @@ module Pixela
     def default_headers
       {
         "User-Agent" => "Pixela v#{Pixela::VERSION} (https://github.com/sue445/pixela)",
+        "Content-Type" => "application/json",
       }
     end
 
