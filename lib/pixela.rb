@@ -4,7 +4,7 @@ require "faraday_middleware"
 require "faraday_curl"
 
 module Pixela
-  autoload :Client,    "pixela/client"
+  autoload :Client,        "pixela/client"
   autoload :Configuration, "pixela/configuration"
 
   # @return [Pixela::Configuration]
