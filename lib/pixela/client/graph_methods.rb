@@ -44,7 +44,7 @@ module Pixela::Client::GraphMethods
   #
   # @see https://pixe.la/#api-graph
   def graph_url(graph_id:, date: nil)
-    url = "https://pixe.la/v1/users/#{username}/graphs/#{graph_id}"
+    url = "#{Pixela::Client::API_ENDPOINT}/users/#{username}/graphs/#{graph_id}"
 
     url << "?date=#{to_ymd(date)}" if date
 
