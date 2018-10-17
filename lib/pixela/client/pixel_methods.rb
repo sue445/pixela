@@ -10,6 +10,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5)
   def create_pixel(graph_id:, date: Date.today, quantity:)
     params = {
       date:     to_ymd(date),
@@ -31,6 +34,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.get_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def get_pixel(graph_id:, date: Date.today)
     with_error_handling do
       connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
@@ -48,6 +54,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.update_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 7)
   def update_pixel(graph_id:, date: Date.today, quantity:)
     params = {
       quantity: quantity.to_s,
@@ -68,6 +77,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.delete_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def delete_pixel(graph_id:, date: Date.today)
     with_error_handling do
       connection.delete("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
@@ -83,6 +95,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.increment_pixel(graph_id: "test-graph")
   def increment_pixel(graph_id:)
     with_error_handling do
       connection.put("users/#{username}/graphs/#{graph_id}/increment", nil, user_token_headers).body
@@ -98,6 +113,9 @@ module Pixela::Client::PixelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-pixel
+  #
+  # @example
+  #   client.decrement_pixel(graph_id: "test-graph")
   def decrement_pixel(graph_id:)
     with_error_handling do
       connection.put("users/#{username}/graphs/#{graph_id}/decrement", nil, user_token_headers).body

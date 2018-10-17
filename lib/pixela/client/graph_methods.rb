@@ -12,6 +12,9 @@ module Pixela::Client::GraphMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
+  #
+  # @example
+  #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu")
   def create_graph(graph_id:, name:, unit:, type:, color:)
     params = {
       id:    graph_id,
@@ -33,6 +36,9 @@ module Pixela::Client::GraphMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
+  #
+  # @example
+  #   client.get_graphs
   def get_graphs
     with_error_handling do
       connection.get("users/#{username}/graphs", nil, user_token_headers).body.graphs
@@ -46,9 +52,11 @@ module Pixela::Client::GraphMethods
   #
   # @return [String]
   #
-  # @raise [Pixela::PixelaError] API is failed
-  #
   # @see https://pixe.la/#api-graph
+  #
+  # @example
+  #   client.graph_url(graph_id: "test-graph")
+  #   client.graph_url(graph_id: "test-graph", date: Date.new(2018, 3, 31))
   def graph_url(graph_id:, date: nil)
     url = "#{Pixela::Client::API_ENDPOINT}/users/#{username}/graphs/#{graph_id}"
 
@@ -69,6 +77,9 @@ module Pixela::Client::GraphMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
+  #
+  # @example
+  #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu")
   def update_graph(graph_id:, name:, unit:, color:)
     params = {
       name:  name,
@@ -90,6 +101,9 @@ module Pixela::Client::GraphMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-graph
+  #
+  # @example
+  #   client.delete_graph("test-graph")
   def delete_graph(graph_id)
     with_error_handling do
       connection.delete("users/#{username}/graphs/#{graph_id}", nil, user_token_headers).body
