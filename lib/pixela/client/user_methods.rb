@@ -9,6 +9,9 @@ module Pixela::Client::UserMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-user
+  #
+  # @example
+  #   client.create_user(agree_terms_of_service: true, not_minor: true)
   def create_user(agree_terms_of_service:, not_minor:)
     params = {
       token:               token,
@@ -31,6 +34,9 @@ module Pixela::Client::UserMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-user
+  #
+  # @example
+  #   client.update_user(new_token: "thisissecret")
   def update_user(new_token:)
     params = {
       newToken: new_token,
@@ -53,6 +59,9 @@ module Pixela::Client::UserMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @see https://pixe.la/#api-user
+  #
+  # @example
+  #   client.delete_user
   def delete_user
     with_error_handling do
       connection.delete("users/#{username}", nil, user_token_headers).body
