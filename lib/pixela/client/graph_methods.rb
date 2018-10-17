@@ -46,8 +46,6 @@ module Pixela::Client::GraphMethods
   #
   # @return [String]
   #
-  # @raise [Pixela::PixelaError] API is failed
-  #
   # @see https://pixe.la/#api-graph
   def graph_url(graph_id:, date: nil)
     url = "#{Pixela::Client::API_ENDPOINT}/users/#{username}/graphs/#{graph_id}"
