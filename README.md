@@ -41,6 +41,17 @@ require "date"
 client.create_pixel(graph_id: "test-graph", date: Date.today, quantity: 5) 
 ```
 
+or
+
+```ruby
+# create graph
+client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu")
+
+# register value
+client.graph("test-graph").pixel(Date.today).create(quantity: 5)
+```
+
+
 All methods are followings
 
 https://www.rubydoc.info/gems/pixela/Pixela/Client
