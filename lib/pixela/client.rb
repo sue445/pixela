@@ -27,6 +27,13 @@ module Pixela
       %Q(#<Pixela::Client:0x#{"%016X" % object_id} @username="#{username}">)
     end
 
+    # @param graph_id [String]
+    #
+    # @return [Pixela::Graph]
+    def graph(graph_id)
+      Graph.new(client: self, graph_id: graph_id)
+    end
+
     private
 
     # @!attribute [r] token

@@ -7,6 +7,8 @@ require "date"
 module Pixela
   autoload :Client,        "pixela/client"
   autoload :Configuration, "pixela/configuration"
+  autoload :Graph,         "pixela/graph"
+  autoload :Pixel,         "pixela/pixel"
 
   # @return [Pixela::Configuration]
   def self.config
