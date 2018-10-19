@@ -1,1 +1,1 @@
-{"graphs":[{"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu"}]}
+{"graphs":[{"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}]}
