@@ -42,15 +42,17 @@ RSpec.describe Pixela::Graph do
         name:  name,
         unit:  unit,
         color: color,
+        purge_cache_urls: purge_cache_urls,
       )
     end
 
     let(:name)  { "graph-name" }
     let(:unit)  { "commit" }
     let(:color) { "shibafu" }
+    let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
 
     before do
-      allow(client).to receive(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color)
+      allow(client).to receive(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, purge_cache_urls: purge_cache_urls)
     end
 
     it "successful" do

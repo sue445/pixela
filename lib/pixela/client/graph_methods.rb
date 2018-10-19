@@ -71,6 +71,7 @@ module Pixela::Client::GraphMethods
   # @param name     [String]
   # @param unit     [String]
   # @param color    [String]
+  # @param purge_cache_urls [String,Array<String>]
   #
   # @return [Hashie::Mash]
   #
@@ -79,13 +80,17 @@ module Pixela::Client::GraphMethods
   # @see https://pixe.la/#api-graph
   #
   # @example
-  #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu")
-  def update_graph(graph_id:, name:, unit:, color:)
+  #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
+  def update_graph(graph_id:, name:, unit:, color:, purge_cache_urls: nil)
     params = {
       name:  name,
       unit:  unit,
       color: color,
     }
+
+    if purge_cache_urls
+      params[:purgeCacheURLs] = Array(purge_cache_urls)
+    end
 
     with_error_handling do
       connection.put("users/#{username}/graphs/#{graph_id}", params, user_token_headers).body
