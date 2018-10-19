@@ -23,8 +23,7 @@ RSpec.describe Pixela::Client::UserMethods do
       let(:agree_terms_of_service) { true }
       let(:not_minor)              { true }
 
-      its(:message)   { should eq "Success." }
-      its(:isSuccess) { should eq true }
+      it_behaves_like :success
     end
 
     context "when failure" do
@@ -63,8 +62,7 @@ RSpec.describe Pixela::Client::UserMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
 
     it { expect { subject }.to change { client.send(:token) }.from("thisissecret").to("newsecret") }
 
@@ -108,7 +106,6 @@ RSpec.describe Pixela::Client::UserMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 end

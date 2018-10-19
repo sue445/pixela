@@ -24,8 +24,7 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 
   describe "#get_pixel" do
@@ -71,8 +70,7 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 
   describe "#delete_pixel" do
@@ -92,8 +90,7 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 
   describe "#increment_pixel" do
@@ -111,8 +108,7 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 
   describe "#decrement_pixel" do
@@ -130,7 +126,6 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    its(:message)   { should eq "Success." }
-    its(:isSuccess) { should eq true }
+    it_behaves_like :success
   end
 end
