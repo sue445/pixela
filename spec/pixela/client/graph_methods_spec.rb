@@ -70,10 +70,10 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#update_graph" do
     subject do
       client.update_graph(
-        graph_id: graph_id,
-        name:     name,
-        unit:     unit,
-        color:    color,
+        graph_id:         graph_id,
+        name:             name,
+        unit:             unit,
+        color:            color,
         purge_cache_urls: purge_cache_urls,
       )
     end

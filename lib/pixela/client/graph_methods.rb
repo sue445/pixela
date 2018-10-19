@@ -67,10 +67,10 @@ module Pixela::Client::GraphMethods
 
   # Update predefined pixelation graph definitions.
   #
-  # @param graph_id [String]
-  # @param name     [String]
-  # @param unit     [String]
-  # @param color    [String]
+  # @param graph_id         [String]
+  # @param name             [String]
+  # @param unit             [String]
+  # @param color            [String]
   # @param purge_cache_urls [String,Array<String>]
   #
   # @return [Hashie::Mash]

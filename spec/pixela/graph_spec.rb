@@ -39,16 +39,16 @@ RSpec.describe Pixela::Graph do
   describe "#update" do
     subject do
       graph.update(
-        name:  name,
-        unit:  unit,
-        color: color,
+        name:             name,
+        unit:             unit,
+        color:            color,
         purge_cache_urls: purge_cache_urls,
       )
     end
 
-    let(:name)  { "graph-name" }
-    let(:unit)  { "commit" }
-    let(:color) { "shibafu" }
+    let(:name)             { "graph-name" }
+    let(:unit)             { "commit" }
+    let(:color)            { "shibafu" }
     let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
 
     before do

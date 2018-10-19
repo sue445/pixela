@@ -58,9 +58,9 @@ module Pixela
 
     # Update predefined pixelation graph definitions.
     #
-    # @param name  [String]
-    # @param unit  [String]
-    # @param color [String]
+    # @param name             [String]
+    # @param unit             [String]
+    # @param color            [String]
     # @param purge_cache_urls [String,Array<String>]
     #
     # @return [Hashie::Mash]
