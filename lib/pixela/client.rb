@@ -1,12 +1,14 @@
 module Pixela
   class Client
-    autoload :GraphMethods, "pixela/client/graph_methods"
-    autoload :PixelMethods, "pixela/client/pixel_methods"
-    autoload :UserMethods,  "pixela/client/user_methods"
+    autoload :GraphMethods,   "pixela/client/graph_methods"
+    autoload :PixelMethods,   "pixela/client/pixel_methods"
+    autoload :UserMethods,    "pixela/client/user_methods"
+    autoload :WebhookMethods, "pixela/client/webhook_methods"
 
     include GraphMethods
     include PixelMethods
     include UserMethods
+    include WebhookMethods
 
     API_ENDPOINT = "https://pixe.la/v1"
 
@@ -32,6 +34,13 @@ module Pixela
     # @return [Pixela::Graph]
     def graph(graph_id)
       Graph.new(client: self, graph_id: graph_id)
+    end
+
+    # @param webhook_hash [String]
+    #
+    # @return [Pixela::Webhook]
+    def webhook(webhook_hash)
+      Webhook.new(client: self, webhook_hash: webhook_hash)
     end
 
     private
