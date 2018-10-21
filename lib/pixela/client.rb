@@ -1,8 +1,8 @@
 module Pixela
   class Client
-    autoload :GraphMethods, "pixela/client/graph_methods"
-    autoload :PixelMethods, "pixela/client/pixel_methods"
-    autoload :UserMethods,  "pixela/client/user_methods"
+    autoload :GraphMethods,   "pixela/client/graph_methods"
+    autoload :PixelMethods,   "pixela/client/pixel_methods"
+    autoload :UserMethods,    "pixela/client/user_methods"
     autoload :WebhookMethods, "pixela/client/webhook_methods"
 
     include GraphMethods
