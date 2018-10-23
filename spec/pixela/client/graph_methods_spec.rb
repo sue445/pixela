@@ -44,26 +44,22 @@ RSpec.describe Pixela::Client::GraphMethods do
   end
 
   describe "#graph_url" do
-    subject { client.graph_url(graph_id: graph_id, date: date) }
+    subject { client.graph_url(graph_id: graph_id, date: date, mode: mode) }
+
+    using RSpec::Parameterized::TableSyntax
 
     let(:graph_id) { "test-graph" }
 
-    context "with Date" do
-      let(:date) { Date.parse("2018-03-31") }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
+    where(:date, :mode, :expected_url) do
+      nil                               | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph"
+      Date.parse("2018-03-31")          | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
+      Time.parse("2018-03-31 11:22:33") | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
+      nil                               | "short" | "https://pixe.la/v1/users/a-know/graphs/test-graph?mode=short"
+      Date.parse("2018-03-31")          | "short" | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331&mode=short"
     end
 
-    context "with Time" do
-      let(:date) { Time.parse("2018-03-31 11:22:33") }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
-    end
-
-    context "without date" do
-      let(:date) { nil }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph" }
+    with_them do
+      it { should eq expected_url }
     end
   end
 

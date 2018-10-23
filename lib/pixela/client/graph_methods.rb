@@ -49,6 +49,7 @@ module Pixela::Client::GraphMethods
   #
   # @param graph_id [String]
   # @param date     [Date,Time]
+  # @param mode     [String] e.g) `short`
   #
   # @return [String]
   #
@@ -56,11 +57,15 @@ module Pixela::Client::GraphMethods
   #
   # @example
   #   client.graph_url(graph_id: "test-graph")
-  #   client.graph_url(graph_id: "test-graph", date: Date.new(2018, 3, 31))
-  def graph_url(graph_id:, date: nil)
+  #   client.graph_url(graph_id: "test-graph", date: Date.new(2018, 3, 31), mode: "short")
+  def graph_url(graph_id:, date: nil, mode: nil)
     url = "#{Pixela::Client::API_ENDPOINT}/users/#{username}/graphs/#{graph_id}"
 
-    url << "?date=#{to_ymd(date)}" if date
+    params = Faraday::Utils::ParamsHash.new
+    params[:date] = to_ymd(date) if date
+    params[:mode] = mode if mode
+
+    url << "?#{params.to_query}" unless params.empty?
 
     url
   end
