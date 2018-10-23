@@ -29,11 +29,12 @@ RSpec.describe Pixela::Graph do
   end
 
   describe "#url" do
-    subject { graph.url(date: date) }
+    subject { graph.url(date: date, mode: mode) }
 
     let(:date) { Date.parse("2018-03-31") }
+    let(:mode) { "short" }
 
-    it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
+    it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331&mode=short" }
   end
 
   describe "#update" do
