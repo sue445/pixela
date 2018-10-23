@@ -46,24 +46,18 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#graph_url" do
     subject { client.graph_url(graph_id: graph_id, date: date) }
 
+    using RSpec::Parameterized::TableSyntax
+
     let(:graph_id) { "test-graph" }
 
-    context "with Date" do
-      let(:date) { Date.parse("2018-03-31") }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
+    where(:date, :expected_url) do
+      nil                               | "https://pixe.la/v1/users/a-know/graphs/test-graph"
+      Date.parse("2018-03-31")          | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
+      Time.parse("2018-03-31 11:22:33") | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
     end
 
-    context "with Time" do
-      let(:date) { Time.parse("2018-03-31 11:22:33") }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331" }
-    end
-
-    context "without date" do
-      let(:date) { nil }
-
-      it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph" }
+    with_them do
+      it { should eq expected_url }
     end
   end
 
