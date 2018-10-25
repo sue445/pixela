@@ -1,5 +1,16 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v0.5.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v0.5.1...master)
+
+## v0.5.1
+[full changelog](http://github.com/sue445/pixela/compare/v0.5.0...v0.5.1)
+
+* Arguments of `Pixela::Client#update_graph` and `Pixela::Graph#update` change to optional
+  * https://github.com/sue445/pixela/pull/28
+  * https://github.com/a-know/Pixela/releases/tag/v1.3.1
+* Add `Pixela::Graph#delete`
+  * https://github.com/sue445/pixela/pull/27
+* Update API link
+  * https://github.com/sue445/pixela/pull/26
 
 ## v0.5.0
 [full changelog](http://github.com/sue445/pixela/compare/v0.4.0...v0.5.0)
