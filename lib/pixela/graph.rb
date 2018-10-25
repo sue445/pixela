@@ -76,6 +76,20 @@ module Pixela
       client.update_graph(graph_id: graph_id, name: name, unit: unit, color: color, purge_cache_urls: purge_cache_urls)
     end
 
+    # Delete the predefined pixelation graph definition.
+    #
+    # @return [Hashie::Mash]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://pixe.la/#api-detail-put-graph
+    #
+    # @example
+    #   client.graph("test-graph").delete
+    def delete
+      client.delete_graph(graph_id)
+    end
+
     # Increment quantity "Pixel" of the day (UTC).
     #
     # @return [Hashie::Mash]

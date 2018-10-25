@@ -61,6 +61,18 @@ RSpec.describe Pixela::Graph do
     end
   end
 
+  describe "#delete" do
+    subject { graph.delete }
+
+    before do
+      allow(client).to receive(:delete_graph).with(graph_id)
+    end
+
+    it "successful" do
+      subject
+    end
+  end
+
   describe "#increment" do
     subject { graph.increment }
 
