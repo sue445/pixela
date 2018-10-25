@@ -94,5 +94,10 @@ module Pixela
     def to_ymd(date)
       date.strftime("%Y%m%d")
     end
+
+    def compact_hash(hash)
+      # NOTE: Hash#compact is available since MRI 2.4+
+      hash.reject { |_, v| v.nil? }
+    end
   end
 end

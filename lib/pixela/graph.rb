@@ -72,7 +72,7 @@ module Pixela
     #
     # @example
     #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-    def update(name:, unit:, color:, purge_cache_urls: nil)
+    def update(name: nil, unit: nil, color: nil, purge_cache_urls: nil)
       client.update_graph(graph_id: graph_id, name: name, unit: unit, color: color, purge_cache_urls: purge_cache_urls)
     end
 

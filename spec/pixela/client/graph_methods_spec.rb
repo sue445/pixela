@@ -135,6 +135,48 @@ RSpec.describe Pixela::Client::GraphMethods do
         it_behaves_like :success
       end
     end
+
+    context "without optional args" do
+      let(:name)  { nil }
+      let(:unit)  { nil }
+      let(:color) { nil }
+
+      context "purge_cache_urls is String" do
+        let(:purge_cache_urls) { "https://camo.githubusercontent.com/xxx/xxxx" }
+
+        let(:json_body) do
+          <<~JSON.strip
+            {"purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+          JSON
+        end
+
+        it_behaves_like :success
+      end
+
+      context "purge_cache_urls is Array" do
+        let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
+
+        let(:json_body) do
+          <<~JSON.strip
+            {"purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+          JSON
+        end
+
+        it_behaves_like :success
+      end
+
+      context "purge_cache_urls is empty Array" do
+        let(:purge_cache_urls) { [] }
+
+        let(:json_body) do
+          <<~JSON.strip
+            {"purgeCacheURLs":[]}
+          JSON
+        end
+
+        it_behaves_like :success
+      end
+    end
   end
 
   describe "#delete_graph" do

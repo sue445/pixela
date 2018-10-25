@@ -86,7 +86,7 @@ module Pixela::Client::GraphMethods
   #
   # @example
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-  def update_graph(graph_id:, name:, unit:, color:, purge_cache_urls: nil)
+  def update_graph(graph_id:, name: nil, unit: nil, color: nil, purge_cache_urls: nil)
     params = {
       name:  name,
       unit:  unit,
@@ -98,7 +98,7 @@ module Pixela::Client::GraphMethods
     end
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}", params, user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}", compact_hash(params), user_token_headers).body
     end
   end
 
