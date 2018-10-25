@@ -33,7 +33,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-graph
+    # @see https://pixe.la/#api-detail-post-graphs
     #
     # @example
     #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu")
@@ -48,7 +48,7 @@ module Pixela
     #
     # @return [String]
     #
-    # @see https://pixe.la/#api-graph
+    # @see https://pixe.la/#api-detail-get-graph
     #
     # @example
     #   client.graph("test-graph").url
@@ -68,7 +68,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-graph
+    # @see https://pixe.la/#api-detail-put-graph
     #
     # @example
     #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
@@ -82,7 +82,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-pixel
+    # @see https://pixe.la/#api-detail-pixel-increment
     #
     # @example
     #   client.graph("test-graph").increment
@@ -96,7 +96,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-pixel
+    # @see https://pixe.la/#api-detail-pixel-decrement
     #
     # @example
     #   client.graph("test-graph").decrement
