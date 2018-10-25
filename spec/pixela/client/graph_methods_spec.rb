@@ -75,9 +75,6 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
 
     let(:graph_id) { "test-graph" }
-    let(:name)     { "graph-name" }
-    let(:unit)     { "commit" }
-    let(:color)    { "shibafu" }
 
     before do
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph").
@@ -85,52 +82,58 @@ RSpec.describe Pixela::Client::GraphMethods do
         to_return(status: 200, body: fixture("success.json"))
     end
 
-    context "without purge_cache_urls" do
-      let(:purge_cache_urls) { nil }
+    context "with optional args" do
+      let(:name)  { "graph-name" }
+      let(:unit)  { "commit" }
+      let(:color) { "shibafu" }
 
-      let(:json_body) do
-        <<~JSON.strip
-          {"name":"graph-name","unit":"commit","color":"shibafu"}
-        JSON
+      context "without purge_cache_urls" do
+        let(:purge_cache_urls) { nil }
+
+        let(:json_body) do
+          <<~JSON.strip
+            {"name":"graph-name","unit":"commit","color":"shibafu"}
+          JSON
+        end
+
+        it_behaves_like :success
       end
 
-      it_behaves_like :success
-    end
+      context "purge_cache_urls is String" do
+        let(:purge_cache_urls) { "https://camo.githubusercontent.com/xxx/xxxx" }
 
-    context "purge_cache_urls is String" do
-      let(:purge_cache_urls) { "https://camo.githubusercontent.com/xxx/xxxx" }
+        let(:json_body) do
+          <<~JSON.strip
+            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+          JSON
+        end
 
-      let(:json_body) do
-        <<~JSON.strip
-          {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
-        JSON
+        it_behaves_like :success
       end
 
-      it_behaves_like :success
-    end
+      context "purge_cache_urls is Array" do
+        let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
 
-    context "purge_cache_urls is Array" do
-      let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
+        let(:json_body) do
+          <<~JSON.strip
+            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+          JSON
+        end
 
-      let(:json_body) do
-        <<~JSON.strip
-          {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
-        JSON
+        it_behaves_like :success
       end
 
-      it_behaves_like :success
-    end
+      context "purge_cache_urls is empty Array" do
+        let(:purge_cache_urls) { [] }
 
-    context "purge_cache_urls is empty Array" do
-      let(:purge_cache_urls) { [] }
+        let(:json_body) do
+          <<~JSON.strip
+            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":[]}
+          JSON
+        end
 
-      let(:json_body) do
-        <<~JSON.strip
-          {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":[]}
-        JSON
+        it_behaves_like :success
       end
-
-      it_behaves_like :success
     end
   end
 
