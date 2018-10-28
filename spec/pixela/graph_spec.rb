@@ -25,6 +25,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
+      expect(client).to have_received(:create_graph).with(graph_id: graph_id, name: name, unit: unit, type: type, color: color)
     end
   end
 
@@ -58,6 +59,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
+      expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, purge_cache_urls: purge_cache_urls)
     end
   end
 
@@ -70,6 +72,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
+      expect(client).to have_received(:delete_graph).with(graph_id)
     end
   end
 
@@ -82,6 +85,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
+      expect(client).to have_received(:increment_pixel).with(graph_id: graph_id)
     end
   end
 
@@ -94,6 +98,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
+      expect(client).to have_received(:decrement_pixel).with(graph_id: graph_id)
     end
   end
 end

@@ -16,6 +16,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
+      expect(client).to have_received(:create_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
     end
   end
 
@@ -28,6 +29,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
+      expect(client).to have_received(:get_pixel).with(graph_id: graph_id, date: date)
     end
   end
 
@@ -42,6 +44,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
+      expect(client).to have_received(:update_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
     end
   end
 
@@ -54,6 +57,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
+      expect(client).to have_received(:delete_pixel).with(graph_id: graph_id, date: date)
     end
   end
 end
