@@ -13,6 +13,7 @@ RSpec.describe Pixela::Webhook do
 
     it "successful" do
       subject
+      expect(client).to have_received(:invoke_webhook).with(webhook_hash: webhook_hash)
     end
   end
 
@@ -25,6 +26,7 @@ RSpec.describe Pixela::Webhook do
 
     it "successful" do
       subject
+      expect(client).to have_received(:delete_webhook).with(webhook_hash: webhook_hash)
     end
   end
 end
