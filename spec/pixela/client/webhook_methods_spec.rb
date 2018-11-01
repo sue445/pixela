@@ -24,7 +24,7 @@ RSpec.describe Pixela::Client::WebhookMethods do
 
     it_behaves_like :success
 
-    its(:hashString) { should eq "<WebhookHashString>" }
+    its(:webhookHash) { should eq "<WebhookHashString>" }
   end
 
   describe "#get_webhooks" do
