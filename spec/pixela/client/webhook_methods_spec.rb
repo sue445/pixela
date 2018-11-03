@@ -41,9 +41,9 @@ RSpec.describe Pixela::Client::WebhookMethods do
     describe "[0]" do
       subject { webhooks[0] }
 
-      its(:hashString) { should eq "<WebhookHashString>" }
-      its(:graphID)    { should eq "test-graph" }
-      its(:type)       { should eq "increment" }
+      its(:webhookHash) { should eq "<WebhookHashString>" }
+      its(:graphID)     { should eq "test-graph" }
+      its(:type)        { should eq "increment" }
     end
   end
 
