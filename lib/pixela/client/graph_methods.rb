@@ -11,7 +11,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-post-graphs
+  # @see https://docs.pixe.la/#/post-graphs
   #
   # @example
   #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu")
@@ -35,7 +35,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-get-graphs
+  # @see https://docs.pixe.la/#/get-graphs
   #
   # @example
   #   client.get_graphs
@@ -53,7 +53,7 @@ module Pixela::Client::GraphMethods
   #
   # @return [String]
   #
-  # @see https://pixe.la/#api-detail-get-graph
+  # @see https://docs.pixe.la/#/get-graph
   #
   # @example
   #   client.graph_url(graph_id: "test-graph")
@@ -82,7 +82,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-put-graph
+  # @see https://docs.pixe.la/#/put-graph
   #
   # @example
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
@@ -110,7 +110,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-delete-graph
+  # @see https://docs.pixe.la/#/delete-graph
   #
   # @example
   #   client.delete_graph("test-graph")
