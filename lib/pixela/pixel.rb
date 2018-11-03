@@ -29,7 +29,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-detail-post-pixels
+    # @see https://docs.pixe.la/#/post-pixel
     #
     # @example
     #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).create(quantity: 5)
@@ -43,7 +43,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-detail-get-pixel
+    # @see https://docs.pixe.la/#/get-pixel
     #
     # @example
     #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).get
@@ -59,7 +59,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-detail-put-pixel
+    # @see https://docs.pixe.la/#/put-pixel
     #
     # @example
     #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).update(quantity: 7)
@@ -73,7 +73,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://pixe.la/#api-detail-delete-pixel
+    # @see https://docs.pixe.la/#/delete-pixel
     #
     # @example
     #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).delete

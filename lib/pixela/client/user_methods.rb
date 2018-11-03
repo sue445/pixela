@@ -8,7 +8,7 @@ module Pixela::Client::UserMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-post-users
+  # @see https://docs.pixe.la/#/post-user
   #
   # @example
   #   client.create_user(agree_terms_of_service: true, not_minor: true)
@@ -33,7 +33,7 @@ module Pixela::Client::UserMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-put-user
+  # @see https://docs.pixe.la/#/put-user
   #
   # @example
   #   client.update_user(new_token: "thisissecret")
@@ -58,7 +58,7 @@ module Pixela::Client::UserMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://pixe.la/#api-detail-delete-user
+  # @see https://docs.pixe.la/#/delete-user
   #
   # @example
   #   client.delete_user
