@@ -9,7 +9,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/post-pixels
+  # @see https://docs.pixe.la/#/post-pixel
   #
   # @example
   #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5)

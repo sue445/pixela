@@ -29,7 +29,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/post-pixels
+    # @see https://docs.pixe.la/#/post-pixel
     #
     # @example
     #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).create(quantity: 5)

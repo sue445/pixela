@@ -33,7 +33,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/post-graphs
+    # @see https://docs.pixe.la/#/post-graph
     #
     # @example
     #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu")

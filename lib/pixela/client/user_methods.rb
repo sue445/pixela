@@ -8,7 +8,7 @@ module Pixela::Client::UserMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/post-users
+  # @see https://docs.pixe.la/#/post-user
   #
   # @example
   #   client.create_user(agree_terms_of_service: true, not_minor: true)

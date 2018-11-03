@@ -11,7 +11,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/post-graphs
+  # @see https://docs.pixe.la/#/post-graph
   #
   # @example
   #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu")
@@ -35,7 +35,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-graphs
+  # @see https://docs.pixe.la/#/get-graph
   #
   # @example
   #   client.get_graphs
