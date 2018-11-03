@@ -1,1 +1,1 @@
-{"webhooks":[{"hashString":"<WebhookHashString>","graphID":"test-graph","type":"increment"}]}
+{"webhooks":[{"webhookHash":"<WebhookHashString>","graphID":"test-graph","type":"increment"}]}
