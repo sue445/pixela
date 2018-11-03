@@ -96,7 +96,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/pixel-increment
+    # @see https://docs.pixe.la/#/increment-pixel
     #
     # @example
     #   client.graph("test-graph").increment
@@ -110,7 +110,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/pixel-decrement
+    # @see https://docs.pixe.la/#/decrement-pixel
     #
     # @example
     #   client.graph("test-graph").decrement
