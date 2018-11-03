@@ -32,7 +32,7 @@ RSpec.describe Pixela::Client::GraphMethods do
   end
 
   describe "#get_graphs" do
-    subject { client.get_graphs }
+    subject(:graphs) { client.get_graphs }
 
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs").
@@ -41,6 +41,17 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
 
     its(:count) { should eq 1 }
+
+    describe "[0]" do
+      subject { graphs[0] }
+
+      its(:id)             { should eq "test-graph" }
+      its(:name)           { should eq "graph-name" }
+      its(:unit)           { should eq "commit" }
+      its(:type)           { should eq "int" }
+      its(:color)          { should eq "shibafu" }
+      its(:purgeCacheURLs) { should eq ["https://camo.githubusercontent.com/xxx/xxxx"] }
+    end
   end
 
   describe "#graph_url" do
