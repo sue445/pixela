@@ -9,6 +9,7 @@ RSpec.describe Pixela::Client::GraphMethods do
         unit:     unit,
         type:     type,
         color:    color,
+        timezone: timezone,
       )
     end
 
@@ -17,10 +18,11 @@ RSpec.describe Pixela::Client::GraphMethods do
     let(:unit)     { "commit" }
     let(:type)     { "int" }
     let(:color)    { "shibafu" }
+    let(:timezone) { "Asia/Tokyo" }
 
     before do
       json_body = <<~JSON.strip
-        {"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu"}
+        {"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu","timezone":"Asia/Tokyo"}
       JSON
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs").
@@ -81,6 +83,7 @@ RSpec.describe Pixela::Client::GraphMethods do
         name:             name,
         unit:             unit,
         color:            color,
+        timezone:         timezone,
         purge_cache_urls: purge_cache_urls,
       )
     end
@@ -97,13 +100,14 @@ RSpec.describe Pixela::Client::GraphMethods do
       let(:name)  { "graph-name" }
       let(:unit)  { "commit" }
       let(:color) { "shibafu" }
+      let(:timezone) { "Asia/Tokyo" }
 
       context "without purge_cache_urls" do
         let(:purge_cache_urls) { nil }
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu"}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo"}
           JSON
         end
 
@@ -115,7 +119,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
           JSON
         end
 
@@ -127,7 +131,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
           JSON
         end
 
@@ -139,7 +143,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","purgeCacheURLs":[]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","purgeCacheURLs":[]}
           JSON
         end
 
@@ -151,6 +155,7 @@ RSpec.describe Pixela::Client::GraphMethods do
       let(:name)  { nil }
       let(:unit)  { nil }
       let(:color) { nil }
+      let(:timezone) { nil }
 
       context "purge_cache_urls is String" do
         let(:purge_cache_urls) { "https://camo.githubusercontent.com/xxx/xxxx" }
