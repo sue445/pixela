@@ -24,10 +24,11 @@ module Pixela
 
     # Create a new pixelation graph definition.
     #
-    # @param name  [String]
-    # @param unit  [String]
-    # @param type  [String]
-    # @param color [String]
+    # @param name     [String]
+    # @param unit     [String]
+    # @param type     [String]
+    # @param color    [String]
+    # @param timezone [String]
     #
     # @return [Hashie::Mash]
     #
@@ -36,9 +37,9 @@ module Pixela
     # @see https://docs.pixe.la/#/post-graph
     #
     # @example
-    #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu")
-    def create(name:, unit:, type:, color:)
-      client.create_graph(graph_id: graph_id, name: name, unit: unit, type: type, color: color)
+    #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo")
+    def create(name:, unit:, type:, color:, timezone: nil)
+      client.create_graph(graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone)
     end
 
     # Get graph url
@@ -62,6 +63,7 @@ module Pixela
     # @param name             [String]
     # @param unit             [String]
     # @param color            [String]
+    # @param timezone         [String]
     # @param purge_cache_urls [String,Array<String>]
     #
     # @return [Hashie::Mash]
@@ -71,9 +73,9 @@ module Pixela
     # @see https://docs.pixe.la/#/put-graph
     #
     # @example
-    #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-    def update(name: nil, unit: nil, color: nil, purge_cache_urls: nil)
-      client.update_graph(graph_id: graph_id, name: name, unit: unit, color: color, purge_cache_urls: purge_cache_urls)
+    #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
+    def update(name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil)
+      client.update_graph(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls)
     end
 
     # Delete the predefined pixelation graph definition.
