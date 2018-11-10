@@ -97,9 +97,9 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
 
     context "with optional args" do
-      let(:name)  { "graph-name" }
-      let(:unit)  { "commit" }
-      let(:color) { "shibafu" }
+      let(:name)     { "graph-name" }
+      let(:unit)     { "commit" }
+      let(:color)    { "shibafu" }
       let(:timezone) { "Asia/Tokyo" }
 
       context "without purge_cache_urls" do
@@ -152,9 +152,9 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
 
     context "without optional args" do
-      let(:name)  { nil }
-      let(:unit)  { nil }
-      let(:color) { nil }
+      let(:name)     { nil }
+      let(:unit)     { nil }
+      let(:color)    { nil }
       let(:timezone) { nil }
 
       context "purge_cache_urls is String" do

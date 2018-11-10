@@ -24,10 +24,10 @@ module Pixela
 
     # Create a new pixelation graph definition.
     #
-    # @param name  [String]
-    # @param unit  [String]
-    # @param type  [String]
-    # @param color [String]
+    # @param name     [String]
+    # @param unit     [String]
+    # @param type     [String]
+    # @param color    [String]
     # @param timezone [String]
     #
     # @return [Hashie::Mash]

@@ -18,11 +18,11 @@ module Pixela::Client::GraphMethods
   #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo")
   def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil)
     params = {
-      id:    graph_id,
-      name:  name,
-      unit:  unit,
-      type:  type,
-      color: color,
+      id:       graph_id,
+      name:     name,
+      unit:     unit,
+      type:     type,
+      color:    color,
       timezone: timezone,
     }
 
@@ -91,9 +91,9 @@ module Pixela::Client::GraphMethods
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
   def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil)
     params = {
-      name:  name,
-      unit:  unit,
-      color: color,
+      name:     name,
+      unit:     unit,
+      color:    color,
       timezone: timezone,
     }
 
