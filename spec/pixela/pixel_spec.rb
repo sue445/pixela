@@ -11,7 +11,7 @@ RSpec.describe Pixela::Pixel do
     let(:quantity) { 5 }
 
     before do
-      allow(client).to receive(:create_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
+      allow(client).to receive(:create_pixel)
     end
 
     it "successful" do
@@ -24,7 +24,7 @@ RSpec.describe Pixela::Pixel do
     subject { pixel.get }
 
     before do
-      allow(client).to receive(:get_pixel).with(graph_id: graph_id, date: date)
+      allow(client).to receive(:get_pixel)
     end
 
     it "successful" do
@@ -39,7 +39,7 @@ RSpec.describe Pixela::Pixel do
     let(:quantity) { 7 }
 
     before do
-      allow(client).to receive(:update_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
+      allow(client).to receive(:update_pixel)
     end
 
     it "successful" do
@@ -52,7 +52,7 @@ RSpec.describe Pixela::Pixel do
     subject { pixel.delete }
 
     before do
-      allow(client).to receive(:delete_pixel).with(graph_id: graph_id, date: date)
+      allow(client).to receive(:delete_pixel)
     end
 
     it "successful" do

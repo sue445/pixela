@@ -22,7 +22,7 @@ RSpec.describe Pixela::Graph do
     let(:timezone) { "Asia/Tokyo" }
 
     before do
-      allow(client).to receive(:create_graph).with(graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone)
+      allow(client).to receive(:create_graph)
     end
 
     it "successful" do
@@ -58,7 +58,7 @@ RSpec.describe Pixela::Graph do
     let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
 
     before do
-      allow(client).to receive(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls)
+      allow(client).to receive(:update_graph)
     end
 
     it "successful" do
@@ -71,7 +71,7 @@ RSpec.describe Pixela::Graph do
     subject { graph.delete }
 
     before do
-      allow(client).to receive(:delete_graph).with(graph_id)
+      allow(client).to receive(:delete_graph)
     end
 
     it "successful" do
@@ -84,7 +84,7 @@ RSpec.describe Pixela::Graph do
     subject { graph.increment }
 
     before do
-      allow(client).to receive(:increment_pixel).with(graph_id: graph_id)
+      allow(client).to receive(:increment_pixel)
     end
 
     it "successful" do
@@ -97,7 +97,7 @@ RSpec.describe Pixela::Graph do
     subject { graph.decrement }
 
     before do
-      allow(client).to receive(:decrement_pixel).with(graph_id: graph_id)
+      allow(client).to receive(:decrement_pixel)
     end
 
     it "successful" do
