@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v0.5.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v0.5.2...master)
+
+## v0.5.2
+[full changelog](http://github.com/sue445/pixela/compare/v0.5.1...v0.5.2)
+
+* Add `timezone` to `create_graph` and `update_graph`
+  * https://github.com/sue445/pixela/pull/34
+  * https://github.com/a-know/Pixela/releases/tag/v1.4.0
 
 ## v0.5.1
 [full changelog](http://github.com/sue445/pixela/compare/v0.5.0...v0.5.1)
