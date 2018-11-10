@@ -8,7 +8,7 @@ RSpec.describe Pixela::Webhook do
     subject { webhook.invoke }
 
     before do
-      allow(client).to receive(:invoke_webhook).with(webhook_hash: webhook_hash)
+      allow(client).to receive(:invoke_webhook)
     end
 
     it "successful" do
@@ -21,7 +21,7 @@ RSpec.describe Pixela::Webhook do
     subject { webhook.delete }
 
     before do
-      allow(client).to receive(:delete_webhook).with(webhook_hash: webhook_hash)
+      allow(client).to receive(:delete_webhook)
     end
 
     it "successful" do
