@@ -1,26 +1,33 @@
 language: ruby
 rvm:
-- 2.3
-- 2.4
-- 2.5
-- ruby-head
+  - 2.3
+  - 2.4
+  - 2.5
+  - ruby-head
 bundler_args: "--jobs=2"
 cache: bundler
 before_install:
-- gem update --system --no-document
-- gem install bundler --no-document
+  - gem update --system --no-document
+  - gem install bundler --no-document
 before_script:
-- export CODECLIMATE_REPO_TOKEN=67b1bed21e42834690bb57b148b93d6bd23410d8e013afdf6a89d66f36011a95
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-- bundle exec rspec
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 branches:
   only:
-  - master
+    - master
 notifications:
   email: false
   slack:
     secure: ec/Q9tFK+TjW7ZVOWg8NPfa4IFfbU24ljqObG7YhlaYaIN63MMdMITfy17sQahm2T0x7jhAzxDo1pDTb9XoBs12cu2wogZltv+daZwATWYzipvUxQqge1yywnFn3QLfQyzAl5p1MYkxLpJeVDRD8wunmc2OikR4jMtl5KDk9e2sItHGJdfPY8mFhM+sKaLyy9mbGo02aqRqwhgXGFQg1lZ/D6qPZKPSAd+S+uJgma8En4P292APBN9hsgpjC4HGqiqhPumOyjmdiVZ//4QoYhIEaMGJiwKyv9GwS0cTfk6w9MNFRILhj4tN3kP8ZsI7h5oQy8+x0Deac9joTKMNVarvZkVFZWLZ3p8mthdsRNKZeYxkSgnrhwA/3CFe/THjolfROA61iQqWxFycdIqSieiGHZ57EvHo7HOSD5Kc0017X+UITjiWiKiSQPddPmYm5hl9lo9rBo1RaJRr6B5A2qrw2SBmNfH38+BDTMFZprJLN51LBJ4DEy4R0CClbyIk6DbODsWqQC+W+6sOCWOhrVXSeSVlxPz7hT24ezkcMLMvoA5k9f6Gi2cWWDD9CmRI2Upt+5lx0Ui1/9xbk4RG6/hue8L764jdQ2mqNtrAZJSjdfs9KxapoKFllezdwhNVJS4UoU6PT9DU227cHH3SWHYm9GHu/pQ6kdhBGcr/EMiY=
 matrix:
   allow_failures:
-  - rvm: ruby-head
+    - rvm: ruby-head
 sudo: false
+env:
+  global:
+    - CC_TEST_REPORTER_ID=67b1bed21e42834690bb57b148b93d6bd23410d8e013afdf6a89d66f36011a95
