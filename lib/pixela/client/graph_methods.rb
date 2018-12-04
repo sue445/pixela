@@ -27,7 +27,7 @@ module Pixela::Client::GraphMethods
     }
 
     with_error_handling do
-      connection.post("users/#{username}/graphs", compact_hash(params), user_token_headers).body
+      connection.post("users/#{username}/graphs", compact_hash(params)).body
     end
   end
 
@@ -43,7 +43,7 @@ module Pixela::Client::GraphMethods
   #   client.get_graphs
   def get_graphs
     with_error_handling do
-      connection.get("users/#{username}/graphs", nil, user_token_headers).body.graphs
+      connection.get("users/#{username}/graphs").body.graphs
     end
   end
 
@@ -102,7 +102,7 @@ module Pixela::Client::GraphMethods
     end
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}", compact_hash(params), user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}", compact_hash(params)).body
     end
   end
 
@@ -120,7 +120,7 @@ module Pixela::Client::GraphMethods
   #   client.delete_graph("test-graph")
   def delete_graph(graph_id)
     with_error_handling do
-      connection.delete("users/#{username}/graphs/#{graph_id}", nil, user_token_headers).body
+      connection.delete("users/#{username}/graphs/#{graph_id}").body
     end
   end
 end
