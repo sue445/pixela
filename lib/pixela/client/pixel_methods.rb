@@ -20,7 +20,7 @@ module Pixela::Client::PixelMethods
     }
 
     with_error_handling do
-      connection.post("users/#{username}/graphs/#{graph_id}", params, user_token_headers).body
+      connection.post("users/#{username}/graphs/#{graph_id}", params).body
     end
   end
 
@@ -39,7 +39,7 @@ module Pixela::Client::PixelMethods
   #   client.get_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def get_pixel(graph_id:, date: Date.today)
     with_error_handling do
-      connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
+      connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
     end
   end
 
@@ -63,7 +63,7 @@ module Pixela::Client::PixelMethods
     }
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", params, user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", params).body
     end
   end
 
@@ -82,7 +82,7 @@ module Pixela::Client::PixelMethods
   #   client.delete_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def delete_pixel(graph_id:, date: Date.today)
     with_error_handling do
-      connection.delete("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", nil, user_token_headers).body
+      connection.delete("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
     end
   end
 
@@ -100,7 +100,7 @@ module Pixela::Client::PixelMethods
   #   client.increment_pixel(graph_id: "test-graph")
   def increment_pixel(graph_id:)
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}/increment", nil, user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}/increment").body
     end
   end
 
@@ -118,7 +118,7 @@ module Pixela::Client::PixelMethods
   #   client.decrement_pixel(graph_id: "test-graph")
   def decrement_pixel(graph_id:)
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}/decrement", nil, user_token_headers).body
+      connection.put("users/#{username}/graphs/#{graph_id}/decrement").body
     end
   end
 end

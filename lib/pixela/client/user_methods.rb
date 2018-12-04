@@ -21,7 +21,7 @@ module Pixela::Client::UserMethods
     }
 
     with_error_handling do
-      connection.post("users", params, default_headers).body
+      connection(default_headers).post("users", params).body
     end
   end
 
@@ -44,7 +44,7 @@ module Pixela::Client::UserMethods
 
     response =
       with_error_handling do
-        connection.put("users/#{username}", params, user_token_headers).body
+        connection.put("users/#{username}", params).body
       end
 
     @token = new_token
@@ -64,7 +64,7 @@ module Pixela::Client::UserMethods
   #   client.delete_user
   def delete_user
     with_error_handling do
-      connection.delete("users/#{username}", nil, user_token_headers).body
+      connection.delete("users/#{username}").body
     end
   end
 end

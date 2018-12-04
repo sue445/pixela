@@ -49,8 +49,11 @@ module Pixela
     # @return [String]
     attr_reader :token
 
-    def connection
-      Faraday.new(API_ENDPOINT) do |conn|
+    # @param request_headers [Hash]
+    #
+    # @return [Faraday::Connection]
+    def connection(request_headers = user_token_headers)
+      Faraday.new(url: API_ENDPOINT, headers: request_headers) do |conn|
         conn.request :json
         conn.response :mashify
         conn.response :json

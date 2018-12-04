@@ -19,7 +19,7 @@ module Pixela::Client::WebhookMethods
     }
 
     with_error_handling do
-      connection.post("users/#{username}/webhooks", params, user_token_headers).body
+      connection.post("users/#{username}/webhooks", params).body
     end
   end
 
@@ -35,7 +35,7 @@ module Pixela::Client::WebhookMethods
   #   client.get_webhooks
   def get_webhooks
     with_error_handling do
-      connection.get("users/#{username}/webhooks", nil, user_token_headers).body.webhooks
+      connection.get("users/#{username}/webhooks").body.webhooks
     end
   end
 
@@ -53,7 +53,7 @@ module Pixela::Client::WebhookMethods
   #   client.invoke_webhook(webhook_hash: "<webhookHash>")
   def invoke_webhook(webhook_hash:)
     with_error_handling do
-      connection.post("users/#{username}/webhooks/#{webhook_hash}", nil, default_headers).body
+      connection(default_headers).post("users/#{username}/webhooks/#{webhook_hash}").body
     end
   end
 
@@ -71,7 +71,7 @@ module Pixela::Client::WebhookMethods
   #   client.delete_webhook(webhook_hash: "<webhookHash>")
   def delete_webhook(webhook_hash:)
     with_error_handling do
-      connection.delete("users/#{username}/webhooks/#{webhook_hash}", nil, user_token_headers).body
+      connection.delete("users/#{username}/webhooks/#{webhook_hash}").body
     end
   end
 end
