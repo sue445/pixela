@@ -46,7 +46,7 @@ RSpec.describe Pixela::Client::PixelMethods do
         to_return(status: 200, body: fixture("get_pixel.json"))
     end
 
-    its(:quantity) { should eq 5 }
+    its(:quantity)      { should eq 5 }
     its(:optional_data) { should eq({"key" => "value"}) }
     it { should_not be_has_key(:optionalData) }
   end
@@ -61,9 +61,9 @@ RSpec.describe Pixela::Client::PixelMethods do
       )
     end
 
-    let(:graph_id) { "test-graph" }
-    let(:date)     { Date.parse("2018-09-15") }
-    let(:quantity) { 7 }
+    let(:graph_id)      { "test-graph" }
+    let(:date)          { Date.parse("2018-09-15") }
+    let(:quantity)      { 7 }
     let(:optional_data) { { key: "value" } }
 
     before do
@@ -103,7 +103,7 @@ RSpec.describe Pixela::Client::PixelMethods do
     subject do
       client.increment_pixel(
         graph_id: graph_id,
-        )
+      )
     end
 
     let(:graph_id) { "test-graph" }
