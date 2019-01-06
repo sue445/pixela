@@ -6,7 +6,7 @@ module Pixela::Client::PixelMethods
   # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -31,7 +31,7 @@ module Pixela::Client::PixelMethods
   # @param graph_id [String]
   # @param date     [Date,Time]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -65,7 +65,7 @@ module Pixela::Client::PixelMethods
   # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -89,7 +89,7 @@ module Pixela::Client::PixelMethods
   # @param graph_id [String]
   # @param date     [Date,Time]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -107,7 +107,7 @@ module Pixela::Client::PixelMethods
   #
   # @param graph_id [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -125,7 +125,7 @@ module Pixela::Client::PixelMethods
   #
   # @param graph_id [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #

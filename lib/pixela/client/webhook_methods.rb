@@ -4,7 +4,7 @@ module Pixela::Client::WebhookMethods
   # @param graph_id [String]
   # @param type     [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -43,7 +43,7 @@ module Pixela::Client::WebhookMethods
   #
   # @param webhook_hash [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -61,7 +61,7 @@ module Pixela::Client::WebhookMethods
   #
   # @param webhook_hash [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
