@@ -4,16 +4,16 @@ RSpec.describe Pixela::Client::PixelMethods do
   describe "#create_pixel" do
     subject do
       client.create_pixel(
-        graph_id: graph_id,
-        date:     date,
-        quantity: quantity,
+        graph_id:      graph_id,
+        date:          date,
+        quantity:      quantity,
         optional_data: optional_data,
       )
     end
 
-    let(:graph_id) { "test-graph" }
-    let(:date)     { Date.parse("2018-09-15") }
-    let(:quantity) { 5 }
+    let(:graph_id)      { "test-graph" }
+    let(:date)          { Date.parse("2018-09-15") }
+    let(:quantity)      { 5 }
     let(:optional_data) { { key: "value" } }
 
     before do
@@ -52,9 +52,9 @@ RSpec.describe Pixela::Client::PixelMethods do
   describe "#update_pixel" do
     subject do
       client.update_pixel(
-        graph_id: graph_id,
-        date:     date,
-        quantity: quantity,
+        graph_id:      graph_id,
+        date:          date,
+        quantity:      quantity,
         optional_data: optional_data,
       )
     end

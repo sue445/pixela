@@ -1,9 +1,9 @@
 module Pixela::Client::PixelMethods
   # It records the quantity of the specified date as a "Pixel".
   #
-  # @param graph_id [String]
-  # @param date     [Date,Time]
-  # @param quantity [Integer,Float]
+  # @param graph_id      [String]
+  # @param date          [Date,Time]
+  # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
   # @return [Hashie::Mash]
@@ -16,8 +16,8 @@ module Pixela::Client::PixelMethods
   #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5, optional_data: {key: "value"})
   def create_pixel(graph_id:, date: Date.today, quantity:, optional_data: nil)
     params = {
-      date:     to_ymd(date),
-      quantity: quantity.to_s,
+      date:         to_ymd(date),
+      quantity:     quantity.to_s,
       optionalData: optional_data&.to_json,
     }
 
@@ -47,9 +47,9 @@ module Pixela::Client::PixelMethods
 
   # Update the quantity already registered as a "Pixel".
   #
-  # @param graph_id [String]
-  # @param date     [Date,Time]
-  # @param quantity [Integer,Float]
+  # @param graph_id      [String]
+  # @param date          [Date,Time]
+  # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
   # @return [Hashie::Mash]
@@ -62,7 +62,7 @@ module Pixela::Client::PixelMethods
   #   client.update_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 7, optional_data: {key: "value"})
   def update_pixel(graph_id:, date: Date.today, quantity:, optional_data: nil)
     params = {
-      quantity: quantity.to_s,
+      quantity:     quantity.to_s,
       optionalData: optional_data&.to_json
     }
 

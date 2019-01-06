@@ -23,7 +23,7 @@ module Pixela
 
     # It records the quantity of the specified date as a "Pixel".
     #
-    # @param quantity [Integer,Float]
+    # @param quantity      [Integer,Float]
     # @param optional_data [Object] Additional information other than quantity
     #
     # @return [Hashie::Mash]
@@ -54,7 +54,7 @@ module Pixela
 
     # Update the quantity already registered as a "Pixel".
     #
-    # @param quantity [Integer,Float]
+    # @param quantity      [Integer,Float]
     # @param optional_data [Object] Additional information other than quantity
     #
     # @return [Hashie::Mash]
