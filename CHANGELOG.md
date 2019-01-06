@@ -1,5 +1,23 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v0.5.2...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.0.0...master)
+
+## v1.0.0
+[full changelog](http://github.com/sue445/pixela/compare/v0.5.2...v1.0.0)
+
+### :warning: Breaking changes :warning:
+* Drop support ruby 2.2
+  * https://github.com/sue445/pixela/pull/42
+
+### Features
+* Add `optional_data` to `create_pixel` and `update_pixel`
+  * https://github.com/sue445/pixela/pull/43
+  * https://github.com/a-know/Pixela/releases/tag/v1.6.0
+* Returns parsed json instead of json string in `get_pixel`
+  * https://github.com/sue445/pixela/pull/44
+  
+### Refactorings
+* Refactor: `Pixela::Client#connection`
+  * https://github.com/sue445/pixela/pull/37
 
 ## v0.5.2
 [full changelog](http://github.com/sue445/pixela/compare/v0.5.1...v0.5.2)
