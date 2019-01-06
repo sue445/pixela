@@ -4,19 +4,21 @@ RSpec.describe Pixela::Client::PixelMethods do
   describe "#create_pixel" do
     subject do
       client.create_pixel(
-        graph_id: graph_id,
-        date:     date,
-        quantity: quantity,
+        graph_id:      graph_id,
+        date:          date,
+        quantity:      quantity,
+        optional_data: optional_data,
       )
     end
 
-    let(:graph_id) { "test-graph" }
-    let(:date)     { Date.parse("2018-09-15") }
-    let(:quantity) { 5 }
+    let(:graph_id)      { "test-graph" }
+    let(:date)          { Date.parse("2018-09-15") }
+    let(:quantity)      { 5 }
+    let(:optional_data) { { key: "value" } }
 
     before do
       json_body = <<~JSON.strip
-        {"date":"20180915","quantity":"5"}
+        {"date":"20180915","quantity":"5","optionalData":"{\\"key\\":\\"value\\"}"}
       JSON
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph").
@@ -50,19 +52,21 @@ RSpec.describe Pixela::Client::PixelMethods do
   describe "#update_pixel" do
     subject do
       client.update_pixel(
-        graph_id: graph_id,
-        date:     date,
-        quantity: quantity,
+        graph_id:      graph_id,
+        date:          date,
+        quantity:      quantity,
+        optional_data: optional_data,
       )
     end
 
     let(:graph_id) { "test-graph" }
     let(:date)     { Date.parse("2018-09-15") }
     let(:quantity) { 7 }
+    let(:optional_data) { { key: "value" } }
 
     before do
       json_body = <<~JSON.strip
-        {"quantity":"7"}
+        {"quantity":"7","optionalData":"{\\"key\\":\\"value\\"}"}
       JSON
 
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").

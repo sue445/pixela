@@ -1,9 +1,10 @@
 module Pixela::Client::PixelMethods
   # It records the quantity of the specified date as a "Pixel".
   #
-  # @param graph_id [String]
-  # @param date     [Date,Time]
-  # @param quantity [Integer,Float]
+  # @param graph_id      [String]
+  # @param date          [Date,Time]
+  # @param quantity      [Integer,Float]
+  # @param optional_data [Object] Additional information other than quantity
   #
   # @return [Hashie::Mash]
   #
@@ -12,15 +13,16 @@ module Pixela::Client::PixelMethods
   # @see https://docs.pixe.la/#/post-pixel
   #
   # @example
-  #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5)
-  def create_pixel(graph_id:, date: Date.today, quantity:)
+  #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5, optional_data: {key: "value"})
+  def create_pixel(graph_id:, date: Date.today, quantity:, optional_data: nil)
     params = {
-      date:     to_ymd(date),
-      quantity: quantity.to_s,
+      date:         to_ymd(date),
+      quantity:     quantity.to_s,
+      optionalData: optional_data&.to_json,
     }
 
     with_error_handling do
-      connection.post("users/#{username}/graphs/#{graph_id}", params).body
+      connection.post("users/#{username}/graphs/#{graph_id}", compact_hash(params)).body
     end
   end
 
@@ -45,9 +47,10 @@ module Pixela::Client::PixelMethods
 
   # Update the quantity already registered as a "Pixel".
   #
-  # @param graph_id [String]
-  # @param date     [Date,Time]
-  # @param quantity [Integer,Float]
+  # @param graph_id      [String]
+  # @param date          [Date,Time]
+  # @param quantity      [Integer,Float]
+  # @param optional_data [Object] Additional information other than quantity
   #
   # @return [Hashie::Mash]
   #
@@ -56,14 +59,15 @@ module Pixela::Client::PixelMethods
   # @see https://docs.pixe.la/#/put-pixel
   #
   # @example
-  #   client.update_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 7)
-  def update_pixel(graph_id:, date: Date.today, quantity:)
+  #   client.update_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 7, optional_data: {key: "value"})
+  def update_pixel(graph_id:, date: Date.today, quantity:, optional_data: nil)
     params = {
-      quantity: quantity.to_s,
+      quantity:     quantity.to_s,
+      optionalData: optional_data&.to_json
     }
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", params).body
+      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", compact_hash(params)).body
     end
   end
 
