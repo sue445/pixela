@@ -24,6 +24,7 @@ module Pixela
     # It records the quantity of the specified date as a "Pixel".
     #
     # @param quantity [Integer,Float]
+    # @param optional_data [Object] Additional information other than quantity
     #
     # @return [Hashie::Mash]
     #
@@ -32,9 +33,9 @@ module Pixela
     # @see https://docs.pixe.la/#/post-pixel
     #
     # @example
-    #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).create(quantity: 5)
-    def create(quantity:)
-      client.create_pixel(graph_id: graph_id, date: date, quantity: quantity)
+    #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).create(quantity: 5, optional_data: {key: "value"})
+    def create(quantity:, optional_data: nil)
+      client.create_pixel(graph_id: graph_id, date: date, quantity: quantity, optional_data: optional_data)
     end
 
     # Get registered quantity as "Pixel".
@@ -54,6 +55,7 @@ module Pixela
     # Update the quantity already registered as a "Pixel".
     #
     # @param quantity [Integer,Float]
+    # @param optional_data [Object] Additional information other than quantity
     #
     # @return [Hashie::Mash]
     #
@@ -62,9 +64,9 @@ module Pixela
     # @see https://docs.pixe.la/#/put-pixel
     #
     # @example
-    #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).update(quantity: 7)
-    def update(quantity:)
-      client.update_pixel(graph_id: graph_id, date: date, quantity: quantity)
+    #   client.graph("test-graph").pixel(Date.new(2018, 9, 15)).update(quantity: 7, optional_data: {key: "value"})
+    def update(quantity:, optional_data: nil)
+      client.update_pixel(graph_id: graph_id, date: date, quantity: quantity, optional_data: optional_data)
     end
 
     # Delete the registered "Pixel".

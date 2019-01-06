@@ -4,9 +4,10 @@ RSpec.describe Pixela::Pixel do
   let(:pixel)    { client.graph(graph_id).pixel(date) }
   let(:graph_id) { "test-graph" }
   let(:date)     { Date.parse("2018-09-15") }
+  let(:optional_data) { { key: "value" } }
 
   describe "#create" do
-    subject { pixel.create(quantity: quantity) }
+    subject { pixel.create(quantity: quantity, optional_data: optional_data) }
 
     let(:quantity) { 5 }
 
@@ -16,7 +17,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:create_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
+      expect(client).to have_received(:create_pixel).with(graph_id: graph_id, date: date, quantity: quantity, optional_data: optional_data)
     end
   end
 
@@ -34,7 +35,7 @@ RSpec.describe Pixela::Pixel do
   end
 
   describe "#update" do
-    subject { pixel.update(quantity: quantity) }
+    subject { pixel.update(quantity: quantity, optional_data: optional_data) }
 
     let(:quantity) { 7 }
 
@@ -44,7 +45,7 @@ RSpec.describe Pixela::Pixel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:update_pixel).with(graph_id: graph_id, date: date, quantity: quantity)
+      expect(client).to have_received(:update_pixel).with(graph_id: graph_id, date: date, quantity: quantity, optional_data: optional_data)
     end
   end
 
