@@ -55,7 +55,7 @@ module Pixela
     def connection(request_headers = user_token_headers)
       Faraday.new(url: API_ENDPOINT, headers: request_headers) do |conn|
         conn.request :json
-        conn.response :mashify
+        conn.response :mashify, mash_class: Pixela::Response
         conn.response :json
         conn.response :raise_error
 

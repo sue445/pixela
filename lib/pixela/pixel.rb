@@ -26,7 +26,7 @@ module Pixela
     # @param quantity      [Integer,Float]
     # @param optional_data [Object] Additional information other than quantity
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -40,7 +40,7 @@ module Pixela
 
     # Get registered quantity as "Pixel".
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -57,7 +57,7 @@ module Pixela
     # @param quantity      [Integer,Float]
     # @param optional_data [Object] Additional information other than quantity
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -71,7 +71,7 @@ module Pixela
 
     # Delete the registered "Pixel".
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #

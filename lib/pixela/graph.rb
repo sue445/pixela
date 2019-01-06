@@ -30,7 +30,7 @@ module Pixela
     # @param color    [String]
     # @param timezone [String]
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -66,7 +66,7 @@ module Pixela
     # @param timezone         [String]
     # @param purge_cache_urls [String,Array<String>]
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -80,7 +80,7 @@ module Pixela
 
     # Delete the predefined pixelation graph definition.
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -94,7 +94,7 @@ module Pixela
 
     # Increment quantity "Pixel" of the day (UTC).
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -108,7 +108,7 @@ module Pixela
 
     # Decrement quantity "Pixel" of the day (UTC).
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #

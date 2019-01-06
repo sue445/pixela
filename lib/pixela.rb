@@ -9,6 +9,7 @@ module Pixela
   autoload :Configuration, "pixela/configuration"
   autoload :Graph,         "pixela/graph"
   autoload :Pixel,         "pixela/pixel"
+  autoload :Response,      "pixela/response"
   autoload :Webhook,       "pixela/webhook"
 
   # @return [Pixela::Configuration]

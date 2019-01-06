@@ -17,7 +17,7 @@ module Pixela
 
     # Invoke the webhook registered in advance.
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #
@@ -31,7 +31,7 @@ module Pixela
 
     # Delete the registered Webhook.
     #
-    # @return [Hashie::Mash]
+    # @return [Pixela::Response]
     #
     # @raise [Pixela::PixelaError] API is failed
     #

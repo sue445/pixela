@@ -8,7 +8,7 @@ module Pixela::Client::GraphMethods
   # @param color    [String]
   # @param timezone [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -81,7 +81,7 @@ module Pixela::Client::GraphMethods
   # @param timezone         [String]
   # @param purge_cache_urls [String,Array<String>]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -110,7 +110,7 @@ module Pixela::Client::GraphMethods
   #
   # @param graph_id [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #

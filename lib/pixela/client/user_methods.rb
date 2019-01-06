@@ -4,7 +4,7 @@ module Pixela::Client::UserMethods
   # @param agree_terms_of_service [Boolean]
   # @param not_minor [Boolean]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -29,7 +29,7 @@ module Pixela::Client::UserMethods
   #
   # @param new_token [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -54,7 +54,7 @@ module Pixela::Client::UserMethods
 
   # Deletes the specified registered user.
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #

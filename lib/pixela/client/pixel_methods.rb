@@ -6,7 +6,7 @@ module Pixela::Client::PixelMethods
   # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -31,7 +31,7 @@ module Pixela::Client::PixelMethods
   # @param graph_id [String]
   # @param date     [Date,Time]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -40,9 +40,22 @@ module Pixela::Client::PixelMethods
   # @example
   #   client.get_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def get_pixel(graph_id:, date: Date.today)
-    with_error_handling do
-      connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
+    res =
+      with_error_handling do
+        connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
+      end
+
+    if res.key?(:optionalData)
+      res[:optional_data] =
+        begin
+          JSON.parse(res[:optionalData])
+        rescue JSON::ParserError
+          res[:optionalData]
+        end
+      res.delete(:optionalData)
     end
+
+    res
   end
 
   # Update the quantity already registered as a "Pixel".
@@ -52,7 +65,7 @@ module Pixela::Client::PixelMethods
   # @param quantity      [Integer,Float]
   # @param optional_data [Object] Additional information other than quantity
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -76,7 +89,7 @@ module Pixela::Client::PixelMethods
   # @param graph_id [String]
   # @param date     [Date,Time]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -94,7 +107,7 @@ module Pixela::Client::PixelMethods
   #
   # @param graph_id [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
@@ -112,7 +125,7 @@ module Pixela::Client::PixelMethods
   #
   # @param graph_id [String]
   #
-  # @return [Hashie::Mash]
+  # @return [Pixela::Response]
   #
   # @raise [Pixela::PixelaError] API is failed
   #
