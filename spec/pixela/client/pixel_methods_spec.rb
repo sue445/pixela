@@ -47,6 +47,8 @@ RSpec.describe Pixela::Client::PixelMethods do
     end
 
     its(:quantity) { should eq 5 }
+    its(:optional_data) { should eq({"key" => "value"}) }
+    it { should_not be_has_key(:optionalData) }
   end
 
   describe "#update_pixel" do

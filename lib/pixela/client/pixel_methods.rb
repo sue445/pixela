@@ -40,9 +40,22 @@ module Pixela::Client::PixelMethods
   # @example
   #   client.get_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
   def get_pixel(graph_id:, date: Date.today)
-    with_error_handling do
-      connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
+    res =
+      with_error_handling do
+        connection.get("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}").body
+      end
+
+    if res.key?(:optionalData)
+      res[:optional_data] =
+        begin
+          JSON.parse(res[:optionalData])
+        rescue JSON::ParserError
+          res[:optionalData]
+        end
+      res.delete(:optionalData)
     end
+
+    res
   end
 
   # Update the quantity already registered as a "Pixel".
