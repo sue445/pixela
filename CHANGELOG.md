@@ -1,5 +1,13 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.0.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.0.1...master)
+
+## v1.0.1
+[full changelog](http://github.com/sue445/pixela/compare/v1.0.0...v1.0.1)
+
+### Features
+* Add `self_sufficient` arg to `create_graph` and `update_graph`
+  * https://github.com/sue445/pixela/pull/45
+  * https://github.com/a-know/Pixela/releases/tag/v1.7.0
 
 ## v1.0.0
 [full changelog](http://github.com/sue445/pixela/compare/v0.5.2...v1.0.0)
