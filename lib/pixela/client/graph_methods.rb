@@ -7,6 +7,7 @@ module Pixela::Client::GraphMethods
   # @param type     [String]
   # @param color    [String]
   # @param timezone [String]
+  # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
   #
   # @return [Pixela::Response]
   #
@@ -15,8 +16,8 @@ module Pixela::Client::GraphMethods
   # @see https://docs.pixe.la/#/post-graph
   #
   # @example
-  #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo")
-  def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil)
+  #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment")
+  def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil, self_sufficient: nil)
     params = {
       id:       graph_id,
       name:     name,
@@ -24,6 +25,7 @@ module Pixela::Client::GraphMethods
       type:     type,
       color:    color,
       timezone: timezone,
+      selfSufficient: self_sufficient,
     }
 
     with_error_handling do
@@ -79,6 +81,7 @@ module Pixela::Client::GraphMethods
   # @param unit             [String]
   # @param color            [String]
   # @param timezone         [String]
+  # @param self_sufficient  [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
   # @param purge_cache_urls [String,Array<String>]
   #
   # @return [Pixela::Response]
@@ -88,13 +91,14 @@ module Pixela::Client::GraphMethods
   # @see https://docs.pixe.la/#/put-graph
   #
   # @example
-  #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-  def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil)
+  #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
+  def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, self_sufficient: nil, purge_cache_urls: nil)
     params = {
       name:     name,
       unit:     unit,
       color:    color,
       timezone: timezone,
+      selfSufficient: self_sufficient,
     }
 
     if purge_cache_urls
