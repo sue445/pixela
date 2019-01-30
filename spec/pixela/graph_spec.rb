@@ -7,19 +7,21 @@ RSpec.describe Pixela::Graph do
   describe "#create" do
     subject do
       graph.create(
-        name:     name,
-        unit:     unit,
-        type:     type,
-        color:    color,
-        timezone: timezone,
+        name:            name,
+        unit:            unit,
+        type:            type,
+        color:           color,
+        timezone:        timezone,
+        self_sufficient: self_sufficient,
       )
     end
 
-    let(:name)     { "graph-name" }
-    let(:unit)     { "commit" }
-    let(:type)     { "int" }
-    let(:color)    { "shibafu" }
-    let(:timezone) { "Asia/Tokyo" }
+    let(:name)            { "graph-name" }
+    let(:unit)            { "commit" }
+    let(:type)            { "int" }
+    let(:color)           { "shibafu" }
+    let(:timezone)        { "Asia/Tokyo" }
+    let(:self_sufficient) { "increment" }
 
     before do
       allow(client).to receive(:create_graph)
@@ -27,7 +29,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
-      expect(client).to have_received(:create_graph).with(graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone)
+      expect(client).to have_received(:create_graph).with(graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone, self_sufficient: self_sufficient)
     end
   end
 
@@ -48,6 +50,7 @@ RSpec.describe Pixela::Graph do
         color:            color,
         timezone:         timezone,
         purge_cache_urls: purge_cache_urls,
+        self_sufficient:  self_sufficient,
       )
     end
 
@@ -56,6 +59,7 @@ RSpec.describe Pixela::Graph do
     let(:color)            { "shibafu" }
     let(:timezone)         { "Asia/Tokyo" }
     let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
+    let(:self_sufficient)  { "increment" }
 
     before do
       allow(client).to receive(:update_graph)
@@ -63,7 +67,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
-      expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls)
+      expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls, self_sufficient: self_sufficient)
     end
   end
 
