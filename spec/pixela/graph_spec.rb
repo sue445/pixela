@@ -7,20 +7,20 @@ RSpec.describe Pixela::Graph do
   describe "#create" do
     subject do
       graph.create(
-        name:     name,
-        unit:     unit,
-        type:     type,
-        color:    color,
-        timezone: timezone,
+        name:            name,
+        unit:            unit,
+        type:            type,
+        color:           color,
+        timezone:        timezone,
         self_sufficient: self_sufficient,
       )
     end
 
-    let(:name)     { "graph-name" }
-    let(:unit)     { "commit" }
-    let(:type)     { "int" }
-    let(:color)    { "shibafu" }
-    let(:timezone) { "Asia/Tokyo" }
+    let(:name)            { "graph-name" }
+    let(:unit)            { "commit" }
+    let(:type)            { "int" }
+    let(:color)           { "shibafu" }
+    let(:timezone)        { "Asia/Tokyo" }
     let(:self_sufficient) { "increment" }
 
     before do

@@ -24,11 +24,11 @@ module Pixela
 
     # Create a new pixelation graph definition.
     #
-    # @param name     [String]
-    # @param unit     [String]
-    # @param type     [String]
-    # @param color    [String]
-    # @param timezone [String]
+    # @param name            [String]
+    # @param unit            [String]
+    # @param type            [String]
+    # @param color           [String]
+    # @param timezone        [String]
     # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
     #
     # @return [Pixela::Response]

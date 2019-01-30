@@ -1,12 +1,12 @@
 module Pixela::Client::GraphMethods
   # Create a new pixelation graph definition.
   #
-  # @param graph_id [String]
-  # @param name     [String]
-  # @param unit     [String]
-  # @param type     [String]
-  # @param color    [String]
-  # @param timezone [String]
+  # @param graph_id        [String]
+  # @param name            [String]
+  # @param unit            [String]
+  # @param type            [String]
+  # @param color           [String]
+  # @param timezone        [String]
   # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
   #
   # @return [Pixela::Response]
@@ -19,12 +19,12 @@ module Pixela::Client::GraphMethods
   #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment")
   def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil, self_sufficient: nil)
     params = {
-      id:       graph_id,
-      name:     name,
-      unit:     unit,
-      type:     type,
-      color:    color,
-      timezone: timezone,
+      id:             graph_id,
+      name:           name,
+      unit:           unit,
+      type:           type,
+      color:          color,
+      timezone:       timezone,
       selfSufficient: self_sufficient,
     }
 
@@ -94,10 +94,10 @@ module Pixela::Client::GraphMethods
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
   def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, self_sufficient: nil, purge_cache_urls: nil)
     params = {
-      name:     name,
-      unit:     unit,
-      color:    color,
-      timezone: timezone,
+      name:           name,
+      unit:           unit,
+      color:          color,
+      timezone:       timezone,
       selfSufficient: self_sufficient,
     }
 

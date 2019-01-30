@@ -4,22 +4,22 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#create_graph" do
     subject do
       client.create_graph(
-        graph_id: graph_id,
-        name:     name,
-        unit:     unit,
-        type:     type,
-        color:    color,
-        timezone: timezone,
+        graph_id:        graph_id,
+        name:            name,
+        unit:            unit,
+        type:            type,
+        color:           color,
+        timezone:        timezone,
         self_sufficient: self_sufficient,
       )
     end
 
-    let(:graph_id) { "test-graph" }
-    let(:name)     { "graph-name" }
-    let(:unit)     { "commit" }
-    let(:type)     { "int" }
-    let(:color)    { "shibafu" }
-    let(:timezone) { "Asia/Tokyo" }
+    let(:graph_id)        { "test-graph" }
+    let(:name)            { "graph-name" }
+    let(:unit)            { "commit" }
+    let(:type)            { "int" }
+    let(:color)           { "shibafu" }
+    let(:timezone)        { "Asia/Tokyo" }
     let(:self_sufficient) { "increment" }
 
     before do
