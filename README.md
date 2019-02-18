@@ -7,6 +7,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/4c6316222717ee809b57/maintainability)](https://codeclimate.com/github/sue445/pixela/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/sue445/pixela/badge.svg)](https://coveralls.io/github/sue445/pixela)
 
+[![CI activity of pixela-gem](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci)](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci.html)
+
 ## Installation
 
 Add this line to your application's Gemfile:
