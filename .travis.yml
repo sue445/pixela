@@ -17,6 +17,7 @@ before_script:
 script:
   - bundle exec rspec
 after_script:
+  - [ "$PIXELA_WEBHOOK_URL" != "" ] && curl -X POST $PIXELA_WEBHOOK_URL -H 'Content-Length:0'
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 branches:
   only:
