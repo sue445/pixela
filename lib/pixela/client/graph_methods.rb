@@ -127,4 +127,32 @@ module Pixela::Client::GraphMethods
       connection.delete("users/#{username}/graphs/#{graph_id}").body
     end
   end
+
+  # Get a Date list of Pixel registered in the graph specified by graphID.
+  #
+  # @param graph_id [String]
+  # @param from [Date] Specify the start position of the period.
+  # @param to   [Date] Specify the end position of the period.
+  #
+  # @return [Array<Date>]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/#/get-graph-pixels
+  #
+  # @example
+  #   client.get_pixel_dates(graph_id: "test-graph", from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
+  def get_pixel_dates(graph_id:, from: nil, to: nil)
+    params = {
+      from: to_ymd(from),
+      to:   to_ymd(to),
+    }
+
+    res =
+      with_error_handling do
+        connection.get("users/#{username}/graphs/#{graph_id}/pixels", compact_hash(params)).body
+      end
+
+    res.pixels.map { |ymd| Date.parse(ymd) }
+  end
 end

@@ -215,4 +215,35 @@ RSpec.describe Pixela::Client::GraphMethods do
 
     it_behaves_like :success
   end
+
+  describe "#get_pixel_dates" do
+    subject do
+      client.get_pixel_dates(
+        graph_id: graph_id,
+        from:     from,
+        to:       to,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:from)     { Date.new(2018, 1, 1) }
+    let(:to)       { Date.new(2018, 12, 31) }
+    let(:expected) do
+      [
+        Date.parse("20180101"),
+        Date.parse("20180331"),
+        Date.parse("20180402"),
+        Date.parse("20180505"),
+        Date.parse("20181204"),
+      ]
+    end
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/pixels?from=20180101&to=20181231").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_pixel_dates.json"))
+    end
+
+    it { should eq expected }
+  end
 end
