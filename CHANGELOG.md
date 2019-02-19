@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.0.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.1.0...master)
+
+## v1.1.0
+[full changelog](http://github.com/sue445/pixela/compare/v1.0.1...v1.1.1)
+
+* Add `Pixela::Client#get_pixel_dates` and `Pixela::Graph#pixel_dates`
+  * https://github.com/sue445/pixela/pull/49
+  * https://github.com/a-know/Pixela/releases/tag/v1.8.0
 
 ## v1.0.1
 [full changelog](http://github.com/sue445/pixela/compare/v1.0.0...v1.0.1)
