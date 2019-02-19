@@ -95,6 +95,8 @@ module Pixela
     end
 
     def to_ymd(date)
+      return nil unless date
+
       date.strftime("%Y%m%d")
     end
 

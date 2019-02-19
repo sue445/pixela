@@ -121,5 +121,22 @@ module Pixela
     def decrement
       client.decrement_pixel(graph_id: graph_id)
     end
+
+    # Get a Date list of Pixel registered in the graph specified by graphID.
+    #
+    # @param from [Date] Specify the start position of the period.
+    # @param to   [Date] Specify the end position of the period.
+    #
+    # @return [Array<Date>]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/#/get-graph-pixels
+    #
+    # @example
+    #   client.get_pixels(graph_id: "test-graph", from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
+    def pixel_dates(from: nil, to: nil)
+      client.get_pixel_dates(graph_id: graph_id, from: from, to: to)
+    end
   end
 end

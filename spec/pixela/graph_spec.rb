@@ -109,4 +109,20 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:decrement_pixel).with(graph_id: graph_id)
     end
   end
+
+  describe "#pixel_dates" do
+    subject { graph.pixel_dates(from: from, to: to) }
+
+    let(:from) { Date.new(2018, 1, 1) }
+    let(:to)   { Date.new(2018, 12, 31) }
+
+    before do
+      allow(client).to receive(:get_pixel_dates)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_pixel_dates).with(graph_id: graph_id, from: from, to: to)
+    end
+  end
 end
