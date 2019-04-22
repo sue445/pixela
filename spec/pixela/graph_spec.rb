@@ -125,4 +125,17 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:get_pixel_dates).with(graph_id: graph_id, from: from, to: to)
     end
   end
+
+  describe "#stats" do
+    subject { graph.stats }
+
+    before do
+      allow(client).to receive(:get_graph_stats)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_graph_stats).with(graph_id: graph_id)
+    end
+  end
 end

@@ -138,5 +138,19 @@ module Pixela
     def pixel_dates(from: nil, to: nil)
       client.get_pixel_dates(graph_id: graph_id, from: from, to: to)
     end
+
+    # Based on the registered information, get various statistics.
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/#/get-graph-stats
+    #
+    # @example
+    #   client.graph("test-graph").stats
+    def stats
+      client.get_graph_stats(graph_id: graph_id)
+    end
   end
 end
