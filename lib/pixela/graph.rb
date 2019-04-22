@@ -134,7 +134,7 @@ module Pixela
     # @see https://docs.pixe.la/#/get-graph-pixels
     #
     # @example
-    #   client.get_pixels(graph_id: "test-graph", from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
+    #   client.graph("test-graph").pixel_dates(from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
     def pixel_dates(from: nil, to: nil)
       client.get_pixel_dates(graph_id: graph_id, from: from, to: to)
     end
