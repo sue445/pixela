@@ -246,4 +246,20 @@ RSpec.describe Pixela::Client::GraphMethods do
 
     it { should eq expected }
   end
+
+  describe "#get_graph_stats" do
+    subject do
+      client.get_graph_stats(graph_id: graph_id)
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/stats").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_graph_stats.json"))
+    end
+
+    its(:totalPixelsCount) { should eq 4 }
+  end
 end

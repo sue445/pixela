@@ -155,4 +155,22 @@ module Pixela::Client::GraphMethods
 
     res.pixels.map { |ymd| Date.parse(ymd) }
   end
+
+  # Based on the registered information, get various statistics.
+  #
+  # @param graph_id [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/#/get-graph-stats
+  #
+  # @example
+  #   client.get_graph_stats(graph_id: "test-graph")
+  def get_graph_stats(graph_id:)
+    with_error_handling do
+      connection.get("users/#{username}/graphs/#{graph_id}/stats").body
+    end
+  end
 end
