@@ -78,6 +78,12 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
   end
 
+  describe "#graphs_url" do
+    subject { client.graphs_url }
+
+    it { should eq "https://pixe.la/v1/users/a-know/graphs.html" }
+  end
+
   describe "#update_graph" do
     subject do
       client.update_graph(
