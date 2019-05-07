@@ -10,7 +10,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/post-pixel
+  # @see https://docs.pixe.la/entry/post-pixel
   #
   # @example
   #   client.create_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 5, optional_data: {key: "value"})
@@ -35,7 +35,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-pixel
+  # @see https://docs.pixe.la/entry/get-pixel
   #
   # @example
   #   client.get_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
@@ -69,7 +69,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/put-pixel
+  # @see https://docs.pixe.la/entry/put-pixel
   #
   # @example
   #   client.update_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15), quantity: 7, optional_data: {key: "value"})
@@ -93,7 +93,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/delete-pixel
+  # @see https://docs.pixe.la/entry/delete-pixel
   #
   # @example
   #   client.delete_pixel(graph_id: "test-graph", date: Date.new(2018, 9, 15))
@@ -111,7 +111,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/increment-pixel
+  # @see https://docs.pixe.la/entry/increment-pixel
   #
   # @example
   #   client.increment_pixel(graph_id: "test-graph")
@@ -129,7 +129,7 @@ module Pixela::Client::PixelMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/decrement-pixel
+  # @see https://docs.pixe.la/entry/decrement-pixel
   #
   # @example
   #   client.decrement_pixel(graph_id: "test-graph")

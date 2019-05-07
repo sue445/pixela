@@ -35,7 +35,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/post-graph
+    # @see https://docs.pixe.la/entry/post-graph
     #
     # @example
     #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment")
@@ -50,7 +50,7 @@ module Pixela
     #
     # @return [String]
     #
-    # @see https://docs.pixe.la/#/get-graph
+    # @see https://docs.pixe.la/entry/get-graph
     #
     # @example
     #   client.graph("test-graph").url
@@ -72,7 +72,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/put-graph
+    # @see https://docs.pixe.la/entry/put-graph
     #
     # @example
     #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
@@ -86,7 +86,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/put-graph
+    # @see https://docs.pixe.la/entry/put-graph
     #
     # @example
     #   client.graph("test-graph").delete
@@ -100,7 +100,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/increment-pixel
+    # @see https://docs.pixe.la/entry/increment-pixel
     #
     # @example
     #   client.graph("test-graph").increment
@@ -114,7 +114,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/decrement-pixel
+    # @see https://docs.pixe.la/entry/decrement-pixel
     #
     # @example
     #   client.graph("test-graph").decrement
@@ -131,7 +131,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/get-graph-pixels
+    # @see https://docs.pixe.la/entry/get-graph-pixels
     #
     # @example
     #   client.graph("test-graph").pixel_dates(from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
@@ -145,7 +145,7 @@ module Pixela
     #
     # @raise [Pixela::PixelaError] API is failed
     #
-    # @see https://docs.pixe.la/#/get-graph-stats
+    # @see https://docs.pixe.la/entry/get-graph-stats
     #
     # @example
     #   client.graph("test-graph").stats
