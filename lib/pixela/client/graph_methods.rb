@@ -39,7 +39,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-graph
+  # @see https://docs.pixe.la/entry/get-graph
   #
   # @example
   #   client.get_graphs
@@ -100,7 +100,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/put-graph
+  # @see https://docs.pixe.la/entry/put-graph
   #
   # @example
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
@@ -130,7 +130,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/delete-graph
+  # @see https://docs.pixe.la/entry/delete-graph
   #
   # @example
   #   client.delete_graph("test-graph")
@@ -150,7 +150,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-graph-pixels
+  # @see https://docs.pixe.la/entry/get-graph-pixels
   #
   # @example
   #   client.get_pixel_dates(graph_id: "test-graph", from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
@@ -176,7 +176,7 @@ module Pixela::Client::GraphMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-graph-stats
+  # @see https://docs.pixe.la/entry/get-graph-stats
   #
   # @example
   #   client.get_graph_stats(graph_id: "test-graph")

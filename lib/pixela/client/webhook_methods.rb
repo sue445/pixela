@@ -47,7 +47,7 @@ module Pixela::Client::WebhookMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/invoke-webhook
+  # @see https://docs.pixe.la/entry/invoke-webhook
   #
   # @example
   #   client.invoke_webhook(webhook_hash: "<webhookHash>")
@@ -65,7 +65,7 @@ module Pixela::Client::WebhookMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/delete-webhook
+  # @see https://docs.pixe.la/entry/delete-webhook
   #
   # @example
   #   client.delete_webhook(webhook_hash: "<webhookHash>")
