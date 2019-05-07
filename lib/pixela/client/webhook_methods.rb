@@ -8,7 +8,7 @@ module Pixela::Client::WebhookMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/post-webhook
+  # @see https://docs.pixe.la/entry/post-webhook
   #
   # @example
   #   client.create_webhook(graph_id: "test-graph", type: "increment")
@@ -29,7 +29,7 @@ module Pixela::Client::WebhookMethods
   #
   # @raise [Pixela::PixelaError] API is failed
   #
-  # @see https://docs.pixe.la/#/get-webhook
+  # @see https://docs.pixe.la/entry/get-webhooks
   #
   # @example
   #   client.get_webhooks
