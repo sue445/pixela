@@ -74,6 +74,18 @@ module Pixela::Client::GraphMethods
     url
   end
 
+  # Displays graph list by detail in html format.
+  #
+  # @return [String]
+  #
+  # @see https://docs.pixe.la/entry/get-graph-list-html
+  #
+  # @example
+  #   client.graphs_url
+  def graphs_url
+    "https://pixe.la/v1/users/#{username}/graphs.html"
+  end
+
   # Update predefined pixelation graph definitions.
   #
   # @param graph_id         [String]
