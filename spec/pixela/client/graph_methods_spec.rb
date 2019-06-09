@@ -11,6 +11,8 @@ RSpec.describe Pixela::Client::GraphMethods do
         color:           color,
         timezone:        timezone,
         self_sufficient: self_sufficient,
+        is_secret: is_secret,
+        publish_optional_data: publish_optional_data,
       )
     end
 
@@ -21,10 +23,12 @@ RSpec.describe Pixela::Client::GraphMethods do
     let(:color)           { "shibafu" }
     let(:timezone)        { "Asia/Tokyo" }
     let(:self_sufficient) { "increment" }
+    let(:is_secret)             { true }
+    let(:publish_optional_data) { true }
 
     before do
       json_body = <<~JSON.strip
-        {"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment"}
+        {"id":"test-graph","name":"graph-name","unit":"commit","type":"int","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","isSecret":true,"publishOptionalData":true}
       JSON
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs").

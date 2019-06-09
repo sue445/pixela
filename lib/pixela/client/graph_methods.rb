@@ -8,6 +8,8 @@ module Pixela::Client::GraphMethods
   # @param color           [String]
   # @param timezone        [String]
   # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+  # @param is_secret             [Boolean]
+  # @param publish_optional_data [Boolean]
   #
   # @return [Pixela::Response]
   #
@@ -16,8 +18,8 @@ module Pixela::Client::GraphMethods
   # @see https://docs.pixe.la/entry/post-graph
   #
   # @example
-  #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment")
-  def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil, self_sufficient: nil)
+  #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", is_secret: true, publish_optional_data: true)
+  def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
     params = {
       id:             graph_id,
       name:           name,
@@ -26,6 +28,8 @@ module Pixela::Client::GraphMethods
       color:          color,
       timezone:       timezone,
       selfSufficient: self_sufficient,
+      isSecret:            is_secret,
+      publishOptionalData: publish_optional_data
     }
 
     with_error_handling do
