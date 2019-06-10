@@ -1,5 +1,13 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.3.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.3.1...master)
+
+## v1.3.1
+[full changelog](http://github.com/sue445/pixela/compare/v1.3.0...v1.3.1)
+
+* Add `is_secret` and `publish_optional_data` to `create_graph` and `update_graph`
+  * https://github.com/sue445/pixela/pull/57
+  * https://github.com/a-know/Pixela/releases/tag/v1.12.0
+  * https://github.com/a-know/Pixela/releases/tag/v1.11.0
 
 ## v1.3.0
 [full changelog](http://github.com/sue445/pixela/compare/v1.2.0...v1.3.0)
