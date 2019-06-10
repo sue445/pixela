@@ -1,13 +1,13 @@
 module Pixela::Client::GraphMethods
   # Create a new pixelation graph definition.
   #
-  # @param graph_id        [String]
-  # @param name            [String]
-  # @param unit            [String]
-  # @param type            [String]
-  # @param color           [String]
-  # @param timezone        [String]
-  # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+  # @param graph_id              [String]
+  # @param name                  [String]
+  # @param unit                  [String]
+  # @param type                  [String]
+  # @param color                 [String]
+  # @param timezone              [String]
+  # @param self_sufficient       [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
   # @param is_secret             [Boolean]
   # @param publish_optional_data [Boolean]
   #
@@ -21,13 +21,13 @@ module Pixela::Client::GraphMethods
   #   client.create_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", is_secret: true, publish_optional_data: true)
   def create_graph(graph_id:, name:, unit:, type:, color:, timezone: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
     params = {
-      id:             graph_id,
-      name:           name,
-      unit:           unit,
-      type:           type,
-      color:          color,
-      timezone:       timezone,
-      selfSufficient: self_sufficient,
+      id:                  graph_id,
+      name:                name,
+      unit:                unit,
+      type:                type,
+      color:               color,
+      timezone:            timezone,
+      selfSufficient:      self_sufficient,
       isSecret:            is_secret,
       publishOptionalData: publish_optional_data
     }
@@ -92,13 +92,13 @@ module Pixela::Client::GraphMethods
 
   # Update predefined pixelation graph definitions.
   #
-  # @param graph_id         [String]
-  # @param name             [String]
-  # @param unit             [String]
-  # @param color            [String]
-  # @param timezone         [String]
-  # @param self_sufficient  [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
-  # @param purge_cache_urls [String,Array<String>]
+  # @param graph_id              [String]
+  # @param name                  [String]
+  # @param unit                  [String]
+  # @param color                 [String]
+  # @param timezone              [String]
+  # @param self_sufficient       [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+  # @param purge_cache_urls      [String,Array<String>]
   # @param is_secret             [Boolean]
   # @param publish_optional_data [Boolean]
   #
@@ -112,11 +112,11 @@ module Pixela::Client::GraphMethods
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
   def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, self_sufficient: nil, purge_cache_urls: nil, is_secret: nil, publish_optional_data: nil)
     params = {
-      name:           name,
-      unit:           unit,
-      color:          color,
-      timezone:       timezone,
-      selfSufficient: self_sufficient,
+      name:                name,
+      unit:                unit,
+      color:               color,
+      timezone:            timezone,
+      selfSufficient:      self_sufficient,
       isSecret:            is_secret,
       publishOptionalData: publish_optional_data
     }

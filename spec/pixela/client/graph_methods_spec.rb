@@ -4,25 +4,25 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#create_graph" do
     subject do
       client.create_graph(
-        graph_id:        graph_id,
-        name:            name,
-        unit:            unit,
-        type:            type,
-        color:           color,
-        timezone:        timezone,
-        self_sufficient: self_sufficient,
-        is_secret: is_secret,
+        graph_id:              graph_id,
+        name:                  name,
+        unit:                  unit,
+        type:                  type,
+        color:                 color,
+        timezone:              timezone,
+        self_sufficient:       self_sufficient,
+        is_secret:             is_secret,
         publish_optional_data: publish_optional_data,
       )
     end
 
-    let(:graph_id)        { "test-graph" }
-    let(:name)            { "graph-name" }
-    let(:unit)            { "commit" }
-    let(:type)            { "int" }
-    let(:color)           { "shibafu" }
-    let(:timezone)        { "Asia/Tokyo" }
-    let(:self_sufficient) { "increment" }
+    let(:graph_id)              { "test-graph" }
+    let(:name)                  { "graph-name" }
+    let(:unit)                  { "commit" }
+    let(:type)                  { "int" }
+    let(:color)                 { "shibafu" }
+    let(:timezone)              { "Asia/Tokyo" }
+    let(:self_sufficient)       { "increment" }
     let(:is_secret)             { true }
     let(:publish_optional_data) { true }
 
@@ -91,20 +91,20 @@ RSpec.describe Pixela::Client::GraphMethods do
   describe "#update_graph" do
     subject do
       client.update_graph(
-        graph_id:         graph_id,
-        name:             name,
-        unit:             unit,
-        color:            color,
-        timezone:         timezone,
-        purge_cache_urls: purge_cache_urls,
-        self_sufficient:  self_sufficient,
+        graph_id:              graph_id,
+        name:                  name,
+        unit:                  unit,
+        color:                 color,
+        timezone:              timezone,
+        purge_cache_urls:      purge_cache_urls,
+        self_sufficient:       self_sufficient,
         is_secret:             is_secret,
         publish_optional_data: publish_optional_data,
       )
     end
 
-    let(:graph_id) { "test-graph" }
-    let(:self_sufficient) { "increment" }
+    let(:graph_id)              { "test-graph" }
+    let(:self_sufficient)       { "increment" }
     let(:is_secret)             { true }
     let(:publish_optional_data) { true }
 
@@ -170,11 +170,11 @@ RSpec.describe Pixela::Client::GraphMethods do
     end
 
     context "without optional args" do
-      let(:name)     { nil }
-      let(:unit)     { nil }
-      let(:color)    { nil }
-      let(:timezone) { nil }
-      let(:self_sufficient) { nil }
+      let(:name)                  { nil }
+      let(:unit)                  { nil }
+      let(:color)                 { nil }
+      let(:timezone)              { nil }
+      let(:self_sufficient)       { nil }
       let(:is_secret)             { nil }
       let(:publish_optional_data) { nil }
 
