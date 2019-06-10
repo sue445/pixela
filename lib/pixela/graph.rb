@@ -24,12 +24,14 @@ module Pixela
 
     # Create a new pixelation graph definition.
     #
-    # @param name            [String]
-    # @param unit            [String]
-    # @param type            [String]
-    # @param color           [String]
-    # @param timezone        [String]
-    # @param self_sufficient [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+    # @param name                  [String]
+    # @param unit                  [String]
+    # @param type                  [String]
+    # @param color                 [String]
+    # @param timezone              [String]
+    # @param self_sufficient       [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+    # @param is_secret             [Boolean]
+    # @param publish_optional_data [Boolean]
     #
     # @return [Pixela::Response]
     #
@@ -38,9 +40,12 @@ module Pixela
     # @see https://docs.pixe.la/entry/post-graph
     #
     # @example
-    #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment")
-    def create(name:, unit:, type:, color:, timezone: nil, self_sufficient: nil)
-      client.create_graph(graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone, self_sufficient: self_sufficient)
+    #   client.graph("test-graph").create(name: "graph-name", unit: "commit", type: "int", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", is_secret: true, publish_optional_data: true)
+    def create(name:, unit:, type:, color:, timezone: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
+      client.create_graph(
+        graph_id: graph_id, name: name, unit: unit, type: type, color: color, timezone: timezone, self_sufficient: self_sufficient,
+        is_secret: is_secret, publish_optional_data: publish_optional_data,
+      )
     end
 
     # Get graph url
@@ -61,12 +66,14 @@ module Pixela
 
     # Update predefined pixelation graph definitions.
     #
-    # @param name             [String]
-    # @param unit             [String]
-    # @param color            [String]
-    # @param timezone         [String]
-    # @param self_sufficient  [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
-    # @param purge_cache_urls [String,Array<String>]
+    # @param name                  [String]
+    # @param unit                  [String]
+    # @param color                 [String]
+    # @param timezone              [String]
+    # @param self_sufficient       [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
+    # @param purge_cache_urls      [String,Array<String>]
+    # @param is_secret             [Boolean]
+    # @param publish_optional_data [Boolean]
     #
     # @return [Pixela::Response]
     #
@@ -76,8 +83,11 @@ module Pixela
     #
     # @example
     #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-    def update(name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil, self_sufficient: nil)
-      client.update_graph(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, self_sufficient: self_sufficient, purge_cache_urls: purge_cache_urls)
+    def update(name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
+      client.update_graph(
+        graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, self_sufficient: self_sufficient,
+        purge_cache_urls: purge_cache_urls, is_secret: is_secret, publish_optional_data: publish_optional_data,
+      )
     end
 
     # Delete the predefined pixelation graph definition.
