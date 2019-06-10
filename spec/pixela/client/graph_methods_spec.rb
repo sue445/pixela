@@ -98,11 +98,15 @@ RSpec.describe Pixela::Client::GraphMethods do
         timezone:         timezone,
         purge_cache_urls: purge_cache_urls,
         self_sufficient:  self_sufficient,
+        is_secret:             is_secret,
+        publish_optional_data: publish_optional_data,
       )
     end
 
     let(:graph_id) { "test-graph" }
     let(:self_sufficient) { "increment" }
+    let(:is_secret)             { true }
+    let(:publish_optional_data) { true }
 
     before do
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph").
@@ -121,7 +125,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment"}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","isSecret":true,"publishOptionalData":true}
           JSON
         end
 
@@ -133,7 +137,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","isSecret":true,"publishOptionalData":true,"purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
           JSON
         end
 
@@ -145,7 +149,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","isSecret":true,"publishOptionalData":true,"purgeCacheURLs":["https://camo.githubusercontent.com/xxx/xxxx"]}
           JSON
         end
 
@@ -157,7 +161,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
         let(:json_body) do
           <<~JSON.strip
-            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","purgeCacheURLs":[]}
+            {"name":"graph-name","unit":"commit","color":"shibafu","timezone":"Asia/Tokyo","selfSufficient":"increment","isSecret":true,"publishOptionalData":true,"purgeCacheURLs":[]}
           JSON
         end
 
@@ -171,6 +175,8 @@ RSpec.describe Pixela::Client::GraphMethods do
       let(:color)    { nil }
       let(:timezone) { nil }
       let(:self_sufficient) { nil }
+      let(:is_secret)             { nil }
+      let(:publish_optional_data) { nil }
 
       context "purge_cache_urls is String" do
         let(:purge_cache_urls) { "https://camo.githubusercontent.com/xxx/xxxx" }

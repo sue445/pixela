@@ -55,6 +55,8 @@ RSpec.describe Pixela::Graph do
         timezone:         timezone,
         purge_cache_urls: purge_cache_urls,
         self_sufficient:  self_sufficient,
+        is_secret:             is_secret,
+        publish_optional_data: publish_optional_data,
       )
     end
 
@@ -64,6 +66,8 @@ RSpec.describe Pixela::Graph do
     let(:timezone)         { "Asia/Tokyo" }
     let(:purge_cache_urls) { ["https://camo.githubusercontent.com/xxx/xxxx"] }
     let(:self_sufficient)  { "increment" }
+    let(:is_secret)             { true }
+    let(:publish_optional_data) { true }
 
     before do
       allow(client).to receive(:update_graph)
@@ -71,7 +75,7 @@ RSpec.describe Pixela::Graph do
 
     it "successful" do
       subject
-      expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls, self_sufficient: self_sufficient)
+      expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, purge_cache_urls: purge_cache_urls, self_sufficient: self_sufficient, is_secret: is_secret, publish_optional_data: publish_optional_data)
     end
   end
 

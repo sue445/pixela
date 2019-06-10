@@ -99,6 +99,8 @@ module Pixela::Client::GraphMethods
   # @param timezone         [String]
   # @param self_sufficient  [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
   # @param purge_cache_urls [String,Array<String>]
+  # @param is_secret             [Boolean]
+  # @param publish_optional_data [Boolean]
   #
   # @return [Pixela::Response]
   #
@@ -108,13 +110,15 @@ module Pixela::Client::GraphMethods
   #
   # @example
   #   client.update_graph(graph_id: "test-graph", name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", self_sufficient: "increment", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-  def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, self_sufficient: nil, purge_cache_urls: nil)
+  def update_graph(graph_id:, name: nil, unit: nil, color: nil, timezone: nil, self_sufficient: nil, purge_cache_urls: nil, is_secret: nil, publish_optional_data: nil)
     params = {
       name:           name,
       unit:           unit,
       color:          color,
       timezone:       timezone,
       selfSufficient: self_sufficient,
+      isSecret:            is_secret,
+      publishOptionalData: publish_optional_data
     }
 
     if purge_cache_urls
