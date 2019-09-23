@@ -6,13 +6,13 @@ module Pixela
 
     # @!attribute [r] id
     # @return [String]
-    attr_reader :id
+    attr_reader :channel_id
 
     # @param client [Pixela::Client]
     # @param graph_id [String]
-    def initialize(client:, id:)
+    def initialize(client:, channel_id:)
       @client = client
-      @id     = id
+      @channel_id = channel_id
     end
 
     # Create a new channel settings for notification.
@@ -30,7 +30,7 @@ module Pixela
     # @example
     #   client.channel("my-channel").create(name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
     def create(name:, type:, detail:)
-      client.create_channel(id: id, name: name, type: type, detail: detail)
+      client.create_channel(channel_id: channel_id, name: name, type: type, detail: detail)
     end
 
     # Create a new channel settings for slack notification.
@@ -49,7 +49,7 @@ module Pixela
     # @example
     #   client.channel("my-channel").create_with_slack(name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
     def create_with_slack(name:, url:, user_name:, channel_name:)
-      client.create_slack_channel(id: id, name: name, url: url, user_name: user_name, channel_name: channel_name)
+      client.create_slack_channel(channel_id: channel_id, name: name, url: url, user_name: user_name, channel_name: channel_name)
     end
 
     # Update predefined channel settings.
@@ -67,7 +67,7 @@ module Pixela
     # @example
     #   client.channel("my-channel").update(name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
     def update(name:, type:, detail:)
-      client.update_channel(id: id, name: name, type: type, detail: detail)
+      client.update_channel(channel_id: channel_id, name: name, type: type, detail: detail)
     end
 
     # Update predefined slack channel settings.
@@ -86,7 +86,7 @@ module Pixela
     # @example
     #   client.channel("my-channel").update_with_slack(name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
     def update_with_slack(name:, url:, user_name:, channel_name:)
-      client.update_slack_channel(id: id, name: name, url: url, user_name: user_name, channel_name: channel_name)
+      client.update_slack_channel(channel_id: channel_id, name: name, url: url, user_name: user_name, channel_name: channel_name)
     end
 
     # Delete predefined channel settings.
@@ -100,7 +100,7 @@ module Pixela
     # @example
     #   client.channel("my-channel").delete
     def delete
-      client.delete_channel(id: id)
+      client.delete_channel(channel_id: channel_id)
     end
   end
 end

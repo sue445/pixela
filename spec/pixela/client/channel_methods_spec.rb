@@ -4,7 +4,7 @@ RSpec.describe Pixela::Client::ChannelMethods do
   describe "#create_slack_channel" do
     subject do
       client.create_slack_channel(
-        id:           id,
+        channel_id:   channel_id,
         name:         name,
         url:          url,
         user_name:    user_name,
@@ -12,7 +12,7 @@ RSpec.describe Pixela::Client::ChannelMethods do
       )
     end
 
-    let(:id)           { "my-channel" }
+    let(:channel_id)   { "my-channel" }
     let(:name)         { "My slack channel" }
     let(:url)          { "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx" }
     let(:user_name)    { "Pixela Notification" }
@@ -57,7 +57,7 @@ RSpec.describe Pixela::Client::ChannelMethods do
   describe "#update_slack_channel" do
     subject do
       client.update_slack_channel(
-        id:           id,
+        channel_id:   channel_id,
         name:         name,
         url:          url,
         user_name:    user_name,
@@ -65,7 +65,7 @@ RSpec.describe Pixela::Client::ChannelMethods do
       )
     end
 
-    let(:id)           { "my-channel" }
+    let(:channel_id)   { "my-channel" }
     let(:name)         { "My slack channel" }
     let(:url)          { "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx" }
     let(:user_name)    { "Pixela Notification" }
@@ -86,10 +86,10 @@ RSpec.describe Pixela::Client::ChannelMethods do
 
   describe "#delete_channel" do
     subject do
-      client.delete_channel(id: id)
+      client.delete_channel(channel_id: channel_id)
     end
 
-    let(:id) { "my-channel" }
+    let(:channel_id) { "my-channel" }
 
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/channels/my-channel").

@@ -1,8 +1,8 @@
 RSpec.describe Pixela::Channel do
   include_context :api_variables
 
-  let(:channel) { client.channel(id) }
-  let(:id)      { "my-channel" }
+  let(:channel) { client.channel(channel_id) }
+  let(:channel_id) { "my-channel" }
 
   describe "#create" do
     subject do
@@ -23,7 +23,7 @@ RSpec.describe Pixela::Channel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:create_channel).with(id: id, name: name, type: type, detail: detail)
+      expect(client).to have_received(:create_channel).with(channel_id: channel_id, name: name, type: type, detail: detail)
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe Pixela::Channel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:create_slack_channel).with(id: id, name: name, url: url, user_name: user_name, channel_name: channel_name)
+      expect(client).to have_received(:create_slack_channel).with(channel_id: channel_id, name: name, url: url, user_name: user_name, channel_name: channel_name)
     end
   end
 
@@ -71,7 +71,7 @@ RSpec.describe Pixela::Channel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:update_channel).with(id: id, name: name, type: type, detail: detail)
+      expect(client).to have_received(:update_channel).with(channel_id: channel_id, name: name, type: type, detail: detail)
     end
   end
 
@@ -96,7 +96,7 @@ RSpec.describe Pixela::Channel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:update_slack_channel).with(id: id, name: name, url: url, user_name: user_name, channel_name: channel_name)
+      expect(client).to have_received(:update_slack_channel).with(channel_id: channel_id, name: name, url: url, user_name: user_name, channel_name: channel_name)
     end
   end
 
@@ -109,7 +109,7 @@ RSpec.describe Pixela::Channel do
 
     it "successful" do
       subject
-      expect(client).to have_received(:delete_channel).with(id: id)
+      expect(client).to have_received(:delete_channel).with(channel_id: channel_id)
     end
   end
 end

@@ -1,7 +1,7 @@
 module Pixela::Client::ChannelMethods
   # Create a new channel settings for notification.
   #
-  # @param id [String]
+  # @param channel_id [String]
   # @param name [String]
   # @param type [String]
   # @param detail [Hash]
@@ -13,10 +13,10 @@ module Pixela::Client::ChannelMethods
   # @see https://docs.pixe.la/entry/post-channel
   #
   # @example
-  #   client.create_channel(id: "my-channel", name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
-  def create_channel(id:, name:, type:, detail:)
+  #   client.create_channel(channel_id: "my-channel", name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
+  def create_channel(channel_id:, name:, type:, detail:)
     params = {
-      id:     id,
+      id:     channel_id,
       name:   name,
       type:   type,
       detail: detail,
@@ -29,7 +29,7 @@ module Pixela::Client::ChannelMethods
 
   # Create a new channel settings for slack notification.
   #
-  # @param id [String]
+  # @param channel_id [String]
   # @param name [String]
   # @param url [String]
   # @param user_name [String]
@@ -42,10 +42,10 @@ module Pixela::Client::ChannelMethods
   # @see https://docs.pixe.la/entry/post-channel
   #
   # @example
-  #   client.create_slack_channel(id: "my-channel", name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
-  def create_slack_channel(id:, name:, url:, user_name:, channel_name:)
+  #   client.create_slack_channel(channel_id: "my-channel", name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
+  def create_slack_channel(channel_id:, name:, url:, user_name:, channel_name:)
     create_channel(
-      id:   id,
+      channel_id: channel_id,
       name: name,
       type: "slack",
       detail: {
@@ -74,7 +74,7 @@ module Pixela::Client::ChannelMethods
 
   # Update predefined channel settings.
   #
-  # @param id [String]
+  # @param channel_id [String]
   # @param name [String]
   # @param type [String]
   # @param detail [Hash]
@@ -86,8 +86,8 @@ module Pixela::Client::ChannelMethods
   # @see https://docs.pixe.la/entry/put-channel
   #
   # @example
-  #   client.update_channel(id: "my-channel", name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
-  def update_channel(id:, name:, type:, detail:)
+  #   client.update_channel(channel_id: "my-channel", name: "My slack channel", type: "slack", detail: {url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", userName: "Pixela Notification", channelName: "pixela-notify"})
+  def update_channel(channel_id:, name:, type:, detail:)
     params = {
       name:   name,
       type:   type,
@@ -95,13 +95,13 @@ module Pixela::Client::ChannelMethods
     }
 
     with_error_handling do
-      connection.put("users/#{username}/channels/#{id}", compact_hash(params)).body
+      connection.put("users/#{username}/channels/#{channel_id}", compact_hash(params)).body
     end
   end
 
   # Update predefined slack channel settings.
   #
-  # @param id [String]
+  # @param channel_id [String]
   # @param name [String]
   # @param url [String]
   # @param user_name [String]
@@ -114,10 +114,10 @@ module Pixela::Client::ChannelMethods
   # @see https://docs.pixe.la/entry/post-channel
   #
   # @example
-  #   client.update_slack_channel(id: "my-channel", name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
-  def update_slack_channel(id:, name:, url:, user_name:, channel_name:)
+  #   client.update_slack_channel(channel_id: "my-channel", name: "My slack channel", url: "https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx", user_name: "Pixela Notification", channel_name: "pixela-notify")
+  def update_slack_channel(channel_id:, name:, url:, user_name:, channel_name:)
     update_channel(
-      id: id,
+      channel_id: channel_id,
       name: name,
       type: "slack",
       detail: {
@@ -130,7 +130,7 @@ module Pixela::Client::ChannelMethods
 
   # Delete predefined channel settings.
   #
-  # @param id [String]
+  # @param channel_id [String]
   #
   # @see https://docs.pixe.la/entry/delete-channel
   #
@@ -139,10 +139,10 @@ module Pixela::Client::ChannelMethods
   # @raise [Pixela::PixelaError] API is failed
   #
   # @example
-  #   client.delete_channel(id: "my-channel")
-  def delete_channel(id:)
+  #   client.delete_channel(channel_id: "my-channel")
+  def delete_channel(channel_id:)
     with_error_handling do
-      connection.delete("users/#{username}/channels/#{id}").body
+      connection.delete("users/#{username}/channels/#{channel_id}").body
     end
   end
 end
