@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.3.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.0...master)
+
+## v1.4.0
+[full changelog](http://github.com/sue445/pixela/compare/v1.3.1...v1.4.0)
+
+* Support Channel and Notification API
+  * https://github.com/sue445/pixela/pull/59
+  * https://github.com/a-know/Pixela/releases/tag/v1.13.0
 
 ## v1.3.1
 [full changelog](http://github.com/sue445/pixela/compare/v1.3.0...v1.3.1)
