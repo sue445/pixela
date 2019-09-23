@@ -45,6 +45,13 @@ module Pixela
       Webhook.new(client: self, webhook_hash: webhook_hash)
     end
 
+    # @param id [String]
+    #
+    # @return [Pixela::Channel]
+    def channel(id)
+      Channel.new(client: self, id: id)
+    end
+
     private
 
     # @!attribute [r] token
