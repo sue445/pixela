@@ -9,6 +9,7 @@ module Pixela
   autoload :Client,        "pixela/client"
   autoload :Configuration, "pixela/configuration"
   autoload :Graph,         "pixela/graph"
+  autoload :Notification,  "pixela/notification"
   autoload :Pixel,         "pixela/pixel"
   autoload :Response,      "pixela/response"
   autoload :Webhook,       "pixela/webhook"
