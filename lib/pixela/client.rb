@@ -2,12 +2,14 @@ module Pixela
   class Client
     autoload :ChannelMethods, "pixela/client/channel_methods"
     autoload :GraphMethods,   "pixela/client/graph_methods"
+    autoload :NotificationMethods, "pixela/client/notificaton_methods"
     autoload :PixelMethods,   "pixela/client/pixel_methods"
     autoload :UserMethods,    "pixela/client/user_methods"
     autoload :WebhookMethods, "pixela/client/webhook_methods"
 
     include ChannelMethods
     include GraphMethods
+    include NotificationMethods
     include PixelMethods
     include UserMethods
     include WebhookMethods
