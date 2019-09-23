@@ -1,11 +1,15 @@
 module Pixela
   class Client
-    autoload :GraphMethods,   "pixela/client/graph_methods"
-    autoload :PixelMethods,   "pixela/client/pixel_methods"
-    autoload :UserMethods,    "pixela/client/user_methods"
-    autoload :WebhookMethods, "pixela/client/webhook_methods"
+    autoload :ChannelMethods,      "pixela/client/channel_methods"
+    autoload :GraphMethods,        "pixela/client/graph_methods"
+    autoload :NotificationMethods, "pixela/client/notificaton_methods"
+    autoload :PixelMethods,        "pixela/client/pixel_methods"
+    autoload :UserMethods,         "pixela/client/user_methods"
+    autoload :WebhookMethods,      "pixela/client/webhook_methods"
 
+    include ChannelMethods
     include GraphMethods
+    include NotificationMethods
     include PixelMethods
     include UserMethods
     include WebhookMethods
@@ -41,6 +45,13 @@ module Pixela
     # @return [Pixela::Webhook]
     def webhook(webhook_hash)
       Webhook.new(client: self, webhook_hash: webhook_hash)
+    end
+
+    # @param channel_id [String]
+    #
+    # @return [Pixela::Channel]
+    def channel(channel_id)
+      Channel.new(client: self, channel_id: channel_id)
     end
 
     private

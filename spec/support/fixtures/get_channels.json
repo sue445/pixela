@@ -1,0 +1,1 @@
+{"channels":[{"id":"my-channel","name":"My slack channel","type":"slack","detail":{"url":"https://hooks.slack.com/services/T035DA4QD/B06LMAV40/xxxx","userName":"Pixela Notification","channelName":"pixela-notify"}}]}
