@@ -1,0 +1,154 @@
+name: test
+
+on:
+  push:
+  schedule:
+    - cron: "0 10 * * 5" # JST 19:00 (Fri)
+
+env:
+  CI: "true"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.runner }}
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        ruby:
+          - 2.3.0
+          - 2.4.0
+          - 2.5.0
+          - 2.6.0
+          - 2.7.0
+          - 2.8.0-dev
+        include:
+          - ruby: 2.3.0
+            runner: ubuntu-16.04
+          - ruby: 2.4.0
+            runner: ubuntu-latest
+          - ruby: 2.5.0
+            runner: ubuntu-latest
+          - ruby: 2.6.0
+            runner: ubuntu-latest
+          - ruby: 2.7.0
+            runner: ubuntu-latest
+          - ruby: 2.8.0-dev
+            runner: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up rbenv
+        uses: masa-iwasaki/setup-rbenv@1.1.0
+
+      - name: Cache RBENV_ROOT
+        uses: actions/cache@v1
+        id: cache_rbenv
+        with:
+          path: ~/.rbenv/versions
+          key: v1-rbenv-${{ runner.os }}-${{ matrix.ruby }}
+        if: "!endsWith(matrix.ruby, '-dev')"
+
+      - name: Reinstall libssl-dev
+        run: |
+          set -xe
+          sudo apt-get remove -y libssl-dev
+          sudo apt-get install -y libssl-dev=1.0.2g-1ubuntu4.15
+        if: matrix.runner == 'ubuntu-16.04'
+
+      - name: Install Ruby
+        run: |
+          set -xe
+          eval "$(rbenv init -)"
+          rbenv install -s $RBENV_VERSION
+
+          gem install bundler --no-document -v 1.17.3 || true
+        env:
+          RBENV_VERSION: ${{ matrix.ruby }}
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: Generate unique cache key
+        run: uuidgen > uuid.txt
+
+      - name: Cache vendor/bundle
+        uses: actions/cache@v1
+        id: cache_gem
+        with:
+          path: vendor/bundle
+          key: v1-gem-${{ runner.os }}-${{ matrix.ruby }}-${{ hashFiles('uuid.txt') }}
+          restore-keys: |
+            v1-gem-${{ runner.os }}-${{ matrix.ruby }}-
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: bundle update
+        run: |
+          set -xe
+          eval "$(rbenv init -)"
+          bundle config path vendor/bundle
+          bundle update --jobs $(nproc) --retry 3
+        env:
+          RBENV_VERSION: ${{ matrix.ruby }}
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: Setup Code Climate Test Reporter
+        uses: aktions/codeclimate-test-reporter@v1
+        with:
+          codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
+          command: before-build
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: Run test
+        run: |
+          set -xe
+          eval "$(rbenv init -)"
+          bundle exec rspec
+        env:
+          RBENV_VERSION: ${{ matrix.ruby }}
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: Teardown Code Climate Test Reporter
+        uses: aktions/codeclimate-test-reporter@v1
+        with:
+          codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
+          command: after-build
+        if: always()
+        continue-on-error: ${{ endsWith(matrix.ruby, '-dev') }}
+
+      - name: Invoke Pixela webhook
+        run: |
+          if [ -n "$PIXELA_WEBHOOK_URL" ]; then
+            curl -X POST $PIXELA_WEBHOOK_URL -H 'Content-Length:0'
+          fi
+        env:
+          PIXELA_WEBHOOK_URL: ${{ secrets.PIXELA_WEBHOOK_URL }}
+        if: always()
+        continue-on-error: true
+
+      - name: Slack Notification (not success)
+        uses: homoluctus/slatify@v2.0.0
+        if: "! success()"
+        with:
+          job_name: ${{ format('*build* ({0})', matrix.ruby) }}
+          type: ${{ job.status }}
+          icon_emoji: ":octocat:"
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    needs:
+      - test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Slack Notification (success)
+        uses: homoluctus/slatify@v2.0.0
+        if: always()
+        with:
+          job_name: '*build*'
+          type: ${{ job.status }}
+          icon_emoji: ":octocat:"
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          token: ${{ secrets.GITHUB_TOKEN }}
