@@ -81,13 +81,21 @@ module Pixela
 
     def with_error_handling
       yield
-    rescue Faraday::ClientError => error
+    rescue *faraday_errors => error
       begin
         body = JSON.parse(error.response[:body])
         raise PixelaError, body["message"]
       rescue JSON::ParserError
         raise error
       end
+    end
+
+    def faraday_errors
+      if Gem::Version.create(Faraday::VERSION) >= Gem::Version.create("1.0.0")
+        return [Faraday::ClientError, Faraday::ServerError]
+      end
+
+      [Faraday::Error::ClientError]
     end
 
     def default_headers
