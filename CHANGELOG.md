@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.4.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.1...master)
+
+## v1.4.1
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.0...v1.4.1)
+
+* Support faraday v1.0
+  * https://github.com/sue445/pixela/pull/63
 
 ## v1.4.0
 [full changelog](http://github.com/sue445/pixela/compare/v1.3.1...v1.4.0)
