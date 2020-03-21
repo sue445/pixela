@@ -13,5 +13,5 @@ Dotenv.load
 
 Pixela.config.debug_logger = Logger.new(STDOUT)
 
-require "pry"
-Pry.start
+require "irb"
+IRB.start

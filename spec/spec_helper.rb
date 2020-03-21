@@ -15,7 +15,6 @@ require "pixela"
 require "webmock/rspec"
 require "rspec/its"
 require "rspec/parameterized"
-require "pry"
 
 Dir["#{__dir__}/support/**/*.rb"].each {|f| require f }
 
