@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.4.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.2...master)
+
+## v1.4.2
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.1...v1.4.2)
+
+* Support `remind_by` of Notification
+  * https://github.com/sue445/pixela/pull/72
+  * https://github.com/a-know/Pixela/releases/tag/v1.17.0
 
 ## v1.4.1
 [full changelog](http://github.com/sue445/pixela/compare/v1.4.0...v1.4.1)
