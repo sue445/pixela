@@ -43,8 +43,6 @@ module Pixela
 
     # Update predefined notification rule.
     #
-    # @param graph_id [String]
-    # @param notification_id [String]
     # @param name [String]
     # @param target [String]
     # @param condition [String]
