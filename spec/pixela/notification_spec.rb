@@ -12,6 +12,7 @@ RSpec.describe Pixela::Notification do
         target: target,
         condition: condition,
         threshold: threshold,
+        remind_by: remind_by,
         channel_id: channel_id,
       )
     end
@@ -20,6 +21,7 @@ RSpec.describe Pixela::Notification do
     let(:target)     { "quantity" }
     let(:condition)  { ">" }
     let(:threshold)  { "5" }
+    let(:remind_by)  { "21" }
     let(:channel_id) { "my-channel" }
 
     before do
@@ -28,7 +30,7 @@ RSpec.describe Pixela::Notification do
 
     it "successful" do
       subject
-      expect(client).to have_received(:create_notification).with(graph_id: graph_id, notification_id: notification_id, name: name, target: target, condition: condition, threshold: threshold, channel_id: channel_id)
+      expect(client).to have_received(:create_notification).with(graph_id: graph_id, notification_id: notification_id, name: name, target: target, condition: condition, threshold: threshold, remind_by: remind_by, channel_id: channel_id)
     end
   end
 
