@@ -10,6 +10,7 @@ RSpec.describe Pixela::Client::NotificationMethods do
         target: target,
         condition: condition,
         threshold: threshold,
+        remind_by: remind_by,
         channel_id: channel_id,
       )
     end
@@ -20,11 +21,12 @@ RSpec.describe Pixela::Client::NotificationMethods do
     let(:target)          { "quantity" }
     let(:condition)       { ">" }
     let(:threshold)       { "5" }
+    let(:remind_by)       { "21" }
     let(:channel_id)      { "my-channel" }
 
     before do
       json_body = <<~JSON.strip
-        {"id":"my-notification-rule","name":"my notification rule","target":"quantity","condition":">","threshold":"5","channelID":"my-channel"}
+        {"id":"my-notification-rule","name":"my notification rule","target":"quantity","condition":">","threshold":"5","remindBy":"21","channelID":"my-channel"}
       JSON
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph/notifications").

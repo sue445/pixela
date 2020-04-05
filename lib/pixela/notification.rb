@@ -27,6 +27,7 @@ module Pixela
     # @param target [String]
     # @param condition [String]
     # @param threshold [String]
+    # @param remind_by [String]
     # @param channel_id [String]
     #
     # @return [Pixela::Response]
@@ -36,9 +37,9 @@ module Pixela
     # @see https://docs.pixe.la/entry/post-notification
     #
     # @example
-    #   client.graph("test-graph").notification("my-notification-rule").create(name: "my notification rule", target: "quantity", condition: ">", threshold: "5", channel_id: "my-channel")
-    def create(name:, target:, condition:, threshold:, channel_id:)
-      client.create_notification(graph_id: graph_id, notification_id: notification_id, name: name, target: target, condition: condition, threshold: threshold, channel_id: channel_id)
+    #   client.graph("test-graph").notification("my-notification-rule").create(name: "my notification rule", target: "quantity", condition: ">", threshold: "5", remind_by: "21", channel_id: "my-channel")
+    def create(name:, target:, condition:, threshold:, remind_by: nil, channel_id:)
+      client.create_notification(graph_id: graph_id, notification_id: notification_id, name: name, target: target, condition: condition, threshold: threshold, remind_by: remind_by, channel_id: channel_id)
     end
 
     # Update predefined notification rule.
