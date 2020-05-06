@@ -151,4 +151,17 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:get_graph_stats).with(graph_id: graph_id)
     end
   end
+
+  describe "#run_stopwatch" do
+    subject { graph.run_stopwatch }
+
+    before do
+      allow(client).to receive(:run_stopwatch)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:run_stopwatch).with(graph_id: graph_id)
+    end
+  end
 end

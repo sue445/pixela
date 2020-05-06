@@ -193,4 +193,25 @@ module Pixela::Client::GraphMethods
       connection.get("users/#{username}/graphs/#{graph_id}/stats").body
     end
   end
+
+  # This will start and end the measurement of the time.
+  #
+  # @param graph_id [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/post-stopwatch
+  #
+  # @example
+  #   client.run_stopwatch(graph_id: "test-graph")
+  def run_stopwatch(graph_id:)
+    with_error_handling do
+      connection.post("users/#{username}/graphs/#{graph_id}/stopwatch").body
+    end
+  end
+
+  alias_method :start_stopwatch, :run_stopwatch
+  alias_method :end_stopwatch,   :run_stopwatch
 end
