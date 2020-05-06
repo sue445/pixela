@@ -278,4 +278,20 @@ RSpec.describe Pixela::Client::GraphMethods do
 
     its(:totalPixelsCount) { should eq 4 }
   end
+
+  describe "#run_stopwatch" do
+    subject do
+      client.run_stopwatch(graph_id: graph_id)
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph/stopwatch").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("success.json"))
+    end
+
+    it_behaves_like :success
+  end
 end
