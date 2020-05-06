@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.4.2...master)
+[full changelog](http://github.com/sue445/pixela/compare/v1.5.0...master)
+
+## v1.5.0
+[full changelog](http://github.com/sue445/pixela/compare/v1.4.2...v1.5.0)
+
+* Add `Pixela::Client#run_stopwatch` and `Pixela::Graph#run_stopwatch`
+  * https://github.com/sue445/pixela/pull/74
+  * https://github.com/a-know/Pixela/releases/tag/v1.18.0
 
 ## v1.4.2
 [full changelog](http://github.com/sue445/pixela/compare/v1.4.1...v1.4.2)
