@@ -1,1 +1,0 @@
-{"notifications":[{"id":"my-notify-rule","name":"my notify rule","target":"quantity","condition":">","threshold":"5","channelID":"my-channel"}]}

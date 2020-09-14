@@ -5,11 +5,9 @@ require "faraday_curl"
 require "date"
 
 module Pixela
-  autoload :Channel,       "pixela/channel"
   autoload :Client,        "pixela/client"
   autoload :Configuration, "pixela/configuration"
   autoload :Graph,         "pixela/graph"
-  autoload :Notification,  "pixela/notification"
   autoload :Pixel,         "pixela/pixel"
   autoload :Response,      "pixela/response"
   autoload :Webhook,       "pixela/webhook"
