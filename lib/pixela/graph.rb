@@ -22,13 +22,6 @@ module Pixela
       Pixel.new(client: client, graph_id: graph_id, date: date)
     end
 
-    # @param notification_id [String]
-    #
-    # @return [Pixela::Notification]
-    def notification(notification_id)
-      Notification.new(client: client, graph_id: graph_id, notification_id: notification_id)
-    end
-
     # Create a new pixelation graph definition.
     #
     # @param name                  [String]
