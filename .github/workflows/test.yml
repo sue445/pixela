@@ -36,7 +36,6 @@ jobs:
           - ruby:2.7
           - rubylang/ruby:master-nightly-bionic
         gemfile:
-          - faraday_0.gemfile
           - faraday_1.gemfile
         include:
           - ruby: rubylang/ruby:master-nightly-bionic
