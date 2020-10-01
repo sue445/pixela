@@ -22,7 +22,7 @@ module Pixela::Client::PixelMethods
     }
 
     with_error_handling do
-      connection.post("users/#{username}/graphs/#{graph_id}", compact_hash(params)).body
+      connection.post("users/#{username}/graphs/#{graph_id}", params.compact).body
     end
   end
 
@@ -80,7 +80,7 @@ module Pixela::Client::PixelMethods
     }
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", compact_hash(params)).body
+      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}", params.compact).body
     end
   end
 
