@@ -33,7 +33,7 @@ module Pixela::Client::GraphMethods
     }
 
     with_error_handling do
-      connection.post("users/#{username}/graphs", compact_hash(params)).body
+      connection.post("users/#{username}/graphs", params.compact).body
     end
   end
 
@@ -126,7 +126,7 @@ module Pixela::Client::GraphMethods
     end
 
     with_error_handling do
-      connection.put("users/#{username}/graphs/#{graph_id}", compact_hash(params)).body
+      connection.put("users/#{username}/graphs/#{graph_id}", params.compact).body
     end
   end
 
@@ -170,7 +170,7 @@ module Pixela::Client::GraphMethods
 
     res =
       with_error_handling do
-        connection.get("users/#{username}/graphs/#{graph_id}/pixels", compact_hash(params)).body
+        connection.get("users/#{username}/graphs/#{graph_id}/pixels", params.compact).body
       end
 
     res.pixels.map { |ymd| Date.parse(ymd) }
