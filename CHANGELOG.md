@@ -1,5 +1,17 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v1.5.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v2.0.0...master)
+
+## v2.0.0
+[full changelog](http://github.com/sue445/pixela/compare/v1.5.0...v2.0.0)
+
+### :warning: Breaking changes :warning:
+* Remove Channel and Notification
+  * https://github.com/sue445/pixela/pull/75
+  * https://github.com/a-know/Pixela/releases/tag/v1.19.0
+* Drop support for faraday v0.x
+  * https://github.com/sue445/pixela/pull/77
+* Drop support for ruby 2.3
+  * https://github.com/sue445/pixela/pull/78
 
 ## v1.5.0
 [full changelog](http://github.com/sue445/pixela/compare/v1.4.2...v1.5.0)
