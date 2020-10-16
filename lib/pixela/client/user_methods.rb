@@ -21,7 +21,7 @@ module Pixela::Client::UserMethods
     }
 
     with_error_handling do
-      connection(default_headers).post("users", params).body
+      connection(request_headers: default_headers).post("users", params).body
     end
   end
 

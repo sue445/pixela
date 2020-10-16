@@ -2,15 +2,18 @@ module Pixela
   class Client
     autoload :GraphMethods,        "pixela/client/graph_methods"
     autoload :PixelMethods,        "pixela/client/pixel_methods"
+    autoload :ProfileMethods,      "pixela/client/profile_methods"
     autoload :UserMethods,         "pixela/client/user_methods"
     autoload :WebhookMethods,      "pixela/client/webhook_methods"
 
     include GraphMethods
     include PixelMethods
+    include ProfileMethods
     include UserMethods
     include WebhookMethods
 
     API_ENDPOINT = "https://pixe.la/v1"
+    TOP_ENDPOINT = "https://pixe.la"
 
     # @!attribute [r] username
     # @return [String]
@@ -52,8 +55,8 @@ module Pixela
     # @param request_headers [Hash]
     #
     # @return [Faraday::Connection]
-    def connection(request_headers = user_token_headers)
-      Faraday.new(url: API_ENDPOINT, headers: request_headers) do |conn|
+    def connection(request_headers: user_token_headers, endpoint: API_ENDPOINT)
+      Faraday.new(url: endpoint, headers: request_headers) do |conn|
         conn.request :json
         conn.response :mashify, mash_class: Pixela::Response
         conn.response :json
