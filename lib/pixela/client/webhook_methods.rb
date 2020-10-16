@@ -53,7 +53,7 @@ module Pixela::Client::WebhookMethods
   #   client.invoke_webhook(webhook_hash: "<webhookHash>")
   def invoke_webhook(webhook_hash:)
     with_error_handling do
-      connection(default_headers).post("users/#{username}/webhooks/#{webhook_hash}").body
+      connection(request_headers: default_headers).post("users/#{username}/webhooks/#{webhook_hash}").body
     end
   end
 
