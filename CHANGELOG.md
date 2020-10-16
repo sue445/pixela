@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v2.0.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v2.1.0...master)
+
+## v2.1.0
+[full changelog](http://github.com/sue445/pixela/compare/v2.0.0...v2.1.0)
+
+* Add `Pixela::Client#update_profile`
+  * https://github.com/sue445/pixela/pull/81
+  * https://github.com/a-know/Pixela/releases/tag/v1.20.0
 
 ## v2.0.0
 [full changelog](http://github.com/sue445/pixela/compare/v1.5.0...v2.0.0)
