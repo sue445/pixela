@@ -263,6 +263,65 @@ RSpec.describe Pixela::Client::GraphMethods do
     it { should eq expected }
   end
 
+  describe "#get_pixels" do
+    subject(:pixels) do
+      client.get_pixels(
+        graph_id: graph_id,
+        from:     from,
+        to:       to,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:from)     { Date.new(2018, 1, 1) }
+    let(:to)       { Date.new(2018, 12, 31) }
+    let(:expected) do
+      [
+        {
+          date: "20180101",
+          quantity: "5",
+        },
+        {
+          date: "20180505",
+          quantity: "1",
+          optionalData: '{"key":"value"}',
+        },
+        {
+          date: "20181204",
+          quantity: "8",
+        },
+      ]
+    end
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/pixels?from=20180101&to=20181231&withBody=true").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_pixels_with_body.json"))
+    end
+
+    describe "[0]" do
+      subject { pixels[0] }
+
+      its(:date)     { should eq "20180101" }
+      its(:quantity) { should eq "5" }
+    end
+
+    describe "[1]" do
+      subject { pixels[1] }
+
+      its(:date)         { should eq "20180505" }
+      its(:quantity)     { should eq "1" }
+      its(:optionalData) { should eq '{"key":"value"}' }
+    end
+
+    describe "[2]" do
+      subject { pixels[2] }
+
+      its(:date)     { should eq "20181204" }
+      its(:quantity) { should eq "8" }
+    end
+  end
+
   describe "#get_graph_stats" do
     subject do
       client.get_graph_stats(graph_id: graph_id)
