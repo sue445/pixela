@@ -1,5 +1,15 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v2.1.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v2.2.0...master)
+
+## v2.2.0
+[full changelog](http://github.com/sue445/pixela/compare/v2.1.0...v2.2.0)
+
+* Add `Pixela::Client#get_graph_def` and `Pixela::Graph#def`
+  * https://github.com/sue445/pixela/pull/83
+  * https://github.com/a-know/Pixela/releases/tag/v1.21.0
+* Add `Pixela::Client#get_pixels` and `Pixela::Graph#pixels`
+  * https://github.com/sue445/pixela/pull/84
+  * https://github.com/a-know/Pixela/releases/tag/v1.21.0
 
 ## v2.1.0
 [full changelog](http://github.com/sue445/pixela/compare/v2.0.0...v2.1.0)
