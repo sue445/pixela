@@ -294,4 +294,29 @@ RSpec.describe Pixela::Client::GraphMethods do
 
     it_behaves_like :success
   end
+
+  describe "#get_graph_def" do
+    subject do
+      client.get_graph_def(graph_id: graph_id)
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/graph-def").
+        with(headers: user_token_headers).
+        to_return(status: 200, body: fixture("get_graph_def.json"))
+    end
+
+    its(:id)                  { should eq "test-graph" }
+    its(:name)                { should eq "graph-name" }
+    its(:unit)                { should eq "commit" }
+    its(:type)                { should eq "int" }
+    its(:color)               { should eq "shibafu" }
+    its(:timezone)            { should eq "Asia/Tokyo" }
+    its(:purgeCacheURLs)      { should eq ["https://camo.githubusercontent.com/xxx/xxxx"] }
+    its(:selfSufficient)      { should eq "increment" }
+    its(:isSecret)            { should eq false }
+    its(:publishOptionalData) { should eq true }
+  end
 end
