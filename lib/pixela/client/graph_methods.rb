@@ -214,4 +214,22 @@ module Pixela::Client::GraphMethods
 
   alias_method :start_stopwatch, :run_stopwatch
   alias_method :end_stopwatch,   :run_stopwatch
+
+  # Get a predefined pixelation graph definition.
+  #
+  # @param graph_id [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/get-a-graph-def
+  #
+  # @example
+  #   client.get_graph_def(graph_id: "test-graph")
+  def get_graph_def(graph_id:)
+    with_error_handling do
+      connection.get("users/#{username}/graphs/#{graph_id}/graph-def").body
+    end
+  end
 end
