@@ -149,6 +149,23 @@ module Pixela
       client.get_pixel_dates(graph_id: graph_id, from: from, to: to)
     end
 
+    # Get a Date list of Pixel registered in the graph specified by graphID.
+    #
+    # @param from [Date] Specify the start position of the period.
+    # @param to   [Date] Specify the end position of the period.
+    #
+    # @return [Array<Hashie::Mash>]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/get-graph-pixels
+    #
+    # @example
+    #   client.graph("test-graph").pixels(from: Date.new(2018, 1, 1), to: Date.new(2018, 12, 31))
+    def pixels(from: nil, to: nil)
+      client.get_pixels(graph_id: graph_id, from: from, to: to)
+    end
+
     # Based on the registered information, get various statistics.
     #
     # @return [Pixela::Response]

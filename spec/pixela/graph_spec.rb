@@ -139,6 +139,22 @@ RSpec.describe Pixela::Graph do
     end
   end
 
+  describe "#pixels" do
+    subject { graph.pixels(from: from, to: to) }
+
+    let(:from) { Date.new(2018, 1, 1) }
+    let(:to)   { Date.new(2018, 12, 31) }
+
+    before do
+      allow(client).to receive(:get_pixels)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_pixels).with(graph_id: graph_id, from: from, to: to)
+    end
+  end
+
   describe "#stats" do
     subject { graph.stats }
 
