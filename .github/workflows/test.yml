@@ -22,7 +22,7 @@ jobs:
     container: ${{ matrix.ruby }}
 
     env:
-      BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}
+      BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
 
     strategy:
       fail-fast: false
@@ -36,14 +36,13 @@ jobs:
           - ruby:3.0
           - rubylang/ruby:master-nightly-bionic
         gemfile:
-          - faraday_1.gemfile
+          - faraday_1
         include:
           - ruby: rubylang/ruby:master-nightly-bionic
             allow_failures: "true"
 
     steps:
       - uses: actions/checkout@v2
-
 
       - name: Cache gemfiles/vendor/bundle
         uses: actions/cache@v1
