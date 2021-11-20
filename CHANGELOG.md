@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v2.2.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v2.2.1...master)
+
+## v2.2.1
+[full changelog](http://github.com/sue445/pixela/compare/v2.2.0...v2.2.1)
+
+* Enable MFA requirement for gem releasing
+  * https://github.com/sue445/pixela/pull/88
 
 ## v2.2.0
 [full changelog](http://github.com/sue445/pixela/compare/v2.1.0...v2.2.0)
