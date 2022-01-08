@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v2.2.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.0.0...master)
+
+## v3.0.0
+[full changelog](http://github.com/sue445/pixela/compare/v2.2.1...v3.0.0)
+
+* Support faraday v2+ and drop support ruby < 2.6
+  * https://github.com/sue445/pixela/pull/91
 
 ## v2.2.1
 [full changelog](http://github.com/sue445/pixela/compare/v2.2.0...v2.2.1)
