@@ -33,7 +33,7 @@ RSpec.describe Pixela::Client::GraphMethods do
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -45,7 +45,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_graphs.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_graphs.json"))
     end
 
     its(:count) { should eq 1 }
@@ -111,7 +111,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     context "with optional args" do
@@ -226,7 +226,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -257,7 +257,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/pixels?from=20180101&to=20181231").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_pixel_dates.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_pixel_dates.json"))
     end
 
     it { should eq expected }
@@ -296,7 +296,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/pixels?from=20180101&to=20181231&withBody=true").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_pixels_with_body.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_pixels_with_body.json"))
     end
 
     describe "[0]" do
@@ -332,7 +332,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/stats").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_graph_stats.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_graph_stats.json"))
     end
 
     its(:totalPixelsCount) { should eq 4 }
@@ -348,7 +348,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph/stopwatch").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -364,7 +364,7 @@ RSpec.describe Pixela::Client::GraphMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/graph-def").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_graph_def.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_graph_def.json"))
     end
 
     its(:id)                  { should eq "test-graph" }

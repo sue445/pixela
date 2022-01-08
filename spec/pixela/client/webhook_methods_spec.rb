@@ -19,7 +19,7 @@ RSpec.describe Pixela::Client::WebhookMethods do
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/webhooks").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("post_webhook.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("post_webhook.json"))
     end
 
     it_behaves_like :success
@@ -33,7 +33,7 @@ RSpec.describe Pixela::Client::WebhookMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/webhooks").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_webhooks.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_webhooks.json"))
     end
 
     its(:count) { should eq 1 }
@@ -59,7 +59,7 @@ RSpec.describe Pixela::Client::WebhookMethods do
     before do
       stub_request(:post, "https://pixe.la/v1/users/a-know/webhooks/webhookHash").
         with(headers: default_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -77,7 +77,7 @@ RSpec.describe Pixela::Client::WebhookMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/webhooks/webhookHash").
         with(headers: default_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
