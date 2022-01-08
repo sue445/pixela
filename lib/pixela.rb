@@ -1,6 +1,6 @@
 require "pixela/version"
 require "faraday"
-require "faraday_middleware"
+require "faraday/mashify"
 require "faraday_curl"
 require "date"
 

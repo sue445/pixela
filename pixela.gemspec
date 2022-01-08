@@ -37,10 +37,9 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.4.0"
 
-  spec.add_dependency "faraday", ">= 1.0.0"
+  spec.add_dependency "faraday", ">= 2.0.0"
   spec.add_dependency "faraday_curl"
-  spec.add_dependency "faraday_middleware"
-  spec.add_dependency "hashie"
+  spec.add_dependency "faraday-mashify"
 
   spec.add_development_dependency "bundler", ">= 1.16"
   spec.add_development_dependency "coveralls"
