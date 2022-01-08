@@ -23,7 +23,7 @@ RSpec.describe Pixela::Client::PixelMethods do
 
       stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -43,7 +43,7 @@ RSpec.describe Pixela::Client::PixelMethods do
     before do
       stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("get_pixel.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("get_pixel.json"))
     end
 
     its(:quantity)      { should eq 5 }
@@ -73,7 +73,7 @@ RSpec.describe Pixela::Client::PixelMethods do
 
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -93,7 +93,7 @@ RSpec.describe Pixela::Client::PixelMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -111,7 +111,7 @@ RSpec.describe Pixela::Client::PixelMethods do
     before do
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/increment").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -129,7 +129,7 @@ RSpec.describe Pixela::Client::PixelMethods do
     before do
       stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/decrement").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success

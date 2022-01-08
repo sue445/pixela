@@ -35,7 +35,7 @@ RSpec.describe Pixela::Client::ProfileMethods do
 
       stub_request(:put, "https://pixe.la/@a-know").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success

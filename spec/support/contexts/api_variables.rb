@@ -15,4 +15,6 @@ shared_context :api_variables do
   let(:user_token_headers) do
     { "X-USER-TOKEN" => "thisissecret" }.merge(default_headers)
   end
+
+  let(:response_headers) { { "Content-Type" =>  "application/json" } }
 end

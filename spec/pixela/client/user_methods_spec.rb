@@ -17,7 +17,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
         stub_request(:post, "https://pixe.la/v1/users").
           with(body: json_body, headers: default_headers).
-          to_return(status: 200, body: fixture("success.json"))
+          to_return(status: 200, headers: response_headers, body: fixture("success.json"))
       end
 
       let(:agree_terms_of_service) { true }
@@ -59,7 +59,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
       stub_request(:put, "https://pixe.la/v1/users/a-know").
         with(body: json_body, headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
@@ -74,7 +74,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
         stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph").
           with(body: post_json_body, headers: user_token_headers).
-          to_return(status: 200, body: fixture("success.json"))
+          to_return(status: 200, headers: response_headers, body: fixture("success.json"))
 
         put_json_body = <<~JSON.strip
           {"quantity":"7"}
@@ -84,7 +84,7 @@ RSpec.describe Pixela::Client::UserMethods do
 
         stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/20180915").
           with(body: put_json_body, headers: new_token_headers).
-          to_return(status: 200, body: fixture("success.json"))
+          to_return(status: 200, headers: response_headers, body: fixture("success.json"))
       end
 
       it "called create_pixel with new token" do
@@ -103,7 +103,7 @@ RSpec.describe Pixela::Client::UserMethods do
     before do
       stub_request(:delete, "https://pixe.la/v1/users/a-know").
         with(headers: user_token_headers).
-        to_return(status: 200, body: fixture("success.json"))
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
     end
 
     it_behaves_like :success
