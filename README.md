@@ -57,7 +57,7 @@ client.graph("test-graph").pixel(Date.today).create(quantity: 5)
 
 All methods are followings
 
-https://www.rubydoc.info/gems/pixela/Pixela/Client
+https://sue445.github.io/pixela/Pixela/Client
 
 ## Configuration
 ```ruby
