@@ -148,6 +148,22 @@ module Pixela
       client.add_pixel(graph_id: graph_id, quantity: quantity)
     end
 
+    # Subtract quantity from the "Pixel" of the day
+    #
+    # @param quantity [String]
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/subtract-pixel
+    #
+    # @example
+    #   client.graph("test-graph").subtract(quantity: "1")
+    def subtract(quantity:)
+      client.subtract_pixel(graph_id: graph_id, quantity: quantity)
+    end
+
     # Get a Date list of Pixel registered in the graph specified by graphID.
     #
     # @param from [Date] Specify the start position of the period.
