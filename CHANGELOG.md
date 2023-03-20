@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.0.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.1.0...master)
+
+## v3.1.0
+[full changelog](http://github.com/sue445/pixela/compare/v3.0.0...v3.1.0)
+
+* Add `Pixela::Client#add_pixel` and `Pixela::Client#subtract_pixel`
+  * https://github.com/sue445/pixela/pull/101
+  * https://github.com/a-know/Pixela/releases/tag/v1.26.0
 
 ## v3.0.0
 [full changelog](http://github.com/sue445/pixela/compare/v2.2.1...v3.0.0)
