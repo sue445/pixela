@@ -138,4 +138,27 @@ module Pixela::Client::PixelMethods
       connection.put("users/#{username}/graphs/#{graph_id}/decrement").body
     end
   end
+
+  # Add quantity to the "Pixel" of the day
+  #
+  # @param graph_id [String]
+  # @param quantity [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/add-pixel
+  #
+  # @example
+  #   client.add_pixel(graph_id: "test-graph", quantity: "1")
+  def add_pixel(graph_id:, quantity:)
+    params = {
+      quantity: quantity.to_s,
+    }
+
+    with_error_handling do
+      connection.put("users/#{username}/graphs/#{graph_id}/add", params.compact).body
+    end
+  end
 end
