@@ -123,6 +123,21 @@ RSpec.describe Pixela::Graph do
     end
   end
 
+  describe "#add" do
+    subject { graph.add(quantity: quantity) }
+
+    before do
+      allow(client).to receive(:add_pixel)
+    end
+
+    let(:quantity) { "1" }
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:add_pixel).with(graph_id: graph_id, quantity: quantity)
+    end
+  end
+
   describe "#pixel_dates" do
     subject { graph.pixel_dates(from: from, to: to) }
 

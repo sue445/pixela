@@ -132,6 +132,22 @@ module Pixela
       client.decrement_pixel(graph_id: graph_id)
     end
 
+    # Add quantity to the "Pixel" of the day
+    #
+    # @param quantity [String]
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/add-pixel
+    #
+    # @example
+    #   client.graph("test-graph").add(quantity: "1")
+    def add(quantity:)
+      client.add_pixel(graph_id: graph_id, quantity: quantity)
+    end
+
     # Get a Date list of Pixel registered in the graph specified by graphID.
     #
     # @param from [Date] Specify the start position of the period.
