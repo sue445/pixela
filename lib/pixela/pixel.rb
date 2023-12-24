@@ -38,6 +38,22 @@ module Pixela
       client.create_pixel(graph_id: graph_id, date: date, quantity: quantity, optional_data: optional_data)
     end
 
+    # This API is used to register multiple Pixels (quantities for a specific day) at a time.
+    #
+    # @param pixels [Array<Hash>] key: date, quantity, optional_data
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/batch-post-pixels
+    #
+    # @example
+    #   client.graph("test-graph").create_multi(pixels: [{date: Date.new(2018, 9, 15), quantity: 5, optional_data: {key: "value"}}])
+    def create_multi(pixels:)
+      client.create_pixels(graph_id: graph_id, pixels: pixels)
+    end
+
     # Get registered quantity as "Pixel".
     #
     # @return [Pixela::Response]

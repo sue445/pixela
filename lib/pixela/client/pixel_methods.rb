@@ -26,6 +26,33 @@ module Pixela::Client::PixelMethods
     end
   end
 
+  # This API is used to register multiple Pixels (quantities for a specific day) at a time.
+  #
+  # @param graph_id [String]
+  # @param pixels   [Array<Hash>] key: date, quantity, optional_data
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/batch-post-pixels
+  #
+  # @example
+  #   client.create_pixels(graph_id: "test-graph", pixels: [{date: Date.new(2018, 9, 15), quantity: 5, optional_data: {key: "value"}}])
+  def create_pixels(graph_id:, pixels:)
+    pixels = pixels.map do |pixel|
+      {
+        date:         to_ymd(pixel[:date]),
+        quantity:     pixel[:quantity].to_s,
+        optionalData: pixel[:optional_data]&.to_json,
+      }.compact
+    end
+
+    with_error_handling do
+      connection.post("users/#{username}/graphs/#{graph_id}/pixels", pixels).body
+    end
+  end
+
   # Get registered quantity as "Pixel".
   #
   # @param graph_id [String]
