@@ -21,6 +21,37 @@ RSpec.describe Pixela::Pixel do
     end
   end
 
+  describe "#create_multi" do
+    subject { pixel.create_multi(pixels: pixels) }
+
+    let(:pixels) do
+      [
+        {
+          date: Date.parse("2018-09-14"),
+          quantity: 6,
+        },
+        {
+          date: Date.parse("2018-09-15"),
+          quantity: 5,
+          optional_data: { key: "value" },
+        },
+        {
+          date: Date.parse("2018-09-16"),
+          quantity: 4,
+        },
+      ]
+    end
+
+    before do
+      allow(client).to receive(:create_pixels)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:create_pixels).with(graph_id: graph_id, pixels: pixels)
+    end
+  end
+
   describe "#get" do
     subject { pixel.get }
 
