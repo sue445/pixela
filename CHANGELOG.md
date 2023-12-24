@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.1.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.2.0...master)
+
+## v3.2.0
+[full changelog](http://github.com/sue445/pixela/compare/v3.1.0...v3.2.0)
+
+* Add Impl `Pixela::Client::PixelMethods#create_pixels` and `Pixela::Pixel#create_multi`
+  * https://github.com/sue445/pixela/pull/105
+  * https://github.com/a-know/Pixela/releases/tag/v1.28.0
 
 ## v3.1.0
 [full changelog](http://github.com/sue445/pixela/compare/v3.0.0...v3.1.0)
