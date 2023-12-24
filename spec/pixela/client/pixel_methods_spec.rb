@@ -29,6 +29,46 @@ RSpec.describe Pixela::Client::PixelMethods do
     it_behaves_like :success
   end
 
+  describe "#create_pixels" do
+    subject do
+      client.create_pixels(
+        graph_id: graph_id,
+        pixels:   pixels,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:pixels) do
+      [
+        {
+          date: Date.parse("2018-09-14"),
+          quantity: 6,
+        },
+        {
+          date: Date.parse("2018-09-15"),
+          quantity: 5,
+          optional_data: { key: "value" },
+        },
+        {
+          date: Date.parse("2018-09-16"),
+          quantity: 4,
+        },
+      ]
+    end
+
+    before do
+      json_body = <<~JSON.strip
+        [{"date":"20180914","quantity":"6"},{"date":"20180915","quantity":"5","optionalData":"{\\"key\\":\\"value\\"}"},{"date":"20180916","quantity":"4"}]
+      JSON
+
+      stub_request(:post, "https://pixe.la/v1/users/a-know/graphs/test-graph/pixels").
+        with(body: json_body, headers: user_token_headers).
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
+    end
+
+    it_behaves_like :success
+  end
+
   describe "#get_pixel" do
     subject do
       client.get_pixel(
