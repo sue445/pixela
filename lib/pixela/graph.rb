@@ -244,5 +244,19 @@ module Pixela
     end
 
     alias_method :definition, :def
+
+    # This API is used to get latest Pixel of the graph which specified by <graphID> .
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/get-latest-pixel
+    #
+    # @example
+    #   client.graph("test-graph").latest
+    def latest
+      client.get_graph_latest(graph_id: graph_id)
+    end
   end
 end
