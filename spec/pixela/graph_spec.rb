@@ -223,4 +223,17 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:get_graph_def).with(graph_id: graph_id)
     end
   end
+
+  describe "#latest" do
+    subject { graph.latest }
+
+    before do
+      allow(client).to receive(:get_graph_latest)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_graph_latest).with(graph_id: graph_id)
+    end
+  end
 end
