@@ -378,4 +378,22 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:isSecret)            { should eq false }
     its(:publishOptionalData) { should eq true }
   end
+
+  describe "#get_graph_latest" do
+    subject do
+      client.get_graph_latest(graph_id: graph_id)
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/latest").
+        with(headers: user_token_headers).
+        to_return(status: 200, headers: response_headers, body: fixture("get_graph_latest.json"))
+    end
+
+    its(:date)         { should eq "20240414" }
+    its(:quantity)     { should eq "5" }
+    its(:optionalData) { should eq '{"key":"value"}' }
+  end
 end

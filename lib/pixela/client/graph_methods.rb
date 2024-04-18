@@ -258,4 +258,22 @@ module Pixela::Client::GraphMethods
       connection.get("users/#{username}/graphs/#{graph_id}/graph-def").body
     end
   end
+
+  # This API is used to get latest Pixel of the graph which specified by <graphID> .
+  #
+  # @param graph_id [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/get-latest-pixel
+  #
+  # @example
+  #   client.get_graph_latest(graph_id: "test-graph")
+  def get_graph_latest(graph_id:)
+    with_error_handling do
+      connection.get("users/#{username}/graphs/#{graph_id}/latest").body
+    end
+  end
 end
