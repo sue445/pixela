@@ -1,10 +1,17 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.2.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.3.0...master)
+
+## v3.3.0
+[full changelog](http://github.com/sue445/pixela/compare/v3.2.0...v3.3.0)
+
+* Add `Pixela::Client::GraphMethods#get_graph_latest` and `Pixela::Graph#latest`
+  * https://github.com/sue445/pixela/pull/110
+  * https://github.com/a-know/Pixela/releases/tag/v1.29.0
 
 ## v3.2.0
 [full changelog](http://github.com/sue445/pixela/compare/v3.1.0...v3.2.0)
 
-* Add Impl `Pixela::Client::PixelMethods#create_pixels` and `Pixela::Pixel#create_multi`
+* Add `Pixela::Client::PixelMethods#create_pixels` and `Pixela::Pixel#create_multi`
   * https://github.com/sue445/pixela/pull/105
   * https://github.com/a-know/Pixela/releases/tag/v1.28.0
 
