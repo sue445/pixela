@@ -55,9 +55,12 @@ module Pixela::Client::GraphMethods
 
   # Get graph url
   #
-  # @param graph_id [String]
-  # @param date     [Date,Time]
-  # @param mode     [String] e.g) `short`
+  # @param graph_id     [String]
+  # @param date         [Date,Time]
+  # @param mode         [String] e.g) `short`
+  # @param appearance   [String] e.g) `dark`
+  # @param less_than    [String]
+  # @param greater_than [String]
   #
   # @return [String]
   #
@@ -66,12 +69,15 @@ module Pixela::Client::GraphMethods
   # @example
   #   client.graph_url(graph_id: "test-graph")
   #   client.graph_url(graph_id: "test-graph", date: Date.new(2018, 3, 31), mode: "short")
-  def graph_url(graph_id:, date: nil, mode: nil)
+  def graph_url(graph_id:, date: nil, mode: nil, appearance: nil, less_than: nil, greater_than: nil)
     url = "#{Pixela::Client::API_ENDPOINT}/users/#{username}/graphs/#{graph_id}"
 
     params = Faraday::Utils::ParamsHash.new
     params[:date] = to_ymd(date) if date
     params[:mode] = mode if mode
+    params[:appearance] = appearance if appearance
+    params[:lessThan] = less_than if less_than
+    params[:greaterThan] = greater_than if greater_than
 
     url << "?#{params.to_query}" unless params.empty?
 

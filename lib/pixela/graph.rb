@@ -50,8 +50,11 @@ module Pixela
 
     # Get graph url
     #
-    # @param date [Date,Time]
-    # @param mode [String] e.g) `short`
+    # @param date         [Date,Time]
+    # @param mode         [String] e.g) `short`
+    # @param appearance   [String] e.g) `dark`
+    # @param less_than    [String]
+    # @param greater_than [String]
     #
     # @return [String]
     #
@@ -60,8 +63,8 @@ module Pixela
     # @example
     #   client.graph("test-graph").url
     #   client.graph("test-graph").url(date: Date.new(2018, 3, 31), mode: "short")
-    def url(date: nil, mode: nil)
-      client.graph_url(graph_id: graph_id, date: date, mode: mode)
+    def url(date: nil, mode: nil, appearance: nil, less_than: nil, greater_than: nil)
+      client.graph_url(graph_id: graph_id, date: date, mode: mode, appearance: appearance, less_than: less_than, greater_than: greater_than)
     end
 
     # Update predefined pixelation graph definitions.

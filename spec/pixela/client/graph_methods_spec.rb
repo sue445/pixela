@@ -63,18 +63,21 @@ RSpec.describe Pixela::Client::GraphMethods do
   end
 
   describe "#graph_url" do
-    subject { client.graph_url(graph_id: graph_id, date: date, mode: mode) }
+    subject { client.graph_url(graph_id: graph_id, date: date, mode: mode, appearance: appearance, less_than: less_than, greater_than: greater_than) }
 
     using RSpec::Parameterized::TableSyntax
 
     let(:graph_id) { "test-graph" }
 
-    where(:date, :mode, :expected_url) do
-      nil                               | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph"
-      Date.parse("2018-03-31")          | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
-      Time.parse("2018-03-31 11:22:33") | nil     | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
-      nil                               | "short" | "https://pixe.la/v1/users/a-know/graphs/test-graph?mode=short"
-      Date.parse("2018-03-31")          | "short" | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331&mode=short"
+    where(:date, :mode, :appearance, :less_than, :greater_than, :expected_url) do
+      nil                               | nil     | nil    | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph"
+      Date.parse("2018-03-31")          | nil     | nil    | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
+      Time.parse("2018-03-31 11:22:33") | nil     | nil    | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331"
+      nil                               | "short" | nil    | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?mode=short"
+      Date.parse("2018-03-31")          | "short" | nil    | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331&mode=short"
+      nil                               | nil     | "dark" | nil | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?appearance=dark"
+      nil                               | nil     | nil    | 10  | nil | "https://pixe.la/v1/users/a-know/graphs/test-graph?lessThan=10"
+      nil                               | nil     | nil    | nil | 20  | "https://pixe.la/v1/users/a-know/graphs/test-graph?greaterThan=20"
     end
 
     with_them do
