@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.3.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.4.0...master)
+
+## v3.4.0
+[full changelog](http://github.com/sue445/pixela/compare/v3.3.0...v3.4.0)
+
+* Add `appearance`, `less_than` and `greather_than` to `Pixela::Client::GraphMethods#graph_url` and `Pixela::Graph#url`
+  * https://github.com/sue445/pixela/pull/115
+  * https://github.com/a-know/Pixela/releases/tag/v1.30.0
 
 ## v3.3.0
 [full changelog](http://github.com/sue445/pixela/compare/v3.2.0...v3.3.0)
