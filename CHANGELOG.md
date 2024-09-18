@@ -1,7 +1,7 @@
 ## Unreleased
 [full changelog](http://github.com/sue445/pixela/compare/v3.4.0...master)
 
-## v3.4.0
+## [v3.4.0](https://github.com/sue445/pixela/releases/tag/v3.4.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.3.0...v3.4.0)
 
 * Add `appearance`, `less_than` and `greather_than` to `Pixela::Client::GraphMethods#graph_url` and `Pixela::Graph#url`
