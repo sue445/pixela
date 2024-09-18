@@ -40,12 +40,15 @@ RSpec.describe Pixela::Graph do
   end
 
   describe "#url" do
-    subject { graph.url(date: date, mode: mode) }
+    subject { graph.url(date: date, mode: mode, appearance: appearance, less_than: less_than, greater_than: greater_than) }
 
     let(:date) { Date.parse("2018-03-31") }
     let(:mode) { "short" }
+    let(:appearance) { "dark" }
+    let(:less_than) { "10" }
+    let(:greater_than) { "20" }
 
-    it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?date=20180331&mode=short" }
+    it { should eq "https://pixe.la/v1/users/a-know/graphs/test-graph?appearance=dark&date=20180331&greaterThan=20&lessThan=10&mode=short" }
   end
 
   describe "#update" do
