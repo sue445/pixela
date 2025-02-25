@@ -239,4 +239,19 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:get_graph_latest).with(graph_id: graph_id)
     end
   end
+
+  describe "#today" do
+    subject { graph.today(return_empty: return_empty) }
+
+    let(:return_empty) { true }
+
+    before do
+      allow(client).to receive(:get_graph_today)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_graph_today).with(graph_id: graph_id, return_empty: return_empty)
+    end
+  end
 end
