@@ -399,4 +399,22 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:quantity)     { should eq "5" }
     its(:optionalData) { should eq '{"key":"value"}' }
   end
+
+  describe "#get_graph_today" do
+    subject do
+      client.get_graph_today(graph_id: graph_id, return_empty: return_empty)
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:return_empty) { true }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/today?returnEmpty=true").
+        with(headers: user_token_headers).
+        to_return(status: 200, headers: response_headers, body: fixture("get_graph_today.json"))
+    end
+
+    its(:date)     { should eq "20240414" }
+    its(:quantity) { should eq "0" }
+  end
 end
