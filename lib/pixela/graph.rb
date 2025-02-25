@@ -261,5 +261,21 @@ module Pixela
     def latest
       client.get_graph_latest(graph_id: graph_id)
     end
+
+    # This is an endpoint that responds with the Pixel of the day you requested this API.
+    #
+    # @param return_empty [Boolean] Specifying `true` for this param will return an empty Pixel instead of `404 Not Found` if the Pixel is unregistered on the day of the request.
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/get-today-pixel
+    #
+    # @example
+    #   client.graph("test-graph").today(return_empty: true)
+    def today(return_empty: false)
+      client.get_graph_today(graph_id: graph_id, return_empty: return_empty)
+    end
   end
 end
