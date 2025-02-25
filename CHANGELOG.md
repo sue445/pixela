@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.4.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.5.0...master)
+
+## [v3.5.0](https://github.com/sue445/pixela/releases/tag/v3.5.0)
+[full changelog](http://github.com/sue445/pixela/compare/v3.4.0...v3.5.0)
+
+* Add `Pixela::Client::GraphMethods#get_graph_today` and `Pixela::Graph#today`
+  * https://github.com/sue445/pixela/pull/117
+  * https://github.com/a-know/Pixela/releases/tag/v1.32.0
 
 ## [v3.4.0](https://github.com/sue445/pixela/releases/tag/v3.4.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.3.0...v3.4.0)
