@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.5.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.5.1...master)
+
+## [v3.5.1](https://github.com/sue445/pixela/releases/tag/v3.5.1)
+[full changelog](http://github.com/sue445/pixela/compare/v3.5.0...v3.5.1)
+
+* Release gem from GitHub Actions
+  * https://github.com/sue445/pixela/pull/122
 
 ## [v3.5.0](https://github.com/sue445/pixela/releases/tag/v3.5.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.4.0...v3.5.0)
