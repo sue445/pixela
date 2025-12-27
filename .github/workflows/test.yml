@@ -44,7 +44,7 @@ jobs:
           bundler-cache: true
           cache-version: ${{ matrix.gemfile }}
 
-      - run: bundle update --jobs $(nproc) --retry 3
+      - run: bundle update --all --jobs $(nproc) --retry 3
 
       - run: bundle exec rspec
 
