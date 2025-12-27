@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls_reborn"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "rake", ">= 10.0"
+  spec.add_development_dependency "rdoc"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rspec-its"
   spec.add_development_dependency "rspec-parameterized"
