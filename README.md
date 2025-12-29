@@ -5,7 +5,7 @@
 [![Gem Version](https://badge.fury.io/rb/pixela.svg)](https://badge.fury.io/rb/pixela)
 [![CI activity of pixela-gem](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci?mode=badge)](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci.html)
 [![test](https://github.com/sue445/pixela/actions/workflows/test.yml/badge.svg)](https://github.com/sue445/pixela/actions/workflows/test.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/4c6316222717ee809b57/maintainability)](https://codeclimate.com/github/sue445/pixela/maintainability)
+[![Maintainability](https://qlty.sh/gh/sue445/projects/pixela/maintainability.svg)](https://qlty.sh/gh/sue445/projects/pixela)
 [![Coverage Status](https://coveralls.io/repos/github/sue445/pixela/badge.svg)](https://coveralls.io/github/sue445/pixela)
 
 [![CI activity of pixela-gem](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci)](https://pixe.la/v1/users/sue445/graphs/pixela-gem-ci.html)
