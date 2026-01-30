@@ -248,4 +248,30 @@ RSpec.describe Pixela::Client::PixelMethods do
 
     it_behaves_like :success
   end
+
+  describe "#subtract_specific_pixel" do
+    subject do
+      client.subtract_specific_pixel(
+        graph_id: graph_id,
+        date:     date,
+        quantity: quantity,
+      )
+    end
+
+    let(:graph_id) { "test-graph" }
+    let(:date)     { Date.parse("2026-01-01") }
+    let(:quantity) { 1 }
+
+    before do
+      json_body = <<~JSON.strip
+        {"quantity":"1"}
+      JSON
+
+      stub_request(:put, "https://pixe.la/v1/users/a-know/graphs/test-graph/20260101/subtract").
+        with(body: json_body, headers: user_token_headers).
+        to_return(status: 200, headers: response_headers, body: fixture("success.json"))
+    end
+
+    it_behaves_like :success
+  end
 end
