@@ -6,6 +6,7 @@
 
 * Add specific pixel methods
   * https://github.com/sue445/pixela/pull/140
+  * https://github.com/a-know/Pixela/releases/tag/v1.33.0
 
 ## [v3.5.1](https://github.com/sue445/pixela/releases/tag/v3.5.1)
 [full changelog](http://github.com/sue445/pixela/compare/v3.5.0...v3.5.1)
