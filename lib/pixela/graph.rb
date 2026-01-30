@@ -277,5 +277,22 @@ module Pixela
     def today(return_empty: false)
       client.get_graph_today(graph_id: graph_id, return_empty: return_empty)
     end
+
+    # Add quantity to a specific "Pixel"
+    #
+    # @param quantity [Integer,Float]
+    # @param date [Date,Time]
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/add-specific-pixel
+    #
+    # @example
+    #   client.graph("test-graph").add_specific(date: Date.today, quantity: "1")
+    def add_specific(quantity:, date:)
+      client.add_specific_pixel(graph_id: graph_id, date: date, quantity: quantity)
+    end
   end
 end
