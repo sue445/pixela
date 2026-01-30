@@ -254,4 +254,36 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:get_graph_today).with(graph_id: graph_id, return_empty: return_empty)
     end
   end
+
+  describe "#add_specific" do
+    subject { graph.add_specific(quantity: quantity, date: date) }
+
+    before do
+      allow(client).to receive(:add_specific_pixel)
+    end
+
+    let(:quantity) { "1" }
+    let(:date) { Date.parse("2026-01-01") }
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:add_specific_pixel).with(graph_id: graph_id, quantity: quantity, date: date)
+    end
+  end
+
+  describe "#subtract_specific" do
+    subject { graph.subtract_specific(quantity: quantity, date: date) }
+
+    before do
+      allow(client).to receive(:subtract_specific_pixel)
+    end
+
+    let(:quantity) { "1" }
+    let(:date) { Date.parse("2026-01-01") }
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:subtract_specific_pixel).with(graph_id: graph_id, quantity: quantity, date: date)
+    end
+  end
 end
