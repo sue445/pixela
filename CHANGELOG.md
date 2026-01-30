@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.5.1...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.6.0...master)
+
+## [v3.6.0](https://github.com/sue445/pixela/releases/tag/v3.6.0)
+[full changelog](http://github.com/sue445/pixela/compare/v3.5.1...v3.6.0)
+
+* Add specific pixel methods
+  * https://github.com/sue445/pixela/pull/140
 
 ## [v3.5.1](https://github.com/sue445/pixela/releases/tag/v3.5.1)
 [full changelog](http://github.com/sue445/pixela/compare/v3.5.0...v3.5.1)
