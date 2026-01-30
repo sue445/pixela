@@ -211,4 +211,28 @@ module Pixela::Client::PixelMethods
       connection.put("users/#{username}/graphs/#{graph_id}/subtract", params.compact).body
     end
   end
+
+  # Add quantity to a specific "Pixel"
+  #
+  # @param graph_id [String]
+  # @param date [Date,Time]
+  # @param quantity [Integer,Float]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/add-specific-pixel
+  #
+  # @example
+  #   client.add_specific_pixel(graph_id: "test-graph", date: Date.today, quantity: "1")
+  def add_specific_pixel(graph_id:, date:, quantity:)
+    params = {
+      quantity: quantity.to_s,
+    }
+
+    with_error_handling do
+      connection.put("users/#{username}/graphs/#{graph_id}/#{to_ymd(date)}/add", params.compact).body
+    end
+  end
 end
