@@ -76,6 +76,8 @@ module Pixela
     # @param unit                  [String]
     # @param color                 [String]
     # @param timezone              [String]
+    # @param description           [String]
+    # @param start_on_monday       [Boolean]
     # @param self_sufficient       [String] If SVG graph with this field `increment` or `decrement` is referenced, Pixel of this graph itself will be incremented or decremented
     # @param purge_cache_urls      [String,Array<String>]
     # @param is_secret             [Boolean]
@@ -89,9 +91,10 @@ module Pixela
     #
     # @example
     #   client.graph("test-graph").update(name: "graph-name", unit: "commit", color: "shibafu", timezone: "Asia/Tokyo", purge_cache_urls: ["https://camo.githubusercontent.com/xxx/xxxx"])
-    def update(name: nil, unit: nil, color: nil, timezone: nil, purge_cache_urls: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
+    def update(name: nil, unit: nil, color: nil, timezone: nil, description: nil, start_on_monday: nil, purge_cache_urls: nil, self_sufficient: nil, is_secret: nil, publish_optional_data: nil)
       client.update_graph(
-        graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone, self_sufficient: self_sufficient,
+        graph_id: graph_id, name: name, unit: unit, color: color, timezone: timezone,
+        description: description, start_on_monday: start_on_monday, self_sufficient: self_sufficient,
         purge_cache_urls: purge_cache_urls, is_secret: is_secret, publish_optional_data: publish_optional_data,
       )
     end

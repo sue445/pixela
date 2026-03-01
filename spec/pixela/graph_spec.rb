@@ -63,6 +63,8 @@ RSpec.describe Pixela::Graph do
         unit:                  unit,
         color:                 color,
         timezone:              timezone,
+        description:           description,
+        start_on_monday:       start_on_monday,
         purge_cache_urls:      purge_cache_urls,
         self_sufficient:       self_sufficient,
         is_secret:             is_secret,
@@ -74,6 +76,8 @@ RSpec.describe Pixela::Graph do
     let(:unit)                  { "commit" }
     let(:color)                 { "shibafu" }
     let(:timezone)              { "Asia/Tokyo" }
+    let(:description)           { "This is a graph for test." }
+    let(:start_on_monday)       { true }
     let(:purge_cache_urls)      { ["https://camo.githubusercontent.com/xxx/xxxx"] }
     let(:self_sufficient)       { "increment" }
     let(:is_secret)             { true }
@@ -86,9 +90,9 @@ RSpec.describe Pixela::Graph do
     it "successful" do
       subject
       expect(client).to have_received(:update_graph).with(graph_id: graph_id, name: name, unit: unit, color: color,
-                                                          timezone: timezone, purge_cache_urls: purge_cache_urls,
-                                                          self_sufficient: self_sufficient, is_secret: is_secret,
-                                                          publish_optional_data: publish_optional_data)
+                                                          timezone: timezone, description: description, start_on_monday: start_on_monday,
+                                                          purge_cache_urls: purge_cache_urls, self_sufficient: self_sufficient,
+                                                          is_secret: is_secret, publish_optional_data: publish_optional_data)
     end
   end
 
