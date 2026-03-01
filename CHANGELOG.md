@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.6.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.7.0...master)
+
+## [v3.7.0](https://github.com/sue445/pixela/releases/tag/v3.7.0)
+[full changelog](http://github.com/sue445/pixela/compare/v3.6.0...v3.7.0)
+
+* Add `description` and `start_on_monday` to `create_graph` and `update_graph`
+  * https://github.com/sue445/pixela/pull/148
+  * https://github.com/a-know/Pixela/releases/tag/v1.34.0
 
 ## [v3.6.0](https://github.com/sue445/pixela/releases/tag/v3.6.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.5.1...v3.6.0)
