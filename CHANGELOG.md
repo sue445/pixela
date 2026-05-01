@@ -1,5 +1,12 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.7.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.8.0...master)
+
+## [v3.8.0](https://github.com/sue445/pixela/releases/tag/v3.8.0)
+[full changelog](http://github.com/sue445/pixela/compare/v3.7.0...v3.8.0)
+
+* Add `Pixela::Client::GraphMethods#get_graph_analyze` and `Pixela::Graph#analyze`
+  * https://github.com/sue445/pixela/pull/157
+  * https://github.com/a-know/Pixela/releases/tag/v1.35.0
 
 ## [v3.7.0](https://github.com/sue445/pixela/releases/tag/v3.7.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.6.0...v3.7.0)
