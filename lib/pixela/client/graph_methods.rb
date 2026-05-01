@@ -314,4 +314,22 @@ module Pixela::Client::GraphMethods
       connection.get("users/#{username}/graphs/#{graph_id}/today", params.compact).body
     end
   end
+
+  # The AI analyzes the Pixel posted to the graph specified by <graphID> and responds with the results in a string of up to approximately 1000 characters.
+  #
+  # @param graph_id [String]
+  #
+  # @return [Pixela::Response]
+  #
+  # @raise [Pixela::PixelaError] API is failed
+  #
+  # @see https://docs.pixe.la/entry/get-ai-analysis
+  #
+  # @example
+  #   client.get_graph_analyze(graph_id: "test-graph")
+  def get_graph_analyze(graph_id:)
+    with_error_handling do
+      connection.get("users/#{username}/graphs/#{graph_id}/analyze").body
+    end
+  end
 end

@@ -427,4 +427,21 @@ RSpec.describe Pixela::Client::GraphMethods do
     its(:date)     { should eq "20240414" }
     its(:quantity) { should eq "0" }
   end
+
+  describe "#get_graph_analyze" do
+    subject do
+      client.get_graph_analyze(graph_id: graph_id)
+    end
+
+    let(:graph_id) { "test-graph" }
+
+    before do
+      stub_request(:get, "https://pixe.la/v1/users/a-know/graphs/test-graph/analyze").
+        with(headers: user_token_headers).
+        to_return(status: 200, headers: response_headers, body: fixture("get_graph_analyze.json"))
+    end
+
+    its(:isSuccess) { should eq true }
+    its(:analysis)  { should eq "Here are the analysis results.\n\nThe daily scores are generally concentrated in the positive range" }
+  end
 end
