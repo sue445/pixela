@@ -317,5 +317,19 @@ module Pixela
     def subtract_specific(quantity:, date:)
       client.subtract_specific_pixel(graph_id: graph_id, date: date, quantity: quantity)
     end
+
+    # The AI analyzes the Pixel posted to the graph specified by <graphID> and responds with the results in a string of up to approximately 1000 characters.
+    #
+    # @return [Pixela::Response]
+    #
+    # @raise [Pixela::PixelaError] API is failed
+    #
+    # @see https://docs.pixe.la/entry/get-ai-analysis
+    #
+    # @example
+    #   client.get_graph_analyze(graph_id: "test-graph")
+    def analyze
+      client.get_graph_analyze(graph_id: graph_id)
+    end
   end
 end

@@ -295,4 +295,17 @@ RSpec.describe Pixela::Graph do
       expect(client).to have_received(:subtract_specific_pixel).with(graph_id: graph_id, quantity: quantity, date: date)
     end
   end
+
+  describe "#analyze" do
+    subject { graph.analyze }
+
+    before do
+      allow(client).to receive(:get_graph_analyze)
+    end
+
+    it "successful" do
+      subject
+      expect(client).to have_received(:get_graph_analyze).with(graph_id: graph_id)
+    end
+  end
 end
