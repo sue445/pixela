@@ -1,5 +1,11 @@
 ## Unreleased
-[full changelog](http://github.com/sue445/pixela/compare/v3.8.0...master)
+[full changelog](http://github.com/sue445/pixela/compare/v3.8.1...master)
+
+## [v3.8.1](https://github.com/sue445/pixela/releases/tag/v3.8.1)
+[full changelog](http://github.com/sue445/pixela/compare/v3.8.0...v3.8.1)
+
+* Migrate release_gem workflow to sue445/workflows (Also testing the gem release)
+  * https://github.com/sue445/pixela/pull/166
 
 ## [v3.8.0](https://github.com/sue445/pixela/releases/tag/v3.8.0)
 [full changelog](http://github.com/sue445/pixela/compare/v3.7.0...v3.8.0)
