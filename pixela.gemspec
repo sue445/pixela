@@ -49,7 +49,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "unparser", ">= 0.4.5"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "yard"
-
-  # FIXME: workaround for https://github.com/sue445/pixela/issues/168
-  spec.add_development_dependency "json", "< 3"
 end
